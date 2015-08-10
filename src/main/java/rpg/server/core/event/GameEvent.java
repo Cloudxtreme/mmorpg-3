@@ -1,7 +1,7 @@
 package rpg.server.core.event;
 
-import rpg.server.core.GameObject;
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.GameObject;
+import rpg.server.core.obj.SimulateObject;
 
 /**
  * 事件

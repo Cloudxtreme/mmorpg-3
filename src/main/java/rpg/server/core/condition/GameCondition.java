@@ -3,7 +3,7 @@ package rpg.server.core.condition;
 import java.util.HashMap;
 import java.util.Map;
 
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.SimulateObject;
 
 import org.w3c.dom.Element;
 

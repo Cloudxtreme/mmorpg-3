@@ -12,7 +12,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.SimulateObject;
 import rpg.server.core.script.GameScriptConfig;
 import rpg.server.core.template.Template;
 import rpg.server.core.template.TemplateManager;

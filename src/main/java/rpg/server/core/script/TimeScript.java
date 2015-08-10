@@ -2,7 +2,7 @@ package rpg.server.core.script;
 
 import java.util.Map;
 
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.SimulateObject;
 import rpg.server.util.task.TaskForSchedule;
 import rpg.server.util.task.TaskManager;
 import rpg.server.util.task.TaskManager.TaskType;

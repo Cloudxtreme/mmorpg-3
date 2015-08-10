@@ -2,7 +2,7 @@ package rpg.server.core.script;
 
 import java.util.Map;
 
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.SimulateObject;
 
 public class UntilScript extends GameScript implements ScriptListner {
 

@@ -2,7 +2,7 @@ package rpg.server.core.script;
 
 import java.util.Map;
 
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.SimulateObject;
 
 /**
  * 顺序加载执行的复合脚本实例<br/>

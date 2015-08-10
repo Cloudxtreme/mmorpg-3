@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.SimulateObject;
 
 /**
  * 全部加载执行的复合脚本实例 <br/>

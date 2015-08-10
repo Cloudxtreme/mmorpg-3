@@ -3,8 +3,8 @@ package rpg.server.core.script;
 import java.util.HashMap;
 import java.util.Map;
 
-import rpg.server.core.GameObject;
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.GameObject;
+import rpg.server.core.obj.SimulateObject;
 
 /**
  * 脚本 <br/>

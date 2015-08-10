@@ -2,10 +2,10 @@ package rpg.server.core.script;
 
 import java.util.Map;
 
-import rpg.server.core.SimulateObject;
 import rpg.server.core.event.EventHandler;
 import rpg.server.core.event.GameEvent;
 import rpg.server.core.event.GameEventParaCondition;
+import rpg.server.core.obj.SimulateObject;
 
 /**
  * 触发脚本因素为事件的脚本实例 <br/>

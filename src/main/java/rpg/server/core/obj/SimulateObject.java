@@ -1,4 +1,4 @@
-package rpg.server.core;
+package rpg.server.core.obj;
 
 import java.util.Map;
 import java.util.Set;

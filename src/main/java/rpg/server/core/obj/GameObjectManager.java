@@ -1,4 +1,4 @@
-package rpg.server.core;
+package rpg.server.core.obj;
 
 public class GameObjectManager {
 	private GameObjectManager instance = new GameObjectManager();

@@ -9,9 +9,9 @@ import java.util.TreeSet;
 
 import org.w3c.dom.Element;
 
-import rpg.server.core.GameObject;
-import rpg.server.core.SimulateObject;
 import rpg.server.core.condition.GameCondition;
+import rpg.server.core.obj.GameObject;
+import rpg.server.core.obj.SimulateObject;
 import rpg.server.player.PlayerCharacter;
 import rpg.server.util.MathUtil;
 import rpg.server.util.io.XmlUtils;

@@ -3,8 +3,6 @@ package rpg.server.player;
 import java.util.Map;
 import java.util.Set;
 
-import rpg.server.core.GameObject;
-import rpg.server.core.SimulateObject;
 import rpg.server.core.action.ActionHandler;
 import rpg.server.core.action.SimpleGameAction;
 import rpg.server.core.condition.ConditionHandler;
@@ -13,6 +11,8 @@ import rpg.server.core.event.EventHandler;
 import rpg.server.core.event.GameEvent;
 import rpg.server.core.event.GameEvent.Channel;
 import rpg.server.core.event.GameEvent.Type;
+import rpg.server.core.obj.GameObject;
+import rpg.server.core.obj.SimulateObject;
 import rpg.server.core.relation.AbstractRelation;
 import rpg.server.core.relation.SOBRelationTag;
 import rpg.server.core.script.GameScriptConfig;

@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.w3c.dom.Element;
 
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.SimulateObject;
 import rpg.server.core.template.Template;
 import rpg.server.core.template.TemplateManager;
 import rpg.server.util.io.XmlUtils;

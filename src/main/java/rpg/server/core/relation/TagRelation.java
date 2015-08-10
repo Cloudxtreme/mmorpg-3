@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 import org.w3c.dom.Element;
 
-import rpg.server.core.SimulateObject;
+import rpg.server.core.obj.SimulateObject;
 import rpg.server.util.io.XmlUtils;
 
 /**
