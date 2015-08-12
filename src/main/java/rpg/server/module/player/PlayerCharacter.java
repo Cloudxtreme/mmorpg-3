@@ -1,4 +1,4 @@
-package rpg.server.player;
+package rpg.server.module.player;
 
 import java.util.Map;
 import java.util.Set;
