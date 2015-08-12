@@ -6,4 +6,5 @@ import org.slf4j.LoggerFactory;
 public class Log {
 	public static final Logger game = LoggerFactory.getLogger("GAME");
 	public static final Logger net = LoggerFactory.getLogger("NET");
+	public static final Logger client = LoggerFactory.getLogger("CLIENT");
 }

@@ -37,7 +37,17 @@
 					modulate="true" />
 			</Policies>
 		</RollingRandomAccessFile>
-
+		<RollingRandomAccessFile name="CLIENT"
+			fileName="${LOG_HOME}/client.log" filePattern="${LOG_HOME}/client.%d{yyyy-MM-dd-HH}.log">
+			<PatternLayout>
+				<charset>UTF-8</charset>
+				<Pattern>${PATTERN_LOG}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
 
 
 	</Appenders>
@@ -47,6 +57,9 @@
 		</Logger>
 		<Logger name="NET" level="INFO">
 			<AppenderRef ref="NET" />
+		</Logger>
+		<Logger name="CLIENT" level="INFO">
+			<AppenderRef ref="CLIENT" />
 		</Logger>
 
 		<!-- Root Logger -->

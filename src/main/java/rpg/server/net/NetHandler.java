@@ -10,16 +10,18 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class NetHandlerImpl extends ChannelInboundHandlerAdapter {
+import rpg.server.util.log.Log;
+
+public class NetHandler extends ChannelInboundHandlerAdapter {
 	// 当前的全部连接
-	public static final ConcurrentLinkedQueue<NetHandlerImpl> handlers = new ConcurrentLinkedQueue<>();
+	public static final ConcurrentLinkedQueue<NetHandler> handlers = new ConcurrentLinkedQueue<>();
 	/** 接收到的消息队列 */
 	private Queue<byte[]> datas = new ConcurrentLinkedQueue<byte[]>();
 	/** 连接状态 */
 	private ConnectionStatus connStatus = ConnectionStatus.LOGIN;
 
 	private Channel channel;
-	
+
 	DefaultChannelGroup allChannels = new DefaultChannelGroup(
 			GlobalEventExecutor.INSTANCE);
 
@@ -40,6 +42,7 @@ public class NetHandlerImpl extends ChannelInboundHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) {
 		this.channel = ctx.channel();
 		allChannels.add(this.channel);
+		Log.net.info("客户端建立连接.数量:{}", allChannels.size());
 	}
 
 	/**

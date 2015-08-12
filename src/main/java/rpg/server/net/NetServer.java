@@ -54,10 +54,10 @@ public class NetServer {
 	 * 开启网络服务
 	 */
 	public void startup() {
-		Log.net.info("net server startup");
 		// 启动socket监听
 		new Thread(() -> serverRun()).start();
 		run = true;
+		Log.net.info("net server startup");
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class NetServer {
 		@Override
 		protected void initChannel(SocketChannel arg0) throws Exception {
 			ChannelPipeline p = arg0.pipeline();
-			p.addLast(new Decoder(), new Encoder(), new NetHandlerImpl());
+			p.addLast(new Decoder(), new Encoder(), new NetHandler());
 		}
 	}
 }
