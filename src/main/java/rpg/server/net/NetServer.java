@@ -1,5 +1,6 @@
 package rpg.server.net;
 
+import rpg.server.util.log.Log;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -53,13 +54,9 @@ public class NetServer {
 	 * 开启网络服务
 	 */
 	public void startup() {
+		Log.net.info("net server startup");
 		// 启动socket监听
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				serverRun();
-			}
-		}).start();
+		new Thread(() -> serverRun()).start();
 		run = true;
 	}
 

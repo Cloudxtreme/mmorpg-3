@@ -1,6 +1,7 @@
 package rpg.server.core;
 
 import rpg.server.net.NetServer;
+import rpg.server.util.log.Log;
 
 public class World {
 
@@ -10,7 +11,7 @@ public class World {
 	private String resPath;
 	/** 是否关闭 */
 	private boolean shutdown = false;
-
+	/** 单利 */
 	private static final World instance = new World();
 
 	private World() {
@@ -49,19 +50,22 @@ public class World {
 				getInstance().shutdown();
 			}
 		});
+		Log.game.info("game server started.");
 	}
 
 	/**
 	 * 加载资源
 	 */
 	private void loadResource() {
-
+		Log.game.info("load resource begin.");
 	}
 
 	/**
 	 * 开启
 	 */
 	private void startup() throws Exception {
+		Log.game.info("game server startup.server id:{}.res path:{}.",
+				serverId, resPath);
 		// 载入资源
 		this.loadResource();
 		// 开启网络模块
