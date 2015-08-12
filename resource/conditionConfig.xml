@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<conditionMeta>
+	<condition name="检测等级范围" description="检测玩家的等级范围" type="GOB_LEVEL_RANGE" classify="gob">
+		<para description="最低等级" name="lowlv" class="short" default="1"/>
+		<para description="最低等级是否含（true >=，false >）" name="inc_low" class="boolean" default="true"/>
+		<para description="最高等级" name="highlv" class="short" default="70"/>
+		<para description="最高等级是否含（true &lt;=，false &lt;）" name="inc_high" class="boolean" default="true"/>
+		<para description="是否检测最低等级" name="checkLowlv" class="boolean" default="true"/>
+		<para description="是否检测最高等级" name="checkHighlv" class="boolean" default="true"/>
+	</condition>
+	<condition name="检测HP范围" description="检测玩家的HP范围" type="GOB_HP_RANGE" classify="gob">
+		<para description="最低(百分比)[0-1]" name="low" class="float" default="0"/>
+		<para description="最高（百分比）[0-1]" name="high" class="float" default="1.0"/>
+	</condition>
+	<condition name="检测MP范围" description="检测玩家的MP范围" type="GOB_MP_RANGE" classify="gob">
+		<para description="最低(百分比)[0-1]" name="low" class="float" default="0"/>
+		<para description="最高（百分比）[0-1]" name="high" class="float" default="1.0"/>
+	</condition>
+</conditionMeta>

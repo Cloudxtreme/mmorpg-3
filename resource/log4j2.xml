@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<properties>
+		<!--定义变量 -->
+		<property name="LOG_HOME">./logs/</property>
+		<property name="PATTERN_LOG">%date|%-level|%file:%line|%msg%n</property>
+	</properties>
+	<Appenders>
+		<!-- 定义控制台输出 -->
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout>
+				<charset>UTF-8</charset>
+				<Pattern>${PATTERN_LOG}</Pattern>
+			</PatternLayout>
+		</Console>
+		<!-- 日志配置 -->
+		<RollingRandomAccessFile name="GAME"
+			fileName="${LOG_HOME}/game.log" filePattern="${LOG_HOME}/game.%d{yyyy-MM-dd-HH}.log">
+			<PatternLayout>
+				<charset>UTF-8</charset>
+				<Pattern>${PATTERN_LOG}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+
+		<RollingRandomAccessFile name="NET"
+			fileName="${LOG_HOME}/net.log" filePattern="${LOG_HOME}/net.%d{yyyy-MM-dd-HH}.log">
+			<PatternLayout>
+				<charset>UTF-8</charset>
+				<Pattern>${PATTERN_LOG}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+		<RollingRandomAccessFile name="CLIENT"
+			fileName="${LOG_HOME}/client.log" filePattern="${LOG_HOME}/client.%d{yyyy-MM-dd-HH}.log">
+			<PatternLayout>
+				<charset>UTF-8</charset>
+				<Pattern>${PATTERN_LOG}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+
+
+	</Appenders>
+	<Loggers>
+		<Logger name="GAME" level="INFO">
+			<AppenderRef ref="GAME" />
+		</Logger>
+		<Logger name="NET" level="INFO">
+			<AppenderRef ref="NET" />
+		</Logger>
+		<Logger name="CLIENT" level="INFO">
+			<AppenderRef ref="CLIENT" />
+		</Logger>
+
+		<!-- Root Logger -->
+		<Root level="INFO">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>

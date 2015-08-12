@@ -14,13 +14,13 @@ import java.util.Map;
 
 import rpg.server.util.io.FileExtFilter;
 
-import com.google.protobuf.UnknownFieldSet;
 import com.google.protobuf.DescriptorProtos.DescriptorProto;
 import com.google.protobuf.DescriptorProtos.FileDescriptorProto;
 import com.google.protobuf.DescriptorProtos.FileDescriptorSet;
 import com.google.protobuf.DescriptorProtos.MessageOptions;
+import com.google.protobuf.UnknownFieldSet;
 
-import freemarker.cache.ClassTemplateLoader;
+import freemarker.cache.FileTemplateLoader;
 import freemarker.cache.TemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -30,6 +30,12 @@ public class ParseProto {
 	private final String PROTOC_DIR;
 	/** 协议文件位置 */
 	private final String PROTO_FILE_DIR;
+	/** 输出位置 */
+	private final String OUTPUT_PATH;
+	/** 输出的包名 */
+	private final String OUTPUT_PACKAGE;
+	/** 模版路径 */
+	private final String TEMPLATE_PATH;
 
 	private List<MessageInfo> messageInfos = new ArrayList<MessageInfo>();
 
@@ -40,10 +46,18 @@ public class ParseProto {
 	 *            protoc.exe路径
 	 * @param protoFilePath
 	 *            .proto协议文件目录
+	 * @param outputPath
+	 *            输出目录
+	 * @param outputPackage
+	 *            输出包名(用.分隔的包名称)
 	 */
-	public ParseProto(String protocPath, String protoFilePath) {
+	public ParseProto(String protocPath, String protoFilePath,
+			String outputPath, String outputPackage, String templatePath) {
 		this.PROTOC_DIR = protocPath;
 		this.PROTO_FILE_DIR = protoFilePath;
+		this.OUTPUT_PATH = outputPath;
+		this.OUTPUT_PACKAGE = outputPackage;
+		this.TEMPLATE_PATH = templatePath;
 	}
 
 	/**
@@ -84,11 +98,11 @@ public class ParseProto {
 		executeCommand(cmd.toString(), failMsg);
 	}
 
-	public void genProtoClass(String outputDir) throws Exception {
+	public void genProtoClass() throws Exception {
 		File dir = new File(this.PROTO_FILE_DIR);
 		File[] protoFiles = dir.listFiles(new FileExtFilter(".proto"));
 		for (File protoFile : protoFiles) {
-			this.genProtoClass(protoFile, outputDir);
+			this.genProtoClass(protoFile, this.OUTPUT_PATH);
 		}
 	}
 
@@ -111,17 +125,20 @@ public class ParseProto {
 		}
 
 		Configuration cfg = new Configuration();
-		TemplateLoader loader = new ClassTemplateLoader(this.getClass(),
-				"\\com\\hu\\netty\\proto");
+		TemplateLoader loader = new FileTemplateLoader(new File(
+				this.TEMPLATE_PATH));
 		cfg.setTemplateLoader(loader);
 		cfg.setEncoding(Locale.getDefault(), "UTF-8");
 		Map<String, Object> valueMap = new HashMap<String, Object>();
 		valueMap.put("messageInfos", messageInfos);
-		valueMap.put("packageName", "com.hu.netty.proto");
+		valueMap.put("packageName", this.OUTPUT_PACKAGE);
 		Template template = cfg.getTemplate("MsgUtil.ftl");
-		File targetFile = new File(
-				"E:\\workspace\\netty-demo\\src\\main\\java\\com\\hu\\netty\\proto",
-				"MsgUtil.java");
+		File filePath = new File(this.OUTPUT_PATH, this.OUTPUT_PACKAGE.replace(
+				".", File.separator));
+		if (!filePath.exists()) {
+			filePath.mkdirs();
+		}
+		File targetFile = new File(filePath, "MsgUtil.java");
 		if (targetFile.exists()) {
 			targetFile.delete();
 		}
