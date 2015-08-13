@@ -20,9 +20,4 @@ public interface ResourceListener {
 	 * @param file
 	 */
 	void onResourceChange(File file);
-
-	/**
-	 * @return the name of the listener;
-	 */
-	String toString();
 }

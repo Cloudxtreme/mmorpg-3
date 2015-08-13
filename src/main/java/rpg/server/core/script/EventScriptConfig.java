@@ -5,11 +5,11 @@ import java.util.Map;
 
 import org.w3c.dom.Element;
 
-import rpg.server.core.event.GameEvent;
+import rpg.server.core.event.GameEventChannel;
 import rpg.server.core.event.GameEventParaCondition;
+import rpg.server.core.event.GameEventType;
 import rpg.server.core.template.TemplateManager;
 import rpg.server.util.io.XmlUtils;
-
 
 /**
  * 触发脚本条件检测的因素为事件的简单脚本<br/>
@@ -18,9 +18,9 @@ import rpg.server.util.io.XmlUtils;
  * 这势必导致理解上的混淆许多不必要的检测<br/>
  * 因此，除非事件本身比较明确（如：不带任何参数），否则不建议使用这种脚本<br/>
  * 如果能够完善事件的元数据格式，则可以在此类中做确切的事件匹配，方能达到按事件检测的初衷<br/>
- * modified by lincy 2010-06-09
- * 	增加了事件参数的简单条件判断
- *  @see GameEventParaCondition
+ * modified by lincy 2010-06-09 增加了事件参数的简单条件判断
+ * 
+ * @see GameEventParaCondition
  * 
  * 
  */
@@ -32,7 +32,7 @@ public class EventScriptConfig extends SimpleGameScriptConfig {
 		// 载入事件类型
 		if (XmlUtils.getChildByName(e, "eventtype") != null)
 			try {
-				eventType = GameEvent.Type.valueOf(XmlUtils.getChildText(e,
+				eventType = GameEventType.valueOf(XmlUtils.getChildText(e,
 						"eventtype").toUpperCase());
 			} catch (IllegalArgumentException ex) {
 				throw new Exception("载入脚本出错，事件因素不能识别：eventtype-"
@@ -44,25 +44,25 @@ public class EventScriptConfig extends SimpleGameScriptConfig {
 		// 载入事件渠道标识，默认为自身
 		if (XmlUtils.getChildByName(e, "eventsource") != null)
 			try {
-				eventChannel = GameEvent.Channel.valueOf(XmlUtils.getChildText(
+				eventChannel = GameEventChannel.valueOf(XmlUtils.getChildText(
 						e, "eventsource").toUpperCase());
 			} catch (IllegalArgumentException ex) {
 				throw new Exception("载入脚本出错，事件源不能识别：eventsource-"
 						+ XmlUtils.getChildText(e, "eventsource").toUpperCase());
 			}
 		else {
-			eventChannel = GameEvent.Channel.SELF;
+			eventChannel = GameEventChannel.SELF;
 		}
 		// 载入事件参数条件，默认为null
 		Element[] list = XmlUtils.getChildrenByName(e, "paracondition");
 		eventParaCond = new GameEventParaCondition[list.length];
 		for (int i = 0; i < list.length; i++) {
 			try {
-				eventParaCond[i] = new GameEventParaCondition(XmlUtils.getText(list[i]));
+				eventParaCond[i] = new GameEventParaCondition(
+						XmlUtils.getText(list[i]));
 			} catch (Exception ex) {
 				throw new Exception("载入脚本出错，事件参数条件不能识别：paracondition-"
-						+ XmlUtils.getText(list[i])
-								.toUpperCase());
+						+ XmlUtils.getText(list[i]).toUpperCase());
 			}
 		}
 		// 载入子脚本加载对象，默认为原owner
@@ -94,7 +94,7 @@ public class EventScriptConfig extends SimpleGameScriptConfig {
 	/**
 	 * @return the eventType
 	 */
-	public GameEvent.Type getEventType() {
+	public GameEventType getEventType() {
 		return eventType;
 	}
 
@@ -102,14 +102,14 @@ public class EventScriptConfig extends SimpleGameScriptConfig {
 	 * @param eventType
 	 *            the eventType to set
 	 */
-	public void setEventType(GameEvent.Type eventType) {
+	public void setEventType(GameEventType eventType) {
 		this.eventType = eventType;
 	}
 
 	/**
 	 * @return the eventChannel
 	 */
-	public GameEvent.Channel getEventChannel() {
+	public GameEventChannel getEventChannel() {
 		return eventChannel;
 	}
 
@@ -117,7 +117,7 @@ public class EventScriptConfig extends SimpleGameScriptConfig {
 	 * @param eventChannel
 	 *            the eventChannel to set
 	 */
-	public void setEventChannel(GameEvent.Channel eventChannel) {
+	public void setEventChannel(GameEventChannel eventChannel) {
 		this.eventChannel = eventChannel;
 	}
 
@@ -129,7 +129,8 @@ public class EventScriptConfig extends SimpleGameScriptConfig {
 	}
 
 	/**
-	 * @param eventParaCond the eventParaCond to set
+	 * @param eventParaCond
+	 *            the eventParaCond to set
 	 */
 	public void setEventParaCond(GameEventParaCondition[] eventParaCond) {
 		this.eventParaCond = eventParaCond;
@@ -142,13 +143,14 @@ public class EventScriptConfig extends SimpleGameScriptConfig {
 	public void setWho(byte who) {
 		this.who = who;
 	}
-	// /////////////////////////////////////////////////////////////////////
-	
-	private GameEvent.Type eventType; // 触发该脚本的事件类型
 
-	private GameEvent.Channel eventChannel; // 触发该脚本的事件渠道
+	// /////////////////////////////////////////////////////////////////////
+
+	private GameEventType eventType; // 触发该脚本的事件类型
+
+	private GameEventChannel eventChannel; // 触发该脚本的事件渠道
 
 	private GameEventParaCondition[] eventParaCond = null; // 事件参数条件
-	
-	private byte who;	// 内嵌脚本加载对象（0-owner默认，1-事件source，2-事件target）
+
+	private byte who; // 内嵌脚本加载对象（0-owner默认，1-事件source，2-事件target）
 }

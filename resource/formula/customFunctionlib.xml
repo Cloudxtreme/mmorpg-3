@@ -1,0 +1,5 @@
+<!--自定义函数库格式说明及示例-->
+<functionLib>
+	<function id="add(a)">a * 10</function>	<!--从xx等级到xx值的计算公因式，如“急速等级-急速值”-->
+	<function id="dtov(degree, lvfactor)">degree * lvfactor / 1000</function>	<!--从xx等级到xx值的计算公因式，如“急速等级-急速值”-->
+</functionLib>

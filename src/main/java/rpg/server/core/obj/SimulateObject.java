@@ -9,7 +9,8 @@ import rpg.server.core.condition.ConditionHandler;
 import rpg.server.core.condition.SimpleGameCondition;
 import rpg.server.core.event.EventHandler;
 import rpg.server.core.event.GameEvent;
-import rpg.server.core.event.GameEvent.Channel;
+import rpg.server.core.event.GameEventChannel;
+import rpg.server.core.event.GameEventType;
 import rpg.server.core.relation.AbstractRelation;
 import rpg.server.core.relation.SOBRelationTag;
 import rpg.server.core.script.GameScriptConfig;
@@ -43,7 +44,7 @@ public interface SimulateObject {
 	 * @param source
 	 * @param agent
 	 */
-	void registerEventHandler(GameEvent.Type type, GameEvent.Channel source,
+	void registerEventHandler(GameEventType type, GameEventChannel source,
 			EventHandler agent);
 
 	/**
@@ -53,7 +54,7 @@ public interface SimulateObject {
 	 * @param source
 	 * @param agent
 	 */
-	void removeEventHandler(GameEvent.Type type, GameEvent.Channel source,
+	void removeEventHandler(GameEventType type, GameEventChannel source,
 			EventHandler agent);
 
 	/**
@@ -66,7 +67,7 @@ public interface SimulateObject {
 	 * @param handler
 	 *            处理模块
 	 */
-	void registerEventHandlers(GameEvent.Type[] types, Channel channel,
+	void registerEventHandlers(GameEventType[] types, GameEventChannel channel,
 			EventHandler handler);
 
 	/**
@@ -76,7 +77,7 @@ public interface SimulateObject {
 	 * @param channel
 	 * @param handler
 	 */
-	void removeEventHandlers(GameEvent.Type[] types, Channel channel,
+	void removeEventHandlers(GameEventType[] types, GameEventChannel channel,
 			EventHandler handler);
 
 	/**
@@ -84,7 +85,7 @@ public interface SimulateObject {
 	 * 
 	 * @param event
 	 */
-	void receiveEvent(GameEvent.Channel source, GameEvent event);
+	void receiveEvent(GameEventChannel source, GameEvent event);
 
 	/**
 	 * 向指定的关联对象通报事件
@@ -161,5 +162,6 @@ public interface SimulateObject {
 	// /////////////////基本////////////////////////////////
 
 	void remove();
+
 	long getId();
 }

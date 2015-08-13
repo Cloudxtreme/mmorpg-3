@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<attribute id="LV" name="等级" min="1" max="100" formula="LEVEL" related="MAXHP ATK DEF PROB_CRI DODGE_RATE HIT_RATE"/>
+	<attribute id="CON" name="体质" min="0" max="999999999" formula="BASE_CON" related="MAXHP"/>
+	<attribute id="ATK" name="攻击" min="0" max="999999999" formula="BASE_ATK*10+PET_ADD_ATK+GUARDIAN_SPIRIT_ADD_ATK+LV*10+PET_RIDE_BATTLE_ADD_ATK"/>
+	<attribute id="DEF" name="防御" min="0" max="999999999" formula="BASE_DEF*10+PET_ADD_DEF+GUARDIAN_SPIRIT_ADD_DEF+LV*10+PET_RIDE_BATTLE_ADD_DEF"/>
+	<attribute id="QUI" name="敏捷" min="0" max="999999999" formula="BASE_QUI*10+PET_ADD_QUI+GUARDIAN_SPIRIT_ADD_QUI+PET_RIDE_BATTLE_ADD_QUI" related="PROB_FLEE PROB_HIT PROB_DODGE PROB_CRI"/>
+	<attribute id="INS" name="灵力" min="0" max="999999999" formula="BASE_INS+PET_ADD_INS+GUARDIAN_SPIRIT_ADD_INS"/>
+	<attribute id="FR" name="火" min="0" max="999" formula="BASE_FR + GUARDIAN_SPIRIT_ADD_FR"/>
+	<attribute id="WD" name="风" min="0" max="999" formula="BASE_WD + GUARDIAN_SPIRIT_ADD_WD"/>
+	<attribute id="ET" name="土" min="0" max="999" formula="BASE_ET + GUARDIAN_SPIRIT_ADD_ET"/>
+	<attribute id="AQ" name="水" min="0" max="999" formula="BASE_AQ + GUARDIAN_SPIRIT_ADD_AQ"/>
+	<attribute id="MAXHP" name="体力上限" min="0" max="999999999" formula="200 + CON*75 + LV*200 + GUARDIAN_SPIRIT_ADD_MAXHP + PET_ADD_HP+PET_RIDE_BATTLE_ADD_MAXHP"/>
+	<attribute id="MAXMP" name="气力上限" min="0" max="999999999" formula="200 + GUARDIAN_SPIRIT_ADD_MAXMP"/>
+</config>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by larry (larry) -->
+<config>
+	<!--运算符-->
+	<operator>#+-*/()</operator>
+	<!--数字-->
+	<number>.0123456789</number>
+	<!--英文-->
+	<english>qwertyuiopasdfghjklzxcvbnm_QWERTYUIOPASDFGHJKLZXCVBNM</english>
+</config>

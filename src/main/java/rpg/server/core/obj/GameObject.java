@@ -8,6 +8,6 @@ public interface GameObject extends SimulateObject {
 	int getY();
 
 	boolean isFriend(GameObject obj);
-	
 
+	void tick();
 }
