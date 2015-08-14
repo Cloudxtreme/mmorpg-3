@@ -18,6 +18,10 @@ import rpg.server.core.script.GameScriptConfig;
 public interface GameObject {
 	GameObject getTarget();
 
+	void remove();
+
+	long getId();
+
 	int getX();
 
 	int getY();
@@ -26,67 +30,36 @@ public interface GameObject {
 
 	void tick();
 
-	/**
-	 * 获取指定关系且满足指定相互条件的关联对象
-	 * 
-	 * @param relation
-	 *            以"."隔开的关联关系字符串（{@link SOBRelationTag}），例如：(self.)mate.team
-	 * @return
-	 */
-	Set<GameObject> getRelatedSOBs(AbstractRelation relation);
-
-	/**
-	 * 根据关联关系标识获取关联对象（集合） <br/>
-	 * 
-	 * @param relations
-	 * @return
-	 */
-	Set<GameObject> getRelatedSOBs(SOBRelationTag relation);
-
-	// 事件///////////////////////////////////
+	// ********************************************
+	// **********事件相关
+	// ********************************************
 
 	/**
 	 * 注册事件处理器
 	 * 
-	 * @param type
 	 * @param source
-	 * @param agent
+	 *            事件来源渠道
+	 * @param handler
+	 *            事件发生后的处理接口
+	 * @param type
+	 *            关注的事件类型
 	 */
-	void registerEventHandler(GameEventType type, GameEventChannel source,
-			EventHandler agent);
+	void registerEventHandler(GameEventChannel source, EventHandler handler,
+			GameEventType... type);
 
 	/**
 	 * 注销事件处理器
 	 * 
-	 * @param type
 	 * @param source
-	 * @param agent
-	 */
-	void removeEventHandler(GameEventType type, GameEventChannel source,
-			EventHandler agent);
-
-	/**
-	 * 注册批量事件处理器
-	 * 
-	 * @param types
-	 *            需要注册的事件
-	 * @param channel
-	 *            事件源标识:self or neighbor
+	 *            事件来源渠道
 	 * @param handler
-	 *            处理模块
-	 */
-	void registerEventHandlers(GameEventType[] types, GameEventChannel channel,
-			EventHandler handler);
-
-	/**
-	 * 注销批量事件处理器
+	 *            事件发生后的处理接口
+	 * @param type
+	 *            关注的事件类型
 	 * 
-	 * @param types
-	 * @param channel
-	 * @param handler
 	 */
-	void removeEventHandlers(GameEventType[] types, GameEventChannel channel,
-			EventHandler handler);
+	void removeEventHandler(GameEventChannel source, EventHandler handler,
+			GameEventType... type);
 
 	/**
 	 * 接受事件
@@ -167,9 +140,20 @@ public interface GameObject {
 	 */
 	Set<Long> addScript(GameScriptConfig script, Map<String, Object> vars);
 
-	// /////////////////基本////////////////////////////////
+	/**
+	 * 获取指定关系且满足指定相互条件的关联对象
+	 * 
+	 * @param relation
+	 *            以"."隔开的关联关系字符串（{@link SOBRelationTag}），例如：(self.)mate.team
+	 * @return
+	 */
+	Set<GameObject> getRelatedSOBs(AbstractRelation relation);
 
-	void remove();
-
-	long getId();
+	/**
+	 * 根据关联关系标识获取关联对象（集合） <br/>
+	 * 
+	 * @param relations
+	 * @return
+	 */
+	Set<GameObject> getRelatedSOBs(SOBRelationTag relation);
 }

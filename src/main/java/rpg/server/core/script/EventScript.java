@@ -69,16 +69,16 @@ public class EventScript extends SimpleGameScript {
 
 				}
 			};
-			getOwner().registerEventHandler(config.getEventType(),
-					config.getEventChannel(), handler);
+			getOwner().registerEventHandler(config.getEventChannel(), handler,
+					config.getEventType());
 		}
 	}
 
 	@Override
 	void remove() {
 		if (handler != null) {
-			getOwner().removeEventHandler(config.getEventType(),
-					config.getEventChannel(), handler);
+			getOwner().removeEventHandler(config.getEventChannel(), handler,
+					config.getEventType());
 			handler = null;
 		}
 		if (script != null) {
