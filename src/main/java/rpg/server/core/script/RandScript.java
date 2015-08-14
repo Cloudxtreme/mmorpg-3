@@ -2,7 +2,7 @@ package rpg.server.core.script;
 
 import java.util.Map;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 
 /**
  * 随机加载执行的复合脚本实例 <br/>
@@ -19,7 +19,7 @@ public class RandScript extends ComplexGameScript {
 	}
 
 	@Override
-	void addTo(SimulateObject object) {
+	void addTo(GameObject object) {
 		if (checkCount && count-- == 0 || // 如果有检测次数限制，且已达到，结束任务并从对象身上移除对应脚本
 				checkOverdue && overdue < System.currentTimeMillis()) { // 如果有存在时间限制，且已过期，结束任务并从对象身上移除对应脚本
 			remove();

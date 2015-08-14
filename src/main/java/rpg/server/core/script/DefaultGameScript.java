@@ -2,7 +2,7 @@ package rpg.server.core.script;
 
 import java.util.Map;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 
 /**
  * 默认脚本的实例 <br/>
@@ -22,7 +22,7 @@ public class DefaultGameScript extends GameScript {
 	 * 对于那些需要特殊返回值的，可以自己在checkCondition或doAction方法中设置
 	 */
 	@Override
-	void addTo(SimulateObject object) {
+	void addTo(GameObject object) {
 		setOwner(object);
 		if (check()) {
 			// //System.out.println("script check true at owner:" +

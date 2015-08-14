@@ -9,7 +9,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.util.io.XmlUtils;
 
 /**
@@ -36,7 +36,7 @@ public class AllGameAction extends GameAction {
 	}
 
 	@Override
-	public boolean action(SimulateObject sob, Map<String, Object> vars) {
+	public boolean action(GameObject sob, Map<String, Object> vars) {
 		boolean ret = true;
 		for (GameAction a : actions) {
 			ret &= a.action(sob, vars);

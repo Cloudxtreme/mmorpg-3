@@ -15,7 +15,7 @@ import org.w3c.dom.Element;
 
 import rpg.server.core.MetaParamException;
 import rpg.server.core.Metadata;
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.core.relation.AbstractRelation;
 import rpg.server.core.template.TemplateManager;
 import rpg.server.util.io.XmlUtils;
@@ -227,15 +227,15 @@ public class SimpleGameAction extends GameAction {
 	}
 
 	@Override
-	public boolean action(SimulateObject sob, Map<String, Object> vars) {
+	public boolean action(GameObject sob, Map<String, Object> vars) {
 		if (object != null) {
 			boolean ret = true;
-			Set<SimulateObject> sobs = sob.getRelatedSOBs(object);
+			Set<GameObject> sobs = sob.getRelatedSOBs(object);
 			if (sobs == null)
 				return false;
 			if (vars == null)
 				vars = new HashMap<String, Object>();
-			for (SimulateObject s : sobs) {
+			for (GameObject s : sobs) {
 				vars.put("object", s);
 				ret &= sob.doSimpleAction(this, vars);
 			}

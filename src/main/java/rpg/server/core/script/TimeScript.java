@@ -2,7 +2,7 @@ package rpg.server.core.script;
 
 import java.util.Map;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.util.task.TaskForSchedule;
 import rpg.server.util.task.TaskManager;
 import rpg.server.util.task.TaskManager.TaskType;
@@ -22,7 +22,7 @@ public class TimeScript extends SimpleGameScript {
 	}
 
 	@Override
-	void addTo(SimulateObject object) {
+	void addTo(GameObject object) {
 		setOwner(object);
 		script = config.script.getInstance(vars);
 		script.setListner(this);

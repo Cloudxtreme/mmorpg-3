@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 import org.w3c.dom.Element;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.util.io.XmlUtils;
 
 /**
@@ -21,18 +21,18 @@ public class TagRelation extends AbstractRelation {
 	 */
 
 	@Override
-	public Set<SimulateObject> getRelated(SimulateObject self) {
-		Set<SimulateObject> set = new TreeSet<SimulateObject>();
-		SimulateObject sob = self;
+	public Set<GameObject> getRelated(GameObject self) {
+		Set<GameObject> set = new TreeSet<GameObject>();
+		GameObject sob = self;
 		outer: for (int i = 0; i < relations.length; i++) {
 			for (int j = 0; j < relations[i].size() - 1; j++) { // 先处理关系标识链的前n-1项，保证取到一对一
-				Set<SimulateObject> subset = sob.getRelatedSOBs(relations[i]
+				Set<GameObject> subset = sob.getRelatedSOBs(relations[i]
 						.get(j));
 				if (subset == null || subset.size() == 0) // 关系标识链中的某一项断掉，整条标识失效，直接进行下一条标识
 					continue outer;
-				sob = ((TreeSet<SimulateObject>) subset).first();
+				sob = ((TreeSet<GameObject>) subset).first();
 			}
-			Set<SimulateObject> subset = sob.getRelatedSOBs(relations[i]
+			Set<GameObject> subset = sob.getRelatedSOBs(relations[i]
 					.get(relations[i].size() - 1)); // 处理标识链的最后一项
 			if (subset != null) {
 				set.addAll(subset);

@@ -10,7 +10,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import rpg.server.core.condition.GameCondition;
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.util.io.XmlUtils;
 
 /**
@@ -40,7 +40,7 @@ public class ConditionGameAction extends GameAction {
 	}
 
 	@Override
-	public boolean action(SimulateObject sob, Map<String, Object> vars) {
+	public boolean action(GameObject sob, Map<String, Object> vars) {
 		// 先判断条件,然后执行动作
 		if (condition.check(sob, vars)) {
 			return action.action(sob, vars);

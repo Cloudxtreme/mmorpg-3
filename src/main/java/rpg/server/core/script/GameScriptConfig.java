@@ -7,7 +7,7 @@ import java.util.Set;
 
 import org.w3c.dom.Element;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.core.relation.AbstractRelation;
 import rpg.server.core.template.TemplateManager;
 import rpg.server.util.io.XmlUtils;
@@ -111,19 +111,19 @@ public abstract class GameScriptConfig {
 	/**
 	 * 为与仿真对象指定关系的对象添加该脚本 <br/>
 	 * 这里仅负责解析出所有对象 <br/>
-	 * 实际的加载调用{@link GameScript#addTo(SimulateObject)}执行
+	 * 实际的加载调用{@link GameScript#addTo(GameObject)}执行
 	 * 
 	 * @param object
 	 */
-	public final Set<Long> addToObject(SimulateObject object,
+	public final Set<Long> addToObject(GameObject object,
 			Map<String, Object> vars) {
 		Set<Long> set = new HashSet<Long>(0);
 		if (object_rel != null) {
-			Set<SimulateObject> sobs = object.getRelatedSOBs(object_rel);
+			Set<GameObject> sobs = object.getRelatedSOBs(object_rel);
 			if (sobs == null) {
 				return set;
 			}
-			for (SimulateObject sob : sobs) {
+			for (GameObject sob : sobs) {
 				// //System.out.println("script actual adding to : " +
 				// sob.getId());
 				if (sob == null)

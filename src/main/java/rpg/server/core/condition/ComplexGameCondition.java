@@ -2,7 +2,7 @@ package rpg.server.core.condition;
 
 import java.util.Map;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 
 import org.w3c.dom.Element;
 
@@ -38,7 +38,7 @@ public class ComplexGameCondition extends GameCondition {
 	}
 
 	@Override
-	public boolean check(SimulateObject sob, Map<String, Object> vars) {
+	public boolean check(GameObject sob, Map<String, Object> vars) {
 		switch (getMode()) {
 		case AND:
 			for (GameCondition c : conditions) {

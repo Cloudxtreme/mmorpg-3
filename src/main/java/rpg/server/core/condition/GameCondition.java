@@ -3,7 +3,7 @@ package rpg.server.core.condition;
 import java.util.HashMap;
 import java.util.Map;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 
 import org.w3c.dom.Element;
 
@@ -76,7 +76,7 @@ public abstract class GameCondition {
 	 * @param sob
 	 * @return
 	 */
-	public final boolean check(SimulateObject sob) {
+	public final boolean check(GameObject sob) {
 		return check(sob, new HashMap<String, Object>(0));
 	}
 
@@ -123,7 +123,7 @@ public abstract class GameCondition {
 	 * @param vars
 	 * @return
 	 */
-	abstract public boolean check(SimulateObject sob, Map<String, Object> vars);
+	abstract public boolean check(GameObject sob, Map<String, Object> vars);
 
 	/**
 	 * 解析并获取UI字符串

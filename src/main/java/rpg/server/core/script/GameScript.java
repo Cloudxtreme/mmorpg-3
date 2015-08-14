@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import rpg.server.core.obj.GameObject;
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 
 /**
  * 脚本 <br/>
@@ -34,7 +34,7 @@ public abstract class GameScript {
 	 * @param object
 	 * @return
 	 */
-	abstract void addTo(SimulateObject object);
+	abstract void addTo(GameObject object);
 
 	/**
 	 * 从对象移除
@@ -132,7 +132,7 @@ public abstract class GameScript {
 	 * @param owner
 	 *            the owner to set
 	 */
-	public final void setOwner(SimulateObject owner) {
+	public final void setOwner(GameObject owner) {
 		this.ownerId = owner.getId();
 	}
 

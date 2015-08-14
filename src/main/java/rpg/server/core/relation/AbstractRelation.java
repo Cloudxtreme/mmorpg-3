@@ -4,7 +4,7 @@ import java.util.Set;
 
 import org.w3c.dom.Element;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.util.io.XmlUtils;
 
 
@@ -20,7 +20,7 @@ public abstract class AbstractRelation {
 	 * @param self
 	 * @return
 	 */
-	public abstract Set<SimulateObject> getRelated(SimulateObject self);
+	public abstract Set<GameObject> getRelated(GameObject self);
 	
 	/**
 	 * 从xml节点解析关系

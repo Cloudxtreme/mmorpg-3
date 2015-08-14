@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.w3c.dom.Element;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.core.template.Template;
 import rpg.server.core.template.TemplateManager;
 import rpg.server.util.io.XmlUtils;
@@ -43,7 +43,7 @@ public class TemplateCondition extends GameCondition {
 	}
 
 	@Override
-	public boolean check(SimulateObject sob, Map<String, Object> vars) {
+	public boolean check(GameObject sob, Map<String, Object> vars) {
 		return instance.check(sob, vars);
 	}
 

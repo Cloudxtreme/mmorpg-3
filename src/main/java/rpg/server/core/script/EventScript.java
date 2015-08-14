@@ -5,7 +5,7 @@ import java.util.Map;
 import rpg.server.core.event.EventHandler;
 import rpg.server.core.event.GameEvent;
 import rpg.server.core.event.GameEventParaCondition;
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 
 /**
  * 触发脚本因素为事件的脚本实例 <br/>
@@ -20,7 +20,7 @@ public class EventScript extends SimpleGameScript {
 	}
 
 	@Override
-	void addTo(SimulateObject object) {
+	void addTo(GameObject object) {
 		setOwner(object);
 		script = config.script.getInstance(vars);
 		script.setListner(this);

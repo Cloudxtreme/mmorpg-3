@@ -8,7 +8,7 @@ import org.w3c.dom.Element;
 
 import rpg.server.core.MetaParamException;
 import rpg.server.core.Metadata;
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.core.relation.AbstractRelation;
 import rpg.server.core.template.TemplateManager;
 import rpg.server.util.io.XmlUtils;
@@ -219,16 +219,16 @@ public class SimpleGameCondition extends GameCondition {
 	}
 
 	@Override
-	public boolean check(SimulateObject sob, Map<String, Object> vars) {
+	public boolean check(GameObject sob, Map<String, Object> vars) {
 		switch (getMode()) {
 		case SIMPLE:
 			if (object == null)
 				return sob.checkSimpleCondition(this, vars);
 			else {
-				Set<SimulateObject> sobs = sob.getRelatedSOBs(object);
+				Set<GameObject> sobs = sob.getRelatedSOBs(object);
 				if (sobs == null)
 					return false;
-				for (SimulateObject s : sobs)
+				for (GameObject s : sobs)
 					if (s == null || !s.checkSimpleCondition(this, vars))
 						return false;
 				return true;
@@ -237,10 +237,10 @@ public class SimpleGameCondition extends GameCondition {
 			if (object == null)
 				return !sob.checkSimpleCondition(this, vars);
 			else {
-				Set<SimulateObject> sobs = sob.getRelatedSOBs(object);
+				Set<GameObject> sobs = sob.getRelatedSOBs(object);
 				if (sobs == null)
 					return false;
-				for (SimulateObject s : sobs)
+				for (GameObject s : sobs)
 					if (s == null || s.checkSimpleCondition(this, vars))
 						return false;
 				return true;

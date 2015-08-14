@@ -8,7 +8,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.core.template.Template;
 import rpg.server.core.template.TemplateManager;
 import rpg.server.util.io.XmlUtils;
@@ -38,7 +38,7 @@ public class TemplateGameAction extends GameAction {
 	}
 
 	@Override
-	public boolean action(SimulateObject sob, Map<String, Object> vars) {
+	public boolean action(GameObject sob, Map<String, Object> vars) {
 		return instance.action(sob, vars);
 	}
 

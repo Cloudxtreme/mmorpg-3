@@ -8,7 +8,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.util.io.XmlUtils;
 
 /**
@@ -107,7 +107,7 @@ public abstract class GameAction {
 	 * @param sob
 	 * @return 是否执行成功
 	 */
-	public final boolean action(SimulateObject sob) {
+	public final boolean action(GameObject sob) {
 		return action(sob, new HashMap<String, Object>(0));
 	}
 
@@ -132,7 +132,7 @@ public abstract class GameAction {
 	 *            参数
 	 * @return 是否执行成功
 	 */
-	abstract public boolean action(SimulateObject sob, Map<String, Object> vars);
+	abstract public boolean action(GameObject sob, Map<String, Object> vars);
 
 	/**
 	 * 获取模式

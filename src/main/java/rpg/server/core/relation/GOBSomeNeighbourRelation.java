@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
 
 import rpg.server.core.condition.GameCondition;
 import rpg.server.core.obj.GameObject;
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.module.player.PlayerCharacter;
 import rpg.server.util.MathUtil;
 import rpg.server.util.io.XmlUtils;
@@ -52,12 +52,12 @@ public class GOBSomeNeighbourRelation extends AbstractRelation {
 	public GOBSomeNeighbourRelation() {
 	}
 
-	public Set<SimulateObject> getRelated(SimulateObject self) {
+	public Set<GameObject> getRelated(GameObject self) {
 		if (self instanceof GameObject) {
 			final GameObject s = target ? ((GameObject) self).getTarget() : (GameObject) self;
 			if (s == null)
 				return null;
-			Set<SimulateObject> set = s.getRelatedSOBs(SOBRelationTag.NEIGHBOR);
+			Set<GameObject> set = s.getRelatedSOBs(SOBRelationTag.NEIGHBOR);
 			Set<GameObject> gobset = new TreeSet<GameObject>(new Comparator<GameObject>() {
 
 				
@@ -70,9 +70,9 @@ public class GOBSomeNeighbourRelation extends AbstractRelation {
 				}
 				
 			});
-			Iterator<SimulateObject> it = set.iterator();
+			Iterator<GameObject> it = set.iterator();
 			while (it.hasNext()) {
-				SimulateObject sob = it.next();
+				GameObject sob = it.next();
 				if (sob instanceof GameObject) {
 					GameObject gob = (GameObject) sob;
 					if (playerOnly && !(gob instanceof PlayerCharacter)) {

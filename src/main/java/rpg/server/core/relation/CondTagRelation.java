@@ -8,7 +8,7 @@ import java.util.Set;
 import org.w3c.dom.Element;
 
 import rpg.server.core.condition.GameCondition;
-import rpg.server.core.obj.SimulateObject;
+import rpg.server.core.obj.GameObject;
 import rpg.server.util.io.XmlUtils;
 
 /**
@@ -24,13 +24,13 @@ public class CondTagRelation extends TagRelation {
 	 */
 
 	@Override
-	public Set<SimulateObject> getRelated(SimulateObject self) {
-		Set<SimulateObject> set = super.getRelated(self);
+	public Set<GameObject> getRelated(GameObject self) {
+		Set<GameObject> set = super.getRelated(self);
 		Map<String, Object> tempvar = new HashMap<String, Object>(0);
 		tempvar.put("theOther", self); // 用于双方关系类的条件检测（例如：距离范围、仇恨关系等）
-		Iterator<SimulateObject> it = set.iterator();
+		Iterator<GameObject> it = set.iterator();
 		while (it.hasNext()) {
-			SimulateObject sob = it.next();
+			GameObject sob = it.next();
 			if (!cond.check(sob, tempvar))
 				it.remove();
 		}
