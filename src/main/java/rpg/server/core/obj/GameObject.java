@@ -3,9 +3,8 @@ package rpg.server.core.obj;
 import java.util.Map;
 import java.util.Set;
 
-import rpg.server.core.action.ActionHandler;
 import rpg.server.core.action.SimpleGameAction;
-import rpg.server.core.condition.ConditionHandler;
+import rpg.server.core.attribute.FormulaAttrConfig;
 import rpg.server.core.condition.SimpleGameCondition;
 import rpg.server.core.event.EventHandler;
 import rpg.server.core.event.GameEvent;
@@ -16,6 +15,9 @@ import rpg.server.core.relation.SOBRelationTag;
 import rpg.server.core.script.GameScriptConfig;
 
 public interface GameObject {
+	// ********************************************
+	// **********基本接口
+	// ********************************************
 	GameObject getTarget();
 
 	void remove();
@@ -31,7 +33,7 @@ public interface GameObject {
 	void tick();
 
 	// ********************************************
-	// **********事件相关
+	// **********事件相关event
 	// ********************************************
 
 	/**
@@ -76,15 +78,9 @@ public interface GameObject {
 	 */
 	void notifyEvent(String related, GameEvent event);
 
-	// 条件///////////////////////////////////
-
-	/**
-	 * 注册条件检测器
-	 * 
-	 * @param classify
-	 * @param agent
-	 */
-	void registerConditionChecker(String classify, ConditionHandler agent);
+	// ********************************************
+	// **********条件相关condition
+	// ********************************************
 
 	/**
 	 * 检测简单条件
@@ -96,23 +92,9 @@ public interface GameObject {
 	boolean checkSimpleCondition(SimpleGameCondition condition,
 			Map<String, Object> vars);
 
-	// 行为///////////////////////////////////
-
-	/**
-	 * 注册行为执行器
-	 * 
-	 * @param classify
-	 * @param agent
-	 */
-	void registerActionProcessor(String classify, ActionHandler agent);
-
-	/**
-	 * 执行动作，无临时变量
-	 * 
-	 * @param action
-	 * @return
-	 */
-	boolean doSimpleAction(SimpleGameAction action);
+	// ********************************************
+	// **********行为相关action
+	// ********************************************
 
 	/**
 	 * 执行简单行为
@@ -123,7 +105,9 @@ public interface GameObject {
 	 */
 	boolean doSimpleAction(SimpleGameAction action, Map<String, Object> vars);
 
-	// ///////////////////脚本///////////////////////////
+	// ********************************************
+	// **********脚本相关script
+	// ********************************************
 	/**
 	 * 加载脚本
 	 * 
@@ -140,6 +124,9 @@ public interface GameObject {
 	 */
 	Set<Long> addScript(GameScriptConfig script, Map<String, Object> vars);
 
+	// ********************************************
+	// **********关系相关relation
+	// ********************************************
 	/**
 	 * 获取指定关系且满足指定相互条件的关联对象
 	 * 
@@ -156,4 +143,6 @@ public interface GameObject {
 	 * @return
 	 */
 	Set<GameObject> getRelatedSOBs(SOBRelationTag relation);
+
+	FormulaAttrConfig getAttrConfig();
 }
