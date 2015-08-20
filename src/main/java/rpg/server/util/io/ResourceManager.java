@@ -28,12 +28,14 @@ public class ResourceManager implements Runnable {
 	 */
 	static final long DEFAULT_DELAY = 60 * 1000;
 
-	/** 单利 */
+	/** 单利模式 */
 	private static final ResourceManager instance = new ResourceManager();
 
+	/**
+	 * 监听对应关系<br>
+	 * key:监听的目录或者文件,value:监听处理器
+	 */
 	private Map<File, ResourceListener> resources = new LinkedHashMap<File, ResourceListener>();
-
-	private Map<String, ResourceListener> listeners = new HashMap<String, ResourceListener>();
 
 	/**
 	 * 文件修改时间<br>
@@ -48,15 +50,7 @@ public class ResourceManager implements Runnable {
 	private Collection<Change> changes = Collections
 			.synchronizedCollection(new ArrayList<Change>());
 
-	/**
-	 * @return the changes
-	 */
-	public Collection<Change> getChanges() {
-		return changes;
-	}
-
 	public static class Change {
-
 		ResourceListener l;
 
 		File f;
@@ -86,55 +80,12 @@ public class ResourceManager implements Runnable {
 	}
 
 	/**
-	 * 列出所有的listener
-	 * 
-	 * @return
-	 */
-	public Collection<ResourceListener> getAllResourceListeners() {
-		return resources.values();
-	}
-
-	/**
-	 * 获取listener引用
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public ResourceListener getResourceListener(String id) {
-		return listeners.get(id);
-	}
-
-	/**
 	 * 添加资源监听器
 	 * 
 	 * @param listener
 	 */
 	public void registerResourceListener(ResourceListener listener) {
 		registerResourceListener(listener, false);
-	}
-
-	/**
-	 * 本地资源映射
-	 * 
-	 * @param file
-	 * @return
-	 */
-	public File getMappingFile(File file) {
-		// TODO
-		return null;
-		// for (String source : Const.LOCAL_RESOURCE) {
-		// String path = Const.RES_PATH + source;
-		// File ff = new File(path);
-		// if (file.equals(ff)) {
-		// File f = new File(Const.RES_PATH + Const.LOCAL
-		// + Const.LOCAL_RESOURCE_PATH + Const.SERVER_ID + "/"
-		// + source);
-		// if (f.exists()) {
-		// return f;
-		// }
-		// }
-		// }
-		// return file;
 	}
 
 	/**
@@ -147,9 +98,8 @@ public class ResourceManager implements Runnable {
 	 */
 	public void registerResourceListener(ResourceListener listener,
 			boolean loadOnAdded) {
-		File listened_file = getMappingFile(listener.listenedFile());
+		File listened_file = listener.listenedFile();
 		resources.put(listened_file, listener);
-		listeners.put(listener.toString(), listener);
 		if (loadOnAdded) {
 			lastModif.put(listened_file, Long.MIN_VALUE);// 兼容不存在的文件夹
 			checkChange(listened_file, listener, Long.MIN_VALUE, false);
@@ -188,11 +138,7 @@ public class ResourceManager implements Runnable {
 		for (Map.Entry<File, ResourceListener> entry : resources.entrySet()) {
 			File file = entry.getKey();
 			ResourceListener value = entry.getValue();
-			try {
-				checkChange(file, value, lastModif.get(file), true);
-			} catch (Exception e) {
-				// TODO 记录LOG
-			}
+			checkChange(file, value, lastModif.get(file), true);
 		}
 	}
 
@@ -203,7 +149,7 @@ public class ResourceManager implements Runnable {
 	 *            资源监听器
 	 */
 	private void checkChange(ResourceListener listener) {
-		File listened_file = getMappingFile(listener.listenedFile());
+		File listened_file = listener.listenedFile();
 		checkChange(listened_file, listener, lastModif.get(listened_file), true);
 	}
 
@@ -214,8 +160,7 @@ public class ResourceManager implements Runnable {
 	 *            资源监听器
 	 */
 	void loadResource(ResourceListener listener) {
-		checkChange(getMappingFile(listener.listenedFile()), listener,
-				Long.MIN_VALUE, false);
+		checkChange(listener.listenedFile(), listener, Long.MIN_VALUE, false);
 	}
 
 	/**
@@ -227,7 +172,7 @@ public class ResourceManager implements Runnable {
 	public boolean updateFile(String listenerID, String file) {
 		for (ResourceListener listener : resources.values()) {
 			if (listener.toString().equals(listenerID)) {
-				File listened_file = getMappingFile(listener.listenedFile());
+				File listened_file = listener.listenedFile();
 				String path = listened_file.getPath() + "/" + file;
 				File f = new File(path);
 				if (f.exists()) {
@@ -278,55 +223,46 @@ public class ResourceManager implements Runnable {
 		}
 		if (file.isDirectory()) {
 			File[] list = file.listFiles();
-			try {
-				if (list.length > 0) {
-					Arrays.sort(list, (o1, o2) -> {
-						if (o1.isDirectory()) {
-							if (o2.isDirectory()) {
-								return o1.getName().compareTo(o2.getName());
-							} else {
-								return 1;
-							}
-						} else if (o2.isDirectory()) {
-							return -1;
-						} else {
+			if (list.length > 0) {
+				Arrays.sort(list, (o1, o2) -> {
+					if (o1.isDirectory()) {
+						if (o2.isDirectory()) {
 							return o1.getName().compareTo(o2.getName());
+						} else {
+							return 1;
 						}
-					});
-					for (File f : list) {
-						checkChange(f, listener, lastModified, async);
+					} else if (o2.isDirectory()) {
+						return -1;
+					} else {
+						return o1.getName().compareTo(o2.getName());
 					}
+				});
+				for (File f : list) {
+					checkChange(f, listener, lastModified, async);
 				}
-			} catch (Exception e) {
-				// TODO 记录LOG
-				return;
 			}
 		} else {
 			long modif = file.lastModified();
 			if (modif > lastModified) {
-				try {
 
-					if (async) {// 修改成从world主线程更新
-						changes.add(new Change() {
-							{
-								this.l = listener;
-								this.f = file;
-							}
-						});
-						this.dirty = true;
-					} else {
-						// Logger.debug(LoggerFunction.LOADING, "Resource Load："
-						// + file.getPath());
-						listener.onResourceChange(file);
-					}
+				if (async) {// 修改成从world主线程更新
+					changes.add(new Change() {
+						{
+							this.l = listener;
+							this.f = file;
+						}
+					});
+					this.dirty = true;
+				} else {
+					// Logger.debug(LoggerFunction.LOADING, "Resource Load："
+					// + file.getPath());
+					listener.onResourceChange(file);
+				}
 
-					File listened_file = getMappingFile(listener.listenedFile());
-					Long last = lastModif.get(listened_file);
-					if (last == null || modif > last) {
-						lastModif.put(listened_file, modif);
-					}
-				} catch (Exception e) {
-					// TODO 记录LOG
+				File listened_file = listener.listenedFile();
+				Long last = lastModif.get(listened_file);
+				if (last == null || modif > last) {
+					lastModif.put(listened_file, modif);
 				}
 			}
 		}
@@ -348,12 +284,14 @@ public class ResourceManager implements Runnable {
 	}
 
 	/**
-	 * 是否被屏蔽加载
+	 * 是否被屏蔽加载<br>
+	 * 如果为屏蔽的文件,将不检测其变动
 	 * 
 	 * @param file
-	 * @return
+	 *            文件
+	 * @return true:不监测文件,false:监测
 	 */
-	public boolean isFileIgnored(File file) {
+	private boolean isFileIgnored(File file) {
 		for (String s : IGNORE_FILE) {
 			if (s.equals(file.getName())) {// skip igore file name
 				return true;

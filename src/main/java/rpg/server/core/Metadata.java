@@ -134,13 +134,9 @@ public class Metadata {
 		return null;
 	}
 
-	/**
-	 * @return the uitemplate
-	 */
-	public String getUitemplate() {
-		return uitemplate;
-	}
-
+	// ********************************************
+	// **********get set
+	// ********************************************
 	public String getClassify() {
 		return classify;
 	}
@@ -151,6 +147,10 @@ public class Metadata {
 
 	public String getName() {
 		return name;
+	}
+
+	public String getUitemplate() {
+		return uitemplate;
 	}
 
 	public Map<String, MetadataParam> getParams() {

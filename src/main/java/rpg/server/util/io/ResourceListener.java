@@ -7,11 +7,6 @@ import java.io.File;
  * 
  */
 public interface ResourceListener {
-	/**
-	 * 监听的资源文件路径，或者资源文件引用
-	 * 
-	 * @return
-	 */
 	File listenedFile();
 
 	/**

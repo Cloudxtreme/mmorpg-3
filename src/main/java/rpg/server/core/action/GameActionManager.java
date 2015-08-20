@@ -9,6 +9,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import rpg.server.core.Metadata;
+import rpg.server.core.World;
 import rpg.server.util.io.ResourceListener;
 import rpg.server.util.io.ResourceManager;
 import rpg.server.util.io.XmlReader;
@@ -25,7 +26,7 @@ public class GameActionManager {
 			ActionType.class);
 
 	/** 资源文件名称 */
-	private static final String RES = "actionMeta.xml";
+	private static final String RES = "actionConfig.xml";
 
 	private static final GameActionManager instance = new GameActionManager();
 
@@ -53,15 +54,11 @@ public class GameActionManager {
 	/**
 	 * 加载元数据配置
 	 * 
-	 * @param path
+	 * @throws Exception
 	 */
-	public void load(String path) {
-		final File file = new File(path, RES);
-		try {
-			load(file);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+	public void load() throws Exception {
+		final File file = new File(World.getInstance().getResPath(), RES);
+		load(file);
 		ResourceManager.getInstance().registerResourceListener(
 				new ResourceListener() {
 
@@ -75,11 +72,6 @@ public class GameActionManager {
 
 					public File listenedFile() {
 						return file;
-					}
-
-					@Override
-					public String toString() {
-						return "actionMeta";
 					}
 				});
 	}

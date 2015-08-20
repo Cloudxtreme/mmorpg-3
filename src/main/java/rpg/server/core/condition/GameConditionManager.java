@@ -8,6 +8,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import rpg.server.core.Metadata;
+import rpg.server.core.World;
 import rpg.server.util.io.ResourceListener;
 import rpg.server.util.io.ResourceManager;
 import rpg.server.util.io.XmlReader;
@@ -23,7 +24,7 @@ public class GameConditionManager {
 	private Map<ConditionType, Metadata> typemappings = new EnumMap<ConditionType, Metadata>(
 			ConditionType.class);
 
-	private static final String RES = "conditionMeta.xml";
+	private static final String RES = "conditionConfig.xml";
 
 	private static final GameConditionManager instance = new GameConditionManager();
 
@@ -51,16 +52,11 @@ public class GameConditionManager {
 	/**
 	 * 加载元数据配置
 	 * 
-	 * @param path
+	 * @throws Exception
 	 */
-	public void load(String path) {
-		final File file = new File(path, RES);
-		try {
-			load(file);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void load() throws Exception {
+		final File file = new File(World.getInstance().getResPath(), RES);
+		load(file);
 		ResourceManager.getInstance().registerResourceListener(
 				new ResourceListener() {
 
@@ -76,10 +72,6 @@ public class GameConditionManager {
 						return file;
 					}
 
-					@Override
-					public String toString() {
-						return "conditionMeta";
-					}
 				});
 	}
 

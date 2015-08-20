@@ -10,28 +10,10 @@ public enum ActionType {
 	// *******************************************
 	// *************GameObject
 	// *******************************************
-	/** 发送公告 */
-	GOB_ANNOUNCEMENT,
-	/** 分区标识 */
-	GOB_SUBGAME,
-	/** 复活 */
-	GOB_RELIVE,
 	/** 设置HP和MP值 */
 	GOB_HPMP_CHANGE,
-	/** 设置活力值 */
-	GOB_VIGOR_CHANGE,
 	/** 设置属性 */
 	GOB_ATTR_CHANGE,
-	/** 元素属性变化（涉及其它元素的调整，故不能公用普通属性变化的算法） */
-	GOB_ELEMENT_CHANGE,
-	/** 元素属性调和 */
-	GOB_ELEMENT_RECONCILE,
-	/** 元素属性反转 */
-	GOB_ELEMENT_ROTATION,
-	/** 设置状态 */
-	GOB_STATE_CHANGE,
-	/** 设置开关（单个） */
-	GOB_SWITCH_SET,
 	/** 设置名称 */
 	GOB_NAME_SET,
 	/** 设置等级 */
@@ -144,36 +126,26 @@ public enum ActionType {
 
 	QUEST_PET,
 	/**
-	 * 任务给予,随机 
+	 * 任务给予,随机
 	 */
 	QUEST_GIVE_RANDOM,
 	// *******************************************
 	// *************角色相关
 	// *******************************************
-	/** 货币修改 */
-	ROLE_MODIF_CURRENCY,
+	/** 增加货币 */
+	PLAYER_CURRENCY_ADD,
 	/** 属性变更 */
-	ROLE_ATTR,
-	/** 属性计算公式设定 */
-	ROLE_ATTR_FORMULA_SET,
+	PLAYER_ATTR,
 	/** 发送消息提示框 */
-	ROLE_MSG,
+	PLAYER_MSG,
 	/** 发送提示语 */
-	ROLE_HINT,
+	PLAYER_HINT,
 	/** 按公式获得货币 */
-	ROLE_INCREASE_CURRENCY_FORMULA,
+	PLAYER_INCREASE_CURRENCY_FORMULA,
 	/** 按公式获得经验 */
-	ROLE_INCREASE_EXP_FORMULA,
-	/** 激活码 */
-	ROLE_ACTIVATION_CODE,
+	PLAYER_INCREASE_EXP_FORMULA,
 	/** 点数重置 */
-	ROLE_POINT_RESET,
-	/** 角色相关操作 */
-	ROLE_ACTION,
-	/** 角色转生 */
-	ROLE_REINCARNATION,
-	/**打开拼图UI*/
-	ROLE_PINTU,
+	PLAYER_POINT_RESET,
 	// *******************************************
 	// *************buff相关
 	// *******************************************
@@ -381,9 +353,9 @@ public enum ActionType {
 	SS_EFFECT_BUFF_ADD_BYRATE,
 	/** 加buff 给指定方全体加buff（附带概率） */
 	SS_EFFECT_BUFF_ADD_FORALL_BYRATE,
-	/** 对目标无视防御无视命中公式的，百分比掉血一击*/
+	/** 对目标无视防御无视命中公式的，百分比掉血一击 */
 	SS_EFFECT_HPPER_DAMAGE,
-	/** 自己替队友吸收伤害，并反弹该伤害（忠犬+镜之精灵）*/
+	/** 自己替队友吸收伤害，并反弹该伤害（忠犬+镜之精灵） */
 	SS_EFFECT_ZHONGQUAN_JINGZHIJINGLING,
 	// *******************************************
 	// *************宠物相关
@@ -479,9 +451,9 @@ public enum ActionType {
 	LATTICE_INSTANCE_MENU_INFO,
 	/** 格子类型：战斗 */
 	LATTICE_INSTANCE_BATTLE,
-	/** 与4撸副本的小boss开战*/
+	/** 与4撸副本的小boss开战 */
 	ROAD_INSTANCE_FIGHT_ROAD_BOSS,
-	/** 与4撸副本的大boss开战*/
+	/** 与4撸副本的大boss开战 */
 	ROAD_INSTANCE_FIGHT_BIG_BOSS,
 
 	// *******************************************
@@ -623,7 +595,7 @@ public enum ActionType {
 	// 离线战斗UI
 	TRAINING_UI,
 	/**
-	 * 翻牌游戏 
+	 * 翻牌游戏
 	 */
 	CARD_GAME,
 	// *******************************************
@@ -688,7 +660,7 @@ public enum ActionType {
 	 */
 	CAMP_BATTLE_NPCBATTLE,
 	/**
-	 * 阵营战日榜 
+	 * 阵营战日榜
 	 */
 	CAMP_BATTLE_DAY,
 	// *******************************************
@@ -704,7 +676,7 @@ public enum ActionType {
 	FASHION_CHANGE_PLAYER_IMAGE,
 
 	FASHION_CHANGE_PLAYER_IMAGE_CANCEL,
-	
+
 	/** 打开人物形象界面 */
 	FASHION_IMAGE_UI,
 
