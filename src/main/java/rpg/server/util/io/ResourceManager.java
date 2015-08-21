@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 资源加载/更新检测器
+ * 资源监听管理
  */
 public class ResourceManager implements Runnable {
 
@@ -21,12 +21,6 @@ public class ResourceManager implements Runnable {
 	 * 屏蔽更新的文件列表，在有local标识存在的分区，如果local里存在和通用资源相同的文件，需要将通用资源放入屏蔽列表，不检测更新
 	 */
 	List<File> ignoredFileList = new ArrayList<File>();
-
-	/**
-	 * The default delay between every file modification check, set to 60
-	 * seconds.
-	 */
-	static final long DEFAULT_DELAY = 60 * 1000;
 
 	/** 单利模式 */
 	private static final ResourceManager instance = new ResourceManager();
@@ -40,7 +34,7 @@ public class ResourceManager implements Runnable {
 	/**
 	 * 文件修改时间<br>
 	 * 根据修改时间来判断文件是否有变动<br>
-	 * key:文件 value:修改时间
+	 * key:文件 value:最后修改时间
 	 * 
 	 */
 	private Map<File, Long> lastModif = new HashMap<File, Long>();
@@ -112,8 +106,11 @@ public class ResourceManager implements Runnable {
 	}
 
 	/**
+	 * 获取最后一次修改时间<br>
+	 * 如果是文件夹的话,则用其中的文件的最后修改时间
 	 * 
 	 * @param file
+	 *            文件
 	 * @param lastModified
 	 * @return
 	 */
@@ -143,17 +140,6 @@ public class ResourceManager implements Runnable {
 	}
 
 	/**
-	 * 检测资源变化
-	 * 
-	 * @param listener
-	 *            资源监听器
-	 */
-	private void checkChange(ResourceListener listener) {
-		File listened_file = listener.listenedFile();
-		checkChange(listened_file, listener, lastModif.get(listened_file), true);
-	}
-
-	/**
 	 * 加载资源
 	 * 
 	 * @param listener
@@ -180,26 +166,6 @@ public class ResourceManager implements Runnable {
 					return true;
 				} else
 					return false;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * 更新单个资源
-	 * 
-	 * @param listernerId
-	 * @param force
-	 * 
-	 */
-	public boolean checkChange(String listernerId, boolean force) {
-		for (ResourceListener l : resources.values()) {
-			if (l.toString().equals(listernerId)) {
-				if (force)
-					loadResource(l);
-				else
-					checkChange(l);
-				return true;
 			}
 		}
 		return false;
