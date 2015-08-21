@@ -10,6 +10,7 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import rpg.server.util.NumberUtil;
 import rpg.server.util.log.Log;
 
 public class NetHandler extends ChannelInboundHandlerAdapter {
@@ -94,5 +95,10 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 
 	public int getReceiveSize() {
 		return datas.size();
+	}
+
+	private void handleIncoming(byte[] msgbuf) {
+		int mid = NumberUtil.bytesToInt(msgbuf, 4);
+		Log.net.debug("rec client msg.id:{}", mid);
 	}
 }

@@ -8,37 +8,1283 @@ public final class Account {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  public interface D_HUMANOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.D_HUMAN)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    boolean hasId();
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    long getId();
+
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    boolean hasName();
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    java.lang.String getName();
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>optional int32 profession = 3;</code>
+     *
+     * <pre>
+     *职业
+     * </pre>
+     */
+    boolean hasProfession();
+    /**
+     * <code>optional int32 profession = 3;</code>
+     *
+     * <pre>
+     *职业
+     * </pre>
+     */
+    int getProfession();
+
+    /**
+     * <code>optional int32 level = 4;</code>
+     *
+     * <pre>
+     *等级
+     * </pre>
+     */
+    boolean hasLevel();
+    /**
+     * <code>optional int32 level = 4;</code>
+     *
+     * <pre>
+     *等级
+     * </pre>
+     */
+    int getLevel();
+
+    /**
+     * <code>optional int32 sex = 5;</code>
+     *
+     * <pre>
+     *性别
+     * </pre>
+     */
+    boolean hasSex();
+    /**
+     * <code>optional int32 sex = 5;</code>
+     *
+     * <pre>
+     *性别
+     * </pre>
+     */
+    int getSex();
+  }
+  /**
+   * Protobuf type {@code rpg.server.gen.proto.D_HUMAN}
+   *
+   * <pre>
+   *角色信息
+   * </pre>
+   */
+  public static final class D_HUMAN extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rpg.server.gen.proto.D_HUMAN)
+      D_HUMANOrBuilder {
+    // Use D_HUMAN.newBuilder() to construct.
+    private D_HUMAN(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private D_HUMAN(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final D_HUMAN defaultInstance;
+    public static D_HUMAN getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public D_HUMAN getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private D_HUMAN(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              name_ = bs;
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              profession_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              level_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              sex_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_D_HUMAN_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_D_HUMAN_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rpg.server.gen.proto.Account.D_HUMAN.class, rpg.server.gen.proto.Account.D_HUMAN.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<D_HUMAN> PARSER =
+        new com.google.protobuf.AbstractParser<D_HUMAN>() {
+      public D_HUMAN parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new D_HUMAN(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<D_HUMAN> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    public long getId() {
+      return id_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private java.lang.Object name_;
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROFESSION_FIELD_NUMBER = 3;
+    private int profession_;
+    /**
+     * <code>optional int32 profession = 3;</code>
+     *
+     * <pre>
+     *职业
+     * </pre>
+     */
+    public boolean hasProfession() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 profession = 3;</code>
+     *
+     * <pre>
+     *职业
+     * </pre>
+     */
+    public int getProfession() {
+      return profession_;
+    }
+
+    public static final int LEVEL_FIELD_NUMBER = 4;
+    private int level_;
+    /**
+     * <code>optional int32 level = 4;</code>
+     *
+     * <pre>
+     *等级
+     * </pre>
+     */
+    public boolean hasLevel() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 level = 4;</code>
+     *
+     * <pre>
+     *等级
+     * </pre>
+     */
+    public int getLevel() {
+      return level_;
+    }
+
+    public static final int SEX_FIELD_NUMBER = 5;
+    private int sex_;
+    /**
+     * <code>optional int32 sex = 5;</code>
+     *
+     * <pre>
+     *性别
+     * </pre>
+     */
+    public boolean hasSex() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 sex = 5;</code>
+     *
+     * <pre>
+     *性别
+     * </pre>
+     */
+    public int getSex() {
+      return sex_;
+    }
+
+    private void initFields() {
+      id_ = 0L;
+      name_ = "";
+      profession_ = 0;
+      level_ = 0;
+      sex_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, profession_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, level_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, sex_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, profession_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, level_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, sex_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rpg.server.gen.proto.Account.D_HUMAN parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.D_HUMAN parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rpg.server.gen.proto.Account.D_HUMAN prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rpg.server.gen.proto.D_HUMAN}
+     *
+     * <pre>
+     *角色信息
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rpg.server.gen.proto.D_HUMAN)
+        rpg.server.gen.proto.Account.D_HUMANOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_D_HUMAN_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_D_HUMAN_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rpg.server.gen.proto.Account.D_HUMAN.class, rpg.server.gen.proto.Account.D_HUMAN.Builder.class);
+      }
+
+      // Construct using rpg.server.gen.proto.Account.D_HUMAN.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        profession_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        level_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        sex_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_D_HUMAN_descriptor;
+      }
+
+      public rpg.server.gen.proto.Account.D_HUMAN getDefaultInstanceForType() {
+        return rpg.server.gen.proto.Account.D_HUMAN.getDefaultInstance();
+      }
+
+      public rpg.server.gen.proto.Account.D_HUMAN build() {
+        rpg.server.gen.proto.Account.D_HUMAN result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rpg.server.gen.proto.Account.D_HUMAN buildPartial() {
+        rpg.server.gen.proto.Account.D_HUMAN result = new rpg.server.gen.proto.Account.D_HUMAN(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.profession_ = profession_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.level_ = level_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.sex_ = sex_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rpg.server.gen.proto.Account.D_HUMAN) {
+          return mergeFrom((rpg.server.gen.proto.Account.D_HUMAN)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rpg.server.gen.proto.Account.D_HUMAN other) {
+        if (other == rpg.server.gen.proto.Account.D_HUMAN.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000002;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasProfession()) {
+          setProfession(other.getProfession());
+        }
+        if (other.hasLevel()) {
+          setLevel(other.getLevel());
+        }
+        if (other.hasSex()) {
+          setSex(other.getSex());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasId()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rpg.server.gen.proto.Account.D_HUMAN parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rpg.server.gen.proto.Account.D_HUMAN) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long id_ ;
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public Builder setId(long value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int profession_ ;
+      /**
+       * <code>optional int32 profession = 3;</code>
+       *
+       * <pre>
+       *职业
+       * </pre>
+       */
+      public boolean hasProfession() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 profession = 3;</code>
+       *
+       * <pre>
+       *职业
+       * </pre>
+       */
+      public int getProfession() {
+        return profession_;
+      }
+      /**
+       * <code>optional int32 profession = 3;</code>
+       *
+       * <pre>
+       *职业
+       * </pre>
+       */
+      public Builder setProfession(int value) {
+        bitField0_ |= 0x00000004;
+        profession_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 profession = 3;</code>
+       *
+       * <pre>
+       *职业
+       * </pre>
+       */
+      public Builder clearProfession() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        profession_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int level_ ;
+      /**
+       * <code>optional int32 level = 4;</code>
+       *
+       * <pre>
+       *等级
+       * </pre>
+       */
+      public boolean hasLevel() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 level = 4;</code>
+       *
+       * <pre>
+       *等级
+       * </pre>
+       */
+      public int getLevel() {
+        return level_;
+      }
+      /**
+       * <code>optional int32 level = 4;</code>
+       *
+       * <pre>
+       *等级
+       * </pre>
+       */
+      public Builder setLevel(int value) {
+        bitField0_ |= 0x00000008;
+        level_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 level = 4;</code>
+       *
+       * <pre>
+       *等级
+       * </pre>
+       */
+      public Builder clearLevel() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        level_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int sex_ ;
+      /**
+       * <code>optional int32 sex = 5;</code>
+       *
+       * <pre>
+       *性别
+       * </pre>
+       */
+      public boolean hasSex() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 sex = 5;</code>
+       *
+       * <pre>
+       *性别
+       * </pre>
+       */
+      public int getSex() {
+        return sex_;
+      }
+      /**
+       * <code>optional int32 sex = 5;</code>
+       *
+       * <pre>
+       *性别
+       * </pre>
+       */
+      public Builder setSex(int value) {
+        bitField0_ |= 0x00000010;
+        sex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 sex = 5;</code>
+       *
+       * <pre>
+       *性别
+       * </pre>
+       */
+      public Builder clearSex() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        sex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.D_HUMAN)
+    }
+
+    static {
+      defaultInstance = new D_HUMAN(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.D_HUMAN)
+  }
+
   public interface C_LOGINOrBuilder extends
       // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.C_LOGIN)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required string account = 1;</code>
+     *
+     * <pre>
+     *平台账号
+     * </pre>
      */
     boolean hasAccount();
     /**
      * <code>required string account = 1;</code>
+     *
+     * <pre>
+     *平台账号
+     * </pre>
      */
     java.lang.String getAccount();
     /**
      * <code>required string account = 1;</code>
+     *
+     * <pre>
+     *平台账号
+     * </pre>
      */
     com.google.protobuf.ByteString
         getAccountBytes();
 
     /**
-     * <code>required string name = 2;</code>
+     * <code>optional string token = 2;</code>
+     *
+     * <pre>
+     *登陆Token
+     * </pre>
      */
-    boolean hasName();
+    boolean hasToken();
     /**
-     * <code>required string name = 2;</code>
+     * <code>optional string token = 2;</code>
+     *
+     * <pre>
+     *登陆Token
+     * </pre>
      */
-    java.lang.String getName();
+    java.lang.String getToken();
     /**
-     * <code>required string name = 2;</code>
+     * <code>optional string token = 2;</code>
+     *
+     * <pre>
+     *登陆Token
+     * </pre>
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getTokenBytes();
+
+    /**
+     * <code>optional string channel = 3;</code>
+     *
+     * <pre>
+     *渠道
+     * </pre>
+     */
+    boolean hasChannel();
+    /**
+     * <code>optional string channel = 3;</code>
+     *
+     * <pre>
+     *渠道
+     * </pre>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>optional string channel = 3;</code>
+     *
+     * <pre>
+     *渠道
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
+     * <code>optional string client_version = 4;</code>
+     *
+     * <pre>
+     *客户端版本号
+     * </pre>
+     */
+    boolean hasClientVersion();
+    /**
+     * <code>optional string client_version = 4;</code>
+     *
+     * <pre>
+     *客户端版本号
+     * </pre>
+     */
+    java.lang.String getClientVersion();
+    /**
+     * <code>optional string client_version = 4;</code>
+     *
+     * <pre>
+     *客户端版本号
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getClientVersionBytes();
+
+    /**
+     * <code>optional int32 res_version = 5;</code>
+     *
+     * <pre>
+     *资源版本号
+     * </pre>
+     */
+    boolean hasResVersion();
+    /**
+     * <code>optional int32 res_version = 5;</code>
+     *
+     * <pre>
+     *资源版本号
+     * </pre>
+     */
+    int getResVersion();
+
+    /**
+     * <code>optional string device = 6;</code>
+     *
+     * <pre>
+     *设备唯一标识
+     * </pre>
+     */
+    boolean hasDevice();
+    /**
+     * <code>optional string device = 6;</code>
+     *
+     * <pre>
+     *设备唯一标识
+     * </pre>
+     */
+    java.lang.String getDevice();
+    /**
+     * <code>optional string device = 6;</code>
+     *
+     * <pre>
+     *设备唯一标识
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getDeviceBytes();
+
+    /**
+     * <code>optional string ua = 7;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    boolean hasUa();
+    /**
+     * <code>optional string ua = 7;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    java.lang.String getUa();
+    /**
+     * <code>optional string ua = 7;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getUaBytes();
+
+    /**
+     * <code>optional string os = 8;</code>
+     *
+     * <pre>
+     *操作系统
+     * </pre>
+     */
+    boolean hasOs();
+    /**
+     * <code>optional string os = 8;</code>
+     *
+     * <pre>
+     *操作系统
+     * </pre>
+     */
+    java.lang.String getOs();
+    /**
+     * <code>optional string os = 8;</code>
+     *
+     * <pre>
+     *操作系统
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getOsBytes();
+
+    /**
+     * <code>optional string model = 9;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    boolean hasModel();
+    /**
+     * <code>optional string model = 9;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    java.lang.String getModel();
+    /**
+     * <code>optional string model = 9;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getModelBytes();
+
+    /**
+     * <code>optional string screen = 10;</code>
+     *
+     * <pre>
+     *屏幕尺寸
+     * </pre>
+     */
+    boolean hasScreen();
+    /**
+     * <code>optional string screen = 10;</code>
+     *
+     * <pre>
+     *屏幕尺寸
+     * </pre>
+     */
+    java.lang.String getScreen();
+    /**
+     * <code>optional string screen = 10;</code>
+     *
+     * <pre>
+     *屏幕尺寸
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getScreenBytes();
+
+    /**
+     * <code>optional int32 partitionId = 11;</code>
+     *
+     * <pre>
+     *分区Id
+     * </pre>
+     */
+    boolean hasPartitionId();
+    /**
+     * <code>optional int32 partitionId = 11;</code>
+     *
+     * <pre>
+     *分区Id
+     * </pre>
+     */
+    int getPartitionId();
+
+    /**
+     * <code>optional string deviceType = 12;</code>
+     *
+     * <pre>
+     *设备类型
+     * </pre>
+     */
+    boolean hasDeviceType();
+    /**
+     * <code>optional string deviceType = 12;</code>
+     *
+     * <pre>
+     *设备类型
+     * </pre>
+     */
+    java.lang.String getDeviceType();
+    /**
+     * <code>optional string deviceType = 12;</code>
+     *
+     * <pre>
+     *设备类型
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getDeviceTypeBytes();
   }
   /**
    * Protobuf type {@code rpg.server.gen.proto.C_LOGIN}
@@ -105,7 +1351,65 @@ public final class Account {
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              name_ = bs;
+              token_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              channel_ = bs;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              clientVersion_ = bs;
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              resVersion_ = input.readInt32();
+              break;
+            }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              device_ = bs;
+              break;
+            }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              ua_ = bs;
+              break;
+            }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000080;
+              os_ = bs;
+              break;
+            }
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000100;
+              model_ = bs;
+              break;
+            }
+            case 82: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000200;
+              screen_ = bs;
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              partitionId_ = input.readInt32();
+              break;
+            }
+            case 98: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000800;
+              deviceType_ = bs;
               break;
             }
           }
@@ -152,12 +1456,20 @@ public final class Account {
     private java.lang.Object account_;
     /**
      * <code>required string account = 1;</code>
+     *
+     * <pre>
+     *平台账号
+     * </pre>
      */
     public boolean hasAccount() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required string account = 1;</code>
+     *
+     * <pre>
+     *平台账号
+     * </pre>
      */
     public java.lang.String getAccount() {
       java.lang.Object ref = account_;
@@ -175,6 +1487,10 @@ public final class Account {
     }
     /**
      * <code>required string account = 1;</code>
+     *
+     * <pre>
+     *平台账号
+     * </pre>
      */
     public com.google.protobuf.ByteString
         getAccountBytes() {
@@ -190,19 +1506,27 @@ public final class Account {
       }
     }
 
-    public static final int NAME_FIELD_NUMBER = 2;
-    private java.lang.Object name_;
+    public static final int TOKEN_FIELD_NUMBER = 2;
+    private java.lang.Object token_;
     /**
-     * <code>required string name = 2;</code>
+     * <code>optional string token = 2;</code>
+     *
+     * <pre>
+     *登陆Token
+     * </pre>
      */
-    public boolean hasName() {
+    public boolean hasToken() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string name = 2;</code>
+     * <code>optional string token = 2;</code>
+     *
+     * <pre>
+     *登陆Token
+     * </pre>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -210,22 +1534,504 @@ public final class Account {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          name_ = s;
+          token_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string name = 2;</code>
+     * <code>optional string token = 2;</code>
+     *
+     * <pre>
+     *登陆Token
+     * </pre>
      */
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getTokenBytes() {
+      java.lang.Object ref = token_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CHANNEL_FIELD_NUMBER = 3;
+    private java.lang.Object channel_;
+    /**
+     * <code>optional string channel = 3;</code>
+     *
+     * <pre>
+     *渠道
+     * </pre>
+     */
+    public boolean hasChannel() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string channel = 3;</code>
+     *
+     * <pre>
+     *渠道
+     * </pre>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          channel_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string channel = 3;</code>
+     *
+     * <pre>
+     *渠道
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CLIENT_VERSION_FIELD_NUMBER = 4;
+    private java.lang.Object clientVersion_;
+    /**
+     * <code>optional string client_version = 4;</code>
+     *
+     * <pre>
+     *客户端版本号
+     * </pre>
+     */
+    public boolean hasClientVersion() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional string client_version = 4;</code>
+     *
+     * <pre>
+     *客户端版本号
+     * </pre>
+     */
+    public java.lang.String getClientVersion() {
+      java.lang.Object ref = clientVersion_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          clientVersion_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string client_version = 4;</code>
+     *
+     * <pre>
+     *客户端版本号
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getClientVersionBytes() {
+      java.lang.Object ref = clientVersion_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RES_VERSION_FIELD_NUMBER = 5;
+    private int resVersion_;
+    /**
+     * <code>optional int32 res_version = 5;</code>
+     *
+     * <pre>
+     *资源版本号
+     * </pre>
+     */
+    public boolean hasResVersion() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 res_version = 5;</code>
+     *
+     * <pre>
+     *资源版本号
+     * </pre>
+     */
+    public int getResVersion() {
+      return resVersion_;
+    }
+
+    public static final int DEVICE_FIELD_NUMBER = 6;
+    private java.lang.Object device_;
+    /**
+     * <code>optional string device = 6;</code>
+     *
+     * <pre>
+     *设备唯一标识
+     * </pre>
+     */
+    public boolean hasDevice() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional string device = 6;</code>
+     *
+     * <pre>
+     *设备唯一标识
+     * </pre>
+     */
+    public java.lang.String getDevice() {
+      java.lang.Object ref = device_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          device_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string device = 6;</code>
+     *
+     * <pre>
+     *设备唯一标识
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getDeviceBytes() {
+      java.lang.Object ref = device_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        device_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int UA_FIELD_NUMBER = 7;
+    private java.lang.Object ua_;
+    /**
+     * <code>optional string ua = 7;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    public boolean hasUa() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional string ua = 7;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    public java.lang.String getUa() {
+      java.lang.Object ref = ua_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          ua_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string ua = 7;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getUaBytes() {
+      java.lang.Object ref = ua_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        ua_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OS_FIELD_NUMBER = 8;
+    private java.lang.Object os_;
+    /**
+     * <code>optional string os = 8;</code>
+     *
+     * <pre>
+     *操作系统
+     * </pre>
+     */
+    public boolean hasOs() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional string os = 8;</code>
+     *
+     * <pre>
+     *操作系统
+     * </pre>
+     */
+    public java.lang.String getOs() {
+      java.lang.Object ref = os_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          os_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string os = 8;</code>
+     *
+     * <pre>
+     *操作系统
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getOsBytes() {
+      java.lang.Object ref = os_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        os_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 9;
+    private java.lang.Object model_;
+    /**
+     * <code>optional string model = 9;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    public boolean hasModel() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional string model = 9;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    public java.lang.String getModel() {
+      java.lang.Object ref = model_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          model_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string model = 9;</code>
+     *
+     * <pre>
+     *设备型号
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getModelBytes() {
+      java.lang.Object ref = model_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        model_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCREEN_FIELD_NUMBER = 10;
+    private java.lang.Object screen_;
+    /**
+     * <code>optional string screen = 10;</code>
+     *
+     * <pre>
+     *屏幕尺寸
+     * </pre>
+     */
+    public boolean hasScreen() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <code>optional string screen = 10;</code>
+     *
+     * <pre>
+     *屏幕尺寸
+     * </pre>
+     */
+    public java.lang.String getScreen() {
+      java.lang.Object ref = screen_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          screen_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string screen = 10;</code>
+     *
+     * <pre>
+     *屏幕尺寸
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getScreenBytes() {
+      java.lang.Object ref = screen_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        screen_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PARTITIONID_FIELD_NUMBER = 11;
+    private int partitionId_;
+    /**
+     * <code>optional int32 partitionId = 11;</code>
+     *
+     * <pre>
+     *分区Id
+     * </pre>
+     */
+    public boolean hasPartitionId() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional int32 partitionId = 11;</code>
+     *
+     * <pre>
+     *分区Id
+     * </pre>
+     */
+    public int getPartitionId() {
+      return partitionId_;
+    }
+
+    public static final int DEVICETYPE_FIELD_NUMBER = 12;
+    private java.lang.Object deviceType_;
+    /**
+     * <code>optional string deviceType = 12;</code>
+     *
+     * <pre>
+     *设备类型
+     * </pre>
+     */
+    public boolean hasDeviceType() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional string deviceType = 12;</code>
+     *
+     * <pre>
+     *设备类型
+     * </pre>
+     */
+    public java.lang.String getDeviceType() {
+      java.lang.Object ref = deviceType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          deviceType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string deviceType = 12;</code>
+     *
+     * <pre>
+     *设备类型
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getDeviceTypeBytes() {
+      java.lang.Object ref = deviceType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        deviceType_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -234,7 +2040,17 @@ public final class Account {
 
     private void initFields() {
       account_ = "";
-      name_ = "";
+      token_ = "";
+      channel_ = "";
+      clientVersion_ = "";
+      resVersion_ = 0;
+      device_ = "";
+      ua_ = "";
+      os_ = "";
+      model_ = "";
+      screen_ = "";
+      partitionId_ = 0;
+      deviceType_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -243,10 +2059,6 @@ public final class Account {
       if (isInitialized == 0) return false;
 
       if (!hasAccount()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasName()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -261,7 +2073,37 @@ public final class Account {
         output.writeBytes(1, getAccountBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getNameBytes());
+        output.writeBytes(2, getTokenBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getChannelBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getClientVersionBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, resVersion_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getDeviceBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(7, getUaBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBytes(8, getOsBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBytes(9, getModelBytes());
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeBytes(10, getScreenBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeInt32(11, partitionId_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeBytes(12, getDeviceTypeBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -278,7 +2120,47 @@ public final class Account {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getNameBytes());
+          .computeBytesSize(2, getTokenBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getChannelBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getClientVersionBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, resVersion_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getDeviceBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, getUaBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(8, getOsBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, getModelBytes());
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(10, getScreenBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, partitionId_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(12, getDeviceTypeBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -403,8 +2285,28 @@ public final class Account {
         super.clear();
         account_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = "";
+        token_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        channel_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        clientVersion_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        resVersion_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        device_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        ua_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        os_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        model_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
+        screen_ = "";
+        bitField0_ = (bitField0_ & ~0x00000200);
+        partitionId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        deviceType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -440,7 +2342,47 @@ public final class Account {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.name_ = name_;
+        result.token_ = token_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.channel_ = channel_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.clientVersion_ = clientVersion_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.resVersion_ = resVersion_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.device_ = device_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.ua_ = ua_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.os_ = os_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.model_ = model_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.screen_ = screen_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.partitionId_ = partitionId_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.deviceType_ = deviceType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -462,9 +2404,55 @@ public final class Account {
           account_ = other.account_;
           onChanged();
         }
-        if (other.hasName()) {
+        if (other.hasToken()) {
           bitField0_ |= 0x00000002;
-          name_ = other.name_;
+          token_ = other.token_;
+          onChanged();
+        }
+        if (other.hasChannel()) {
+          bitField0_ |= 0x00000004;
+          channel_ = other.channel_;
+          onChanged();
+        }
+        if (other.hasClientVersion()) {
+          bitField0_ |= 0x00000008;
+          clientVersion_ = other.clientVersion_;
+          onChanged();
+        }
+        if (other.hasResVersion()) {
+          setResVersion(other.getResVersion());
+        }
+        if (other.hasDevice()) {
+          bitField0_ |= 0x00000020;
+          device_ = other.device_;
+          onChanged();
+        }
+        if (other.hasUa()) {
+          bitField0_ |= 0x00000040;
+          ua_ = other.ua_;
+          onChanged();
+        }
+        if (other.hasOs()) {
+          bitField0_ |= 0x00000080;
+          os_ = other.os_;
+          onChanged();
+        }
+        if (other.hasModel()) {
+          bitField0_ |= 0x00000100;
+          model_ = other.model_;
+          onChanged();
+        }
+        if (other.hasScreen()) {
+          bitField0_ |= 0x00000200;
+          screen_ = other.screen_;
+          onChanged();
+        }
+        if (other.hasPartitionId()) {
+          setPartitionId(other.getPartitionId());
+        }
+        if (other.hasDeviceType()) {
+          bitField0_ |= 0x00000800;
+          deviceType_ = other.deviceType_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -473,10 +2461,6 @@ public final class Account {
 
       public final boolean isInitialized() {
         if (!hasAccount()) {
-          
-          return false;
-        }
-        if (!hasName()) {
           
           return false;
         }
@@ -505,12 +2489,20 @@ public final class Account {
       private java.lang.Object account_ = "";
       /**
        * <code>required string account = 1;</code>
+       *
+       * <pre>
+       *平台账号
+       * </pre>
        */
       public boolean hasAccount() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required string account = 1;</code>
+       *
+       * <pre>
+       *平台账号
+       * </pre>
        */
       public java.lang.String getAccount() {
         java.lang.Object ref = account_;
@@ -528,6 +2520,10 @@ public final class Account {
       }
       /**
        * <code>required string account = 1;</code>
+       *
+       * <pre>
+       *平台账号
+       * </pre>
        */
       public com.google.protobuf.ByteString
           getAccountBytes() {
@@ -544,6 +2540,10 @@ public final class Account {
       }
       /**
        * <code>required string account = 1;</code>
+       *
+       * <pre>
+       *平台账号
+       * </pre>
        */
       public Builder setAccount(
           java.lang.String value) {
@@ -557,6 +2557,10 @@ public final class Account {
       }
       /**
        * <code>required string account = 1;</code>
+       *
+       * <pre>
+       *平台账号
+       * </pre>
        */
       public Builder clearAccount() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -566,6 +2570,10 @@ public final class Account {
       }
       /**
        * <code>required string account = 1;</code>
+       *
+       * <pre>
+       *平台账号
+       * </pre>
        */
       public Builder setAccountBytes(
           com.google.protobuf.ByteString value) {
@@ -578,24 +2586,32 @@ public final class Account {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object token_ = "";
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string token = 2;</code>
+       *
+       * <pre>
+       *登陆Token
+       * </pre>
        */
-      public boolean hasName() {
+      public boolean hasToken() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string token = 2;</code>
+       *
+       * <pre>
+       *登陆Token
+       * </pre>
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            name_ = s;
+            token_ = s;
           }
           return s;
         } else {
@@ -603,53 +2619,965 @@ public final class Account {
         }
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string token = 2;</code>
+       *
+       * <pre>
+       *登陆Token
+       * </pre>
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getTokenBytes() {
+        java.lang.Object ref = token_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          token_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string token = 2;</code>
+       *
+       * <pre>
+       *登陆Token
+       * </pre>
        */
-      public Builder setName(
+      public Builder setToken(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        name_ = value;
+        token_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string token = 2;</code>
+       *
+       * <pre>
+       *登陆Token
+       * </pre>
        */
-      public Builder clearName() {
+      public Builder clearToken() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        name_ = getDefaultInstance().getName();
+        token_ = getDefaultInstance().getToken();
         onChanged();
         return this;
       }
       /**
-       * <code>required string name = 2;</code>
+       * <code>optional string token = 2;</code>
+       *
+       * <pre>
+       *登陆Token
+       * </pre>
        */
-      public Builder setNameBytes(
+      public Builder setTokenBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        name_ = value;
+        token_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>optional string channel = 3;</code>
+       *
+       * <pre>
+       *渠道
+       * </pre>
+       */
+      public boolean hasChannel() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string channel = 3;</code>
+       *
+       * <pre>
+       *渠道
+       * </pre>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            channel_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string channel = 3;</code>
+       *
+       * <pre>
+       *渠道
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string channel = 3;</code>
+       *
+       * <pre>
+       *渠道
+       * </pre>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string channel = 3;</code>
+       *
+       * <pre>
+       *渠道
+       * </pre>
+       */
+      public Builder clearChannel() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string channel = 3;</code>
+       *
+       * <pre>
+       *渠道
+       * </pre>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object clientVersion_ = "";
+      /**
+       * <code>optional string client_version = 4;</code>
+       *
+       * <pre>
+       *客户端版本号
+       * </pre>
+       */
+      public boolean hasClientVersion() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string client_version = 4;</code>
+       *
+       * <pre>
+       *客户端版本号
+       * </pre>
+       */
+      public java.lang.String getClientVersion() {
+        java.lang.Object ref = clientVersion_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            clientVersion_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string client_version = 4;</code>
+       *
+       * <pre>
+       *客户端版本号
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getClientVersionBytes() {
+        java.lang.Object ref = clientVersion_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          clientVersion_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string client_version = 4;</code>
+       *
+       * <pre>
+       *客户端版本号
+       * </pre>
+       */
+      public Builder setClientVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        clientVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string client_version = 4;</code>
+       *
+       * <pre>
+       *客户端版本号
+       * </pre>
+       */
+      public Builder clearClientVersion() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        clientVersion_ = getDefaultInstance().getClientVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string client_version = 4;</code>
+       *
+       * <pre>
+       *客户端版本号
+       * </pre>
+       */
+      public Builder setClientVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        clientVersion_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int resVersion_ ;
+      /**
+       * <code>optional int32 res_version = 5;</code>
+       *
+       * <pre>
+       *资源版本号
+       * </pre>
+       */
+      public boolean hasResVersion() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 res_version = 5;</code>
+       *
+       * <pre>
+       *资源版本号
+       * </pre>
+       */
+      public int getResVersion() {
+        return resVersion_;
+      }
+      /**
+       * <code>optional int32 res_version = 5;</code>
+       *
+       * <pre>
+       *资源版本号
+       * </pre>
+       */
+      public Builder setResVersion(int value) {
+        bitField0_ |= 0x00000010;
+        resVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 res_version = 5;</code>
+       *
+       * <pre>
+       *资源版本号
+       * </pre>
+       */
+      public Builder clearResVersion() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        resVersion_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object device_ = "";
+      /**
+       * <code>optional string device = 6;</code>
+       *
+       * <pre>
+       *设备唯一标识
+       * </pre>
+       */
+      public boolean hasDevice() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional string device = 6;</code>
+       *
+       * <pre>
+       *设备唯一标识
+       * </pre>
+       */
+      public java.lang.String getDevice() {
+        java.lang.Object ref = device_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            device_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string device = 6;</code>
+       *
+       * <pre>
+       *设备唯一标识
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getDeviceBytes() {
+        java.lang.Object ref = device_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          device_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string device = 6;</code>
+       *
+       * <pre>
+       *设备唯一标识
+       * </pre>
+       */
+      public Builder setDevice(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        device_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string device = 6;</code>
+       *
+       * <pre>
+       *设备唯一标识
+       * </pre>
+       */
+      public Builder clearDevice() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        device_ = getDefaultInstance().getDevice();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string device = 6;</code>
+       *
+       * <pre>
+       *设备唯一标识
+       * </pre>
+       */
+      public Builder setDeviceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        device_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object ua_ = "";
+      /**
+       * <code>optional string ua = 7;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public boolean hasUa() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional string ua = 7;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public java.lang.String getUa() {
+        java.lang.Object ref = ua_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            ua_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string ua = 7;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getUaBytes() {
+        java.lang.Object ref = ua_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          ua_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string ua = 7;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public Builder setUa(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        ua_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ua = 7;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public Builder clearUa() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        ua_ = getDefaultInstance().getUa();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ua = 7;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public Builder setUaBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        ua_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object os_ = "";
+      /**
+       * <code>optional string os = 8;</code>
+       *
+       * <pre>
+       *操作系统
+       * </pre>
+       */
+      public boolean hasOs() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional string os = 8;</code>
+       *
+       * <pre>
+       *操作系统
+       * </pre>
+       */
+      public java.lang.String getOs() {
+        java.lang.Object ref = os_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            os_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string os = 8;</code>
+       *
+       * <pre>
+       *操作系统
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getOsBytes() {
+        java.lang.Object ref = os_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          os_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string os = 8;</code>
+       *
+       * <pre>
+       *操作系统
+       * </pre>
+       */
+      public Builder setOs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        os_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string os = 8;</code>
+       *
+       * <pre>
+       *操作系统
+       * </pre>
+       */
+      public Builder clearOs() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        os_ = getDefaultInstance().getOs();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string os = 8;</code>
+       *
+       * <pre>
+       *操作系统
+       * </pre>
+       */
+      public Builder setOsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        os_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object model_ = "";
+      /**
+       * <code>optional string model = 9;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public boolean hasModel() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional string model = 9;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public java.lang.String getModel() {
+        java.lang.Object ref = model_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            model_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string model = 9;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getModelBytes() {
+        java.lang.Object ref = model_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          model_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string model = 9;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public Builder setModel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        model_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string model = 9;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public Builder clearModel() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        model_ = getDefaultInstance().getModel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string model = 9;</code>
+       *
+       * <pre>
+       *设备型号
+       * </pre>
+       */
+      public Builder setModelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        model_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object screen_ = "";
+      /**
+       * <code>optional string screen = 10;</code>
+       *
+       * <pre>
+       *屏幕尺寸
+       * </pre>
+       */
+      public boolean hasScreen() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional string screen = 10;</code>
+       *
+       * <pre>
+       *屏幕尺寸
+       * </pre>
+       */
+      public java.lang.String getScreen() {
+        java.lang.Object ref = screen_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            screen_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string screen = 10;</code>
+       *
+       * <pre>
+       *屏幕尺寸
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getScreenBytes() {
+        java.lang.Object ref = screen_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          screen_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string screen = 10;</code>
+       *
+       * <pre>
+       *屏幕尺寸
+       * </pre>
+       */
+      public Builder setScreen(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        screen_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string screen = 10;</code>
+       *
+       * <pre>
+       *屏幕尺寸
+       * </pre>
+       */
+      public Builder clearScreen() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        screen_ = getDefaultInstance().getScreen();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string screen = 10;</code>
+       *
+       * <pre>
+       *屏幕尺寸
+       * </pre>
+       */
+      public Builder setScreenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        screen_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int partitionId_ ;
+      /**
+       * <code>optional int32 partitionId = 11;</code>
+       *
+       * <pre>
+       *分区Id
+       * </pre>
+       */
+      public boolean hasPartitionId() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional int32 partitionId = 11;</code>
+       *
+       * <pre>
+       *分区Id
+       * </pre>
+       */
+      public int getPartitionId() {
+        return partitionId_;
+      }
+      /**
+       * <code>optional int32 partitionId = 11;</code>
+       *
+       * <pre>
+       *分区Id
+       * </pre>
+       */
+      public Builder setPartitionId(int value) {
+        bitField0_ |= 0x00000400;
+        partitionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 partitionId = 11;</code>
+       *
+       * <pre>
+       *分区Id
+       * </pre>
+       */
+      public Builder clearPartitionId() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        partitionId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object deviceType_ = "";
+      /**
+       * <code>optional string deviceType = 12;</code>
+       *
+       * <pre>
+       *设备类型
+       * </pre>
+       */
+      public boolean hasDeviceType() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional string deviceType = 12;</code>
+       *
+       * <pre>
+       *设备类型
+       * </pre>
+       */
+      public java.lang.String getDeviceType() {
+        java.lang.Object ref = deviceType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            deviceType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string deviceType = 12;</code>
+       *
+       * <pre>
+       *设备类型
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getDeviceTypeBytes() {
+        java.lang.Object ref = deviceType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          deviceType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string deviceType = 12;</code>
+       *
+       * <pre>
+       *设备类型
+       * </pre>
+       */
+      public Builder setDeviceType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        deviceType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string deviceType = 12;</code>
+       *
+       * <pre>
+       *设备类型
+       * </pre>
+       */
+      public Builder clearDeviceType() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        deviceType_ = getDefaultInstance().getDeviceType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string deviceType = 12;</code>
+       *
+       * <pre>
+       *设备类型
+       * </pre>
+       */
+      public Builder setDeviceTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        deviceType_ = value;
         onChanged();
         return this;
       }
@@ -666,6 +3594,11 @@ public final class Account {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rpg_server_gen_proto_D_HUMAN_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rpg_server_gen_proto_D_HUMAN_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_rpg_server_gen_proto_C_LOGIN_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -680,8 +3613,15 @@ public final class Account {
   static {
     java.lang.String[] descriptorData = {
       "\n\rAccount.proto\022\024rpg.server.gen.proto\032\ro" +
-      "ptions.proto\".\n\007C_LOGIN\022\017\n\007account\030\001 \002(\t" +
-      "\022\014\n\004name\030\002 \002(\t:\004\210\361\004\013"
+      "ptions.proto\"S\n\007D_HUMAN\022\n\n\002id\030\001 \002(\003\022\014\n\004n" +
+      "ame\030\002 \001(\t\022\022\n\nprofession\030\003 \001(\005\022\r\n\005level\030\004" +
+      " \001(\005\022\013\n\003sex\030\005 \001(\005\"\335\001\n\007C_LOGIN\022\017\n\007account" +
+      "\030\001 \002(\t\022\r\n\005token\030\002 \001(\t\022\017\n\007channel\030\003 \001(\t\022\026" +
+      "\n\016client_version\030\004 \001(\t\022\023\n\013res_version\030\005 " +
+      "\001(\005\022\016\n\006device\030\006 \001(\t\022\n\n\002ua\030\007 \001(\t\022\n\n\002os\030\010 " +
+      "\001(\t\022\r\n\005model\030\t \001(\t\022\016\n\006screen\030\n \001(\t\022\023\n\013pa" +
+      "rtitionId\030\013 \001(\005\022\022\n\ndeviceType\030\014 \001(\t:\004\210\361\004" +
+      "\013"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -696,12 +3636,18 @@ public final class Account {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           rpg.server.gen.proto.Options.getDescriptor(),
         }, assigner);
-    internal_static_rpg_server_gen_proto_C_LOGIN_descriptor =
+    internal_static_rpg_server_gen_proto_D_HUMAN_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_rpg_server_gen_proto_D_HUMAN_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rpg_server_gen_proto_D_HUMAN_descriptor,
+        new java.lang.String[] { "Id", "Name", "Profession", "Level", "Sex", });
+    internal_static_rpg_server_gen_proto_C_LOGIN_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_rpg_server_gen_proto_C_LOGIN_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rpg_server_gen_proto_C_LOGIN_descriptor,
-        new java.lang.String[] { "Account", "Name", });
+        new java.lang.String[] { "Account", "Token", "Channel", "ClientVersion", "ResVersion", "Device", "Ua", "Os", "Model", "Screen", "PartitionId", "DeviceType", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(rpg.server.gen.proto.Options.msgid);

@@ -1,9 +1,28 @@
 import "options.proto";
 package rpg.server.gen.proto;
+//角色信息
+message D_HUMAN {
+	required int64 id = 1;				//角色ID
+	optional string name = 2;			//昵称
+	optional int32 profession = 3;		//职业
+	optional int32 level = 4;			//等级
+	optional int32 sex = 5;				//性别
+}
+
 
 //登录请求
 message C_LOGIN {
 	option (msgid) = 11;
-	required string account = 1;
-	required string name = 2;
+	required string account = 1;			//平台账号
+	optional string token = 2;				//登陆Token
+	optional string channel = 3;			//渠道
+	optional string client_version = 4;		//客户端版本号
+	optional int32 res_version = 5;			//资源版本号
+	optional string device = 6;				//设备唯一标识
+	optional string ua = 7;					//设备型号
+	optional string os = 8;					//操作系统
+	optional string model = 9;				//设备型号
+	optional string screen = 10;			//屏幕尺寸
+	optional int32 partitionId = 11;		//分区Id
+	optional string deviceType = 12;		//设备类型
 }

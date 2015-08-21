@@ -1,6 +1,6 @@
 package rpg.server.core.action;
 
-public enum ActionMode {
+enum ActionMode {
 	/** 简单动作（一元） */
 	SIMPLE,
 	/** 随机动作组（执行时随机挑选其中一个执行） */

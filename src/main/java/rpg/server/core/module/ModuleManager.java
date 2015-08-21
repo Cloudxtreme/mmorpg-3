@@ -1,4 +1,4 @@
-package rpg.server.core;
+package rpg.server.core.module;
 
 import rpg.server.util.io.ResourceListener;
 
