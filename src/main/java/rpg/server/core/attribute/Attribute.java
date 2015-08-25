@@ -5,8 +5,6 @@ import rpg.server.core.formula.SymbolResolver;
 /**
  * 属性接口
  * 
- * @author lincy
- *
  */
 public abstract class Attribute {
 

@@ -12,8 +12,6 @@ import rpg.server.util.log.Log;
  * addVal和addPer通过set方法修改 <br/>
  * 主要用于前期公式参数调整频繁的时候 <br/>
  * 
- * @author lincy
- * 
  */
 public class FormulaAttribute extends Attribute {
 

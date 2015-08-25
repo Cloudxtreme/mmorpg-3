@@ -16,8 +16,6 @@ import rpg.server.util.io.XmlUtils;
  * 相关属性 <br/>
  * 单个属性对单个下级属性的影响（主要用于显示）
  * 
- * @author lincy
- * 
  */
 public class RelatedAttr {
 

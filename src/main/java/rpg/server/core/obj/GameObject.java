@@ -10,6 +10,7 @@ import rpg.server.core.event.EventHandler;
 import rpg.server.core.event.GameEvent;
 import rpg.server.core.event.GameEventChannel;
 import rpg.server.core.event.GameEventType;
+import rpg.server.core.module.IAgent;
 import rpg.server.core.relation.AbstractRelation;
 import rpg.server.core.relation.SOBRelationTag;
 import rpg.server.core.script.GameScriptConfig;
@@ -24,13 +25,26 @@ public interface GameObject {
 
 	long getId();
 
+	String getName();
+
 	int getX();
 
 	int getY();
 
 	boolean isFriend(GameObject obj);
 
+	/**
+	 * 心跳操作
+	 */
 	void tick();
+
+	/**
+	 * 获取代理对象<br>
+	 * 
+	 * @param 代理类标识
+	 * @return 代理对象
+	 */
+	<T extends IAgent> T getAgent(Class<T> cla);
 
 	// ********************************************
 	// **********事件相关event

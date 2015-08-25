@@ -11,8 +11,6 @@ import rpg.server.util.io.XmlUtils;
 /**
  * 自定义公式属性配置
  * 
- * @author lincy
- *
  */
 public class FormulaAttrConfig extends AttrConfig {
 

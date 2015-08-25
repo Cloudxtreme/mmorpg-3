@@ -14,8 +14,6 @@ import rpg.server.util.log.Log;
 /**
  * 属性配置<br />
  * 其完整列表是从XML配置文件里读出来的
- * 
- * @author lincy
  */
 public abstract class AttrConfig {
 
