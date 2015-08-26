@@ -10,8 +10,11 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import rpg.server.module.account.AccountManager;
 import rpg.server.util.NumberUtil;
 import rpg.server.util.log.Log;
+
+import com.google.protobuf.GeneratedMessage;
 
 public class NetHandler extends ChannelInboundHandlerAdapter {
 	// 当前的全部连接
@@ -43,6 +46,7 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) {
 		this.channel = ctx.channel();
 		allChannels.add(this.channel);
+		AccountManager.getInstance().onAccept(this);
 		Log.net.info("客户端建立连接.数量:{}", allChannels.size());
 	}
 
@@ -93,8 +97,8 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 		return datas.poll();
 	}
 
-	public int getReceiveSize() {
-		return datas.size();
+	public GeneratedMessage getMsg() {
+		return null;
 	}
 
 	private void handleIncoming(byte[] msgbuf) {

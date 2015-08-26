@@ -10,7 +10,6 @@ import rpg.server.core.event.EventHandler;
 import rpg.server.core.event.GameEvent;
 import rpg.server.core.event.GameEventChannel;
 import rpg.server.core.event.GameEventType;
-import rpg.server.core.module.IAgent;
 import rpg.server.core.relation.AbstractRelation;
 import rpg.server.core.relation.SOBRelationTag;
 import rpg.server.core.script.GameScriptConfig;
@@ -38,14 +37,6 @@ public interface GameObject {
 	 */
 	void tick();
 
-	/**
-	 * 获取代理对象<br>
-	 * 
-	 * @param 代理类标识
-	 * @return 代理对象
-	 */
-	<T extends IAgent> T getAgent(Class<T> cla);
-
 	// ********************************************
 	// **********事件相关event
 	// ********************************************
@@ -61,7 +52,7 @@ public interface GameObject {
 	 *            关注的事件类型
 	 */
 	void registerEventHandler(GameEventChannel source, EventHandler handler,
-			GameEventType... type);
+			GameEventType... types);
 
 	/**
 	 * 注销事件处理器
@@ -75,7 +66,7 @@ public interface GameObject {
 	 * 
 	 */
 	void removeEventHandler(GameEventChannel source, EventHandler handler,
-			GameEventType... type);
+			GameEventType... types);
 
 	/**
 	 * 接受事件

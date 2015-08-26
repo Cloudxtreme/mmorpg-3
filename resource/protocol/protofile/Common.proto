@@ -1,0 +1,33 @@
+import "options.proto";
+package rpg.server.gen.proto;
+// -----------------------------------------
+// 没有协议,只定义一些公共的结构体
+// -----------------------------------------
+
+//2D坐标信息
+message D_VECTOR_2 {
+	optional float x = 1;				//横坐标
+	optional float y = 2;				//纵坐标
+}
+
+//3D坐标信息
+message D_VECTOR_3 {
+	optional float x = 1;				//X坐标
+	optional float y = 2;				//Y坐标
+	optional float z = 3;				//Z坐标
+}
+
+//角色信息
+message D_HUMAN {
+	required int64 id = 1;				//角色ID
+	optional string name = 2;			//昵称
+	optional int32 profession = 3;		//职业
+	optional int32 level = 4;			//等级
+	optional int32 gender = 5;			//性别
+}
+
+//地图信息
+message D_STAGE {
+	optional int64 id = 2;				//id
+	optional string name = 4;			//名称
+}

@@ -1,20 +1,26 @@
 package rpg.server.core.action;
 
-import java.util.Map;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import rpg.server.core.module.Agent;
 
 /**
- * action处理器
+ * action执行方法<br>
+ * 必须标注在代理类上才会生效<br>
+ * 方法有且仅有两种情况:<br>
+ * 1:无参<br>
+ * 2:参数为SimpleGameAction
  * 
+ * @see Agent
+ * @see SimpleGameAction
+ * @see ActionType
  */
-@FunctionalInterface
-public interface ActionHandler {
-	/**
-	 * 执行动作
-	 * 
-	 * @param action
-	 * @param vars
-	 *            临时参数表
-	 * @return 执行结果
-	 */
-	boolean doAction(SimpleGameAction action, Map<String, Object> vars);
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface ActionHandler {
+	/** 事件类型 */
+	ActionType[] type();
 }

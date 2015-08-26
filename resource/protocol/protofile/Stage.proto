@@ -1,0 +1,32 @@
+import "options.proto";
+import "Common.proto";
+package rpg.server.gen.proto;
+// -----------------------------------------
+// 地图相关 协议ID范围00101-00200
+// -----------------------------------------
+//客户端已准备好 进入地图
+message C_STAGE_ENTER {
+	option (msgid) = 101;
+}
+
+//进入地图
+message S_STAGE_ENTER_RESULT {
+	option (msgid) = 102;
+	repeated D_STAGE obj = 1;
+}
+
+//在地图上移动
+message C_MOVE {
+	option (msgid) = 103;
+	optional D_VECTOR_2 posBegin = 1;		//移动开始坐标
+	repeated D_VECTOR_2 posEnd = 2;			//目标路径坐标
+}
+
+//移动广播（群发）
+message S_MOVE {
+	option (msgid) = 104;
+	optional int64 objId = 1;				//游戏对象
+	optional D_VECTOR_2 posBegin = 2;		//移动开始坐标
+	repeated D_VECTOR_2 posEnd = 3;			//目标路径坐标
+}
+

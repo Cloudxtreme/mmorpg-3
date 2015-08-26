@@ -10,6 +10,7 @@ import org.w3c.dom.Element;
 
 import rpg.server.core.Metadata;
 import rpg.server.core.World;
+import rpg.server.util.StringUtil;
 import rpg.server.util.io.ResourceListener;
 import rpg.server.util.io.ResourceManager;
 import rpg.server.util.io.XmlReader;
@@ -22,9 +23,15 @@ import rpg.server.util.io.XmlUtils;
  */
 public class GameActionManager {
 
+	/** 元数据 */
 	private Map<ActionType, Metadata> typemappings = new EnumMap<ActionType, Metadata>(
 			ActionType.class);
-
+	/**
+	 * 协议ID与Action的对应关系<br>
+	 * 如果定义action为协议类型,则收到msg时直接执行action
+	 * 
+	 */
+	private Map<Integer, MsgActionMapping> msgActionMap = new HashMap<Integer, MsgActionMapping>();
 	/** 资源文件名称 */
 	private static final String RES = "actionConfig.xml";
 
@@ -85,10 +92,10 @@ public class GameActionManager {
 			meta.load(elem);
 			ActionType type = ActionType.valueOf(meta.getType().toUpperCase());
 			typemappings.put(type, meta);
-			CmdActionMapping cmdAction = CmdActionMapping.parseFromElem(type,
+			MsgActionMapping msgAction = MsgActionMapping.parseFromElem(type,
 					elem);
-			if (cmdAction != null) {
-				cmd_action_map.put(cmdAction.cmdId, cmdAction);
+			if (msgAction != null) {
+				msgActionMap.put(msgAction.msgId, msgAction);
 			}
 		}
 	}
@@ -103,8 +110,6 @@ public class GameActionManager {
 		return typemappings.get(type);
 	}
 
-	private Map<Integer, CmdActionMapping> cmd_action_map = new HashMap<Integer, CmdActionMapping>();
-
 	/**
 	 * Action和Cmd的Mapping，用于从cmd中解析Action<br />
 	 * 通过在action中增加几个属性节点，来实现cmd和action的映射,例如：<br />
@@ -112,11 +117,11 @@ public class GameActionManager {
 	 * @author bluesky
 	 * 
 	 */
-	static class CmdActionMapping {
-
-		ActionType action;// 动作类型
-
-		int cmdId;// 关联的cmd id
+	static class MsgActionMapping {
+		/** 动作类型 */
+		ActionType action;
+		/** 关联的协议ID */
+		int msgId;
 
 		/**
 		 * 从节点中解析，如果没有映射，返回null
@@ -125,13 +130,13 @@ public class GameActionManager {
 		 * @param elem
 		 * @return
 		 */
-		static CmdActionMapping parseFromElem(ActionType type, Element elem) {
-			String cmd = elem.getAttribute("cmd");
-			if (cmd != null && cmd.length() > 0) {
-				CmdActionMapping cmdAction = new CmdActionMapping();
-				cmdAction.action = type;
-				cmdAction.cmdId = Integer.parseInt(cmd, 16);
-				return cmdAction;
+		static MsgActionMapping parseFromElem(ActionType type, Element elem) {
+			String msgId = elem.getAttribute("msg");
+			if (StringUtil.isEmpty(msgId)) {
+				MsgActionMapping msgAction = new MsgActionMapping();
+				msgAction.action = type;
+				msgAction.msgId = Integer.parseInt(msgId, 16);
+				return msgAction;
 			} else {
 				return null;
 			}
@@ -144,8 +149,8 @@ public class GameActionManager {
 	 * @param cmdId
 	 * @return
 	 */
-	public boolean isActionCmd(int cmdId) {
-		return cmd_action_map.containsKey(cmdId);
+	public boolean isMsgAction(int msgId) {
+		return msgActionMap.containsKey(msgId);
 	}
 
 	/**
@@ -154,8 +159,8 @@ public class GameActionManager {
 	 * @param cmdId
 	 * @return
 	 */
-	CmdActionMapping getCmdAction(int cmdId) {
-		return cmd_action_map.get(cmdId);
+	MsgActionMapping getCmdAction(int msgId) {
+		return msgActionMap.get(msgId);
 	}
 
 }

@@ -1,0 +1,13 @@
+
+ù
+Stage.protorpg.server.gen.protooptions.protoCommon.proto"
+C_STAGE_ENTER:àÒe"H
+S_STAGE_ENTER_RESULT*
+obj (2.rpg.server.gen.proto.D_STAGE:àÒf"t
+C_MOVE2
+posBegin (2 .rpg.server.gen.proto.D_VECTOR_20
+posEnd (2 .rpg.server.gen.proto.D_VECTOR_2:àÒg"É
+S_MOVE
+objId (2
+posBegin (2 .rpg.server.gen.proto.D_VECTOR_20
+posEnd (2 .rpg.server.gen.proto.D_VECTOR_2:àÒh

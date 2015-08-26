@@ -1,15 +1,9 @@
 import "options.proto";
+import "Common.proto";
 package rpg.server.gen.proto;
-//角色信息
-message D_HUMAN {
-	required int64 id = 1;				//角色ID
-	optional string name = 2;			//昵称
-	optional int32 profession = 3;		//职业
-	optional int32 level = 4;			//等级
-	optional int32 sex = 5;				//性别
-}
-
-
+// -----------------------------------------
+// 账户相关 协议ID范围00001-00100
+// -----------------------------------------
 //登录请求
 message C_LOGIN {
 	option (msgid) = 11;

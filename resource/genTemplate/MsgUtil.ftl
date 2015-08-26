@@ -73,8 +73,8 @@ public class MsgUtil {
 	/**
 	 * 根据消息id解析消息
 	 */
-	public static GeneratedMessage parseFrom(int type, CodedInputStream s) throws IOException{
-		switch(type){
+	public static GeneratedMessage parseFrom(int msgId, CodedInputStream s) throws IOException{
+		switch(msgId){
 		<#list messageInfos as message>
 			case ${message.name}:
 				return ${message.className}.${message.name}.parseFrom(s);

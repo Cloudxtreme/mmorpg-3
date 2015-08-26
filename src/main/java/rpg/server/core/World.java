@@ -6,11 +6,14 @@ import rpg.server.core.action.GameActionManager;
 import rpg.server.core.condition.GameConditionManager;
 import rpg.server.core.formula.CalculatorConfig;
 import rpg.server.core.formula.FunctionLib;
+import rpg.server.core.task.TaskManager;
 import rpg.server.db.DBServer;
+import rpg.server.module.account.AccountManager;
+import rpg.server.module.stage.StageManager;
 import rpg.server.net.NetServer;
 import rpg.server.util.log.Log;
 
-public class World {
+public class World implements Runnable {
 
 	/** 服务器ID */
 	private String serverId;
@@ -18,6 +21,7 @@ public class World {
 	private String resPath;
 	/** 是否关闭 */
 	private boolean shutdown = false;
+
 	/** 单利 */
 	private static final World instance = new World();
 
@@ -92,6 +96,8 @@ public class World {
 				serverId, resPath);
 		// 载入资源
 		this.loadResource();
+		// 任务模块初始化
+		TaskManager.getInstance().init();
 		// 开启DB模块
 		DBServer.getInstance().startup();
 		// 开启网络模块
@@ -102,6 +108,23 @@ public class World {
 	private void shutdown() {
 		NetServer.getInstance().shutdown();
 		DBServer.getInstance().shutdown();
+	}
+
+	@Override
+	public void run() {
+		if (!isShutdown()) {
+			long beginTime = System.currentTimeMillis();
+			// 场景单位tick
+			StageManager.getInstance().tick();
+			// 未进入游戏玩家tick
+			AccountManager.getInstance().tick();
+			// 周期行任务
+			TaskManager.getInstance().tick();
+			long t = System.currentTimeMillis() - beginTime;
+			if (t > 500) {
+				Log.game.warn("tick:{}", t);
+			}
+		}
 	}
 
 	public boolean isShutdown() {

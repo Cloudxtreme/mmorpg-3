@@ -1,8 +1,0 @@
-import "options.proto";
-package rpg.server.gen.proto;
-
-//µÇÂ¼ÇëÇó
-message C_LOGIN_2 {
-	option (msgid) = 21;
-	required string name = 2;
-}
