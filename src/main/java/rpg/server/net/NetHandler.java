@@ -10,10 +10,12 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import rpg.server.gen.proto.MsgUtil;
 import rpg.server.module.account.AccountManager;
 import rpg.server.util.NumberUtil;
 import rpg.server.util.log.Log;
 
+import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessage;
 
 public class NetHandler extends ChannelInboundHandlerAdapter {
@@ -23,7 +25,7 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 	private Queue<byte[]> datas = new ConcurrentLinkedQueue<byte[]>();
 	/** 连接状态 */
 	private ConnectionStatus connStatus = ConnectionStatus.LOGIN;
-
+	/** 连接渠道 */
 	private Channel channel;
 
 	DefaultChannelGroup allChannels = new DefaultChannelGroup(
@@ -36,7 +38,19 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) {
 		// 记录数据
-		datas.add((byte[]) msg);
+		// datas.add((byte[]) msg);
+		try {
+			byte[] buffer = (byte[]) msg;
+			// int len = NumberUtil.bytesToInt(buffer, 0); // 消息长度
+			int msgId = NumberUtil.bytesToInt(buffer, 4); // 消息ID
+			// 取出消息体
+			CodedInputStream in = CodedInputStream.newInstance(buffer, 8,
+					buffer.length - 8);
+			GeneratedMessage m = MsgUtil.parseFrom(msgId, in);
+			Log.net.info("rec msg.{}", m.toString());
+		} catch (Exception e) {
+			Log.net.error(e.getMessage());
+		}
 	}
 
 	/**
@@ -47,7 +61,8 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 		this.channel = ctx.channel();
 		allChannels.add(this.channel);
 		AccountManager.getInstance().onAccept(this);
-		Log.net.info("客户端建立连接.数量:{}", allChannels.size());
+		Log.net.info("客户端建立连接.ip:{}.总数量:{}", this.channel.remoteAddress()
+				.toString(), allChannels.size());
 	}
 
 	/**
@@ -80,15 +95,31 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 	 */
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-		this.close(CloseRaeson.CLIENT_CLOSED);
+		this.close(CloseRaeson.CLIENT_EXCEPTION);
+		Log.net.info("net handler exception.{}", cause.getMessage());
 	}
 
+	/**
+	 * 关闭连接<br>
+	 * 
+	 * @param reason
+	 *            关闭原因
+	 * @see CloseRaeson
+	 */
 	public void close(CloseRaeson reason) {
-		connStatus = ConnectionStatus.LOSTED;
+		// 设置连接状态
+		connStatus = ConnectionStatus.CLOSED;
+		// 断开连接
+		this.channel.close();
+		// 移除
 		handlers.remove(this);
 		allChannels.remove(this.channel);
+		Log.net.info("close net handler.reason:{}" + reason.toString());
 	}
 
+	/**
+	 * 获得连接状态
+	 */
 	public ConnectionStatus getState() {
 		return connStatus;
 	}
@@ -99,10 +130,5 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 
 	public GeneratedMessage getMsg() {
 		return null;
-	}
-
-	private void handleIncoming(byte[] msgbuf) {
-		int mid = NumberUtil.bytesToInt(msgbuf, 4);
-		Log.net.debug("rec client msg.id:{}", mid);
 	}
 }

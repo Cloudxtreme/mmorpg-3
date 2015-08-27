@@ -3,7 +3,10 @@ package rpg.server.module.account;
 import java.util.HashMap;
 import java.util.Map;
 
+import rpg.server.core.MsgHandler;
 import rpg.server.db.entity.Player_DB;
+import rpg.server.gen.proto.Account.C_LOGIN;
+import rpg.server.gen.proto.MsgUtil;
 import rpg.server.net.ConnectionStatus;
 import rpg.server.net.NetHandler;
 
@@ -42,9 +45,19 @@ public class Account {
 		}
 		GeneratedMessage msg = net.getMsg();
 		if (msg != null) {
+			int msgId = MsgUtil.getIdByClass(msg.getClass());
+			switch (msgId) {
+			case MsgUtil.C_LOGIN:
+				break;
+			}
 			// TODO 处理协议
 		}
 		return false;
+	}
+
+	@MsgHandler(C_LOGIN.class)
+	public void accountLogin(C_LOGIN msg) {
+
 	}
 
 	private void delPlayer(long PlayerId) {

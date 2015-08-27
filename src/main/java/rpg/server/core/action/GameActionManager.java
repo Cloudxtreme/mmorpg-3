@@ -83,20 +83,25 @@ public class GameActionManager {
 				});
 	}
 
-	public void load(File file) throws Exception {
-		Document d = XmlUtils.load(file);
-		Element e = d.getDocumentElement();
-		Element[] list = XmlUtils.getChildrenByName(e, "action");
-		for (Element elem : list) {
-			Metadata meta = new Metadata();
-			meta.load(elem);
-			ActionType type = ActionType.valueOf(meta.getType().toUpperCase());
-			typemappings.put(type, meta);
-			MsgActionMapping msgAction = MsgActionMapping.parseFromElem(type,
-					elem);
-			if (msgAction != null) {
-				msgActionMap.put(msgAction.msgId, msgAction);
+	private void load(File file) throws Exception {
+		try {
+			Document d = XmlUtils.load(file);
+			Element e = d.getDocumentElement();
+			Element[] list = XmlUtils.getChildrenByName(e, "action");
+			for (Element elem : list) {
+				Metadata meta = new Metadata();
+				meta.load(elem);
+				ActionType type = ActionType.valueOf(meta.getType()
+						.toUpperCase());
+				typemappings.put(type, meta);
+				MsgActionMapping msgAction = MsgActionMapping.parseFromElem(
+						type, elem);
+				if (msgAction != null) {
+					msgActionMap.put(msgAction.msgId, msgAction);
+				}
 			}
+		} catch (Exception e) {
+			throw new Exception("load " + RES + ",error.", e);
 		}
 	}
 
@@ -132,7 +137,7 @@ public class GameActionManager {
 		 */
 		static MsgActionMapping parseFromElem(ActionType type, Element elem) {
 			String msgId = elem.getAttribute("msg");
-			if (StringUtil.isEmpty(msgId)) {
+			if (!StringUtil.isEmpty(msgId)) {
 				MsgActionMapping msgAction = new MsgActionMapping();
 				msgAction.action = type;
 				msgAction.msgId = Integer.parseInt(msgId, 16);

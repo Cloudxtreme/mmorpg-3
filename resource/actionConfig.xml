@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <actionMeta>
 	<!--玩家角色相关-->
-	<action name="增加货币" description="增加货币" type="PLAYER_CURRENCY_ADD" classify="play">
+	<action name="增加货币" description="增加货币" type="PLAYER_CURRENCY_ADD">
 		<para description="货币类型" name="currency" class="byte"/>
 		<para description="值" name="value" class="int"/>
 	</action>
-	<action name="角色更名" description="角色更名" type="GOB_NAME_SET" classify="play">
+	<action name="角色更名" description="角色更名" type="GOB_NAME_SET">
 		<para description="角色操作类型" name="newName" class="string"/>
 	</action>
 </actionMeta>
