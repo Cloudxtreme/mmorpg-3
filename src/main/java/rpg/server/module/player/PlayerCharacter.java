@@ -26,6 +26,19 @@ public class PlayerCharacter extends GameObjectAdapter {
 	private NetHandler netHandler;
 
 	/**
+	 * 登录<br>
+	 * 
+	 * @param id
+	 *            角色ID
+	 * @param netHandler
+	 *            网络连接
+	 */
+	public void login(long id, NetHandler netHandler) {
+		this.netHandler = netHandler;
+		// TODO 去数据库载入数据
+	}
+
+	/**
 	 * 发送协议到客户端
 	 * 
 	 * @param msg

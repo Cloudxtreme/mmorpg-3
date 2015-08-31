@@ -1,4 +1,4 @@
-package rpg.server.proto.gen;
+package rpg.server.util.gen;
 
 public class MessageInfo {
 	private int id;

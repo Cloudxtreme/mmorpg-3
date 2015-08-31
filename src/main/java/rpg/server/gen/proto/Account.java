@@ -2619,11 +2619,1794 @@ public final class Account {
     // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.C_LOGIN)
   }
 
+  public interface C_PLAYER_SELOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.C_PLAYER_SEL)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_SEL}
+   *
+   * <pre>
+   *选择角色
+   * </pre>
+   */
+  public static final class C_PLAYER_SEL extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rpg.server.gen.proto.C_PLAYER_SEL)
+      C_PLAYER_SELOrBuilder {
+    // Use C_PLAYER_SEL.newBuilder() to construct.
+    private C_PLAYER_SEL(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private C_PLAYER_SEL(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final C_PLAYER_SEL defaultInstance;
+    public static C_PLAYER_SEL getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public C_PLAYER_SEL getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private C_PLAYER_SEL(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_SEL_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_SEL_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rpg.server.gen.proto.Account.C_PLAYER_SEL.class, rpg.server.gen.proto.Account.C_PLAYER_SEL.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<C_PLAYER_SEL> PARSER =
+        new com.google.protobuf.AbstractParser<C_PLAYER_SEL>() {
+      public C_PLAYER_SEL parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new C_PLAYER_SEL(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<C_PLAYER_SEL> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_SEL parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rpg.server.gen.proto.Account.C_PLAYER_SEL prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_SEL}
+     *
+     * <pre>
+     *选择角色
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rpg.server.gen.proto.C_PLAYER_SEL)
+        rpg.server.gen.proto.Account.C_PLAYER_SELOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_SEL_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_SEL_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rpg.server.gen.proto.Account.C_PLAYER_SEL.class, rpg.server.gen.proto.Account.C_PLAYER_SEL.Builder.class);
+      }
+
+      // Construct using rpg.server.gen.proto.Account.C_PLAYER_SEL.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_SEL_descriptor;
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_SEL getDefaultInstanceForType() {
+        return rpg.server.gen.proto.Account.C_PLAYER_SEL.getDefaultInstance();
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_SEL build() {
+        rpg.server.gen.proto.Account.C_PLAYER_SEL result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_SEL buildPartial() {
+        rpg.server.gen.proto.Account.C_PLAYER_SEL result = new rpg.server.gen.proto.Account.C_PLAYER_SEL(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rpg.server.gen.proto.Account.C_PLAYER_SEL) {
+          return mergeFrom((rpg.server.gen.proto.Account.C_PLAYER_SEL)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rpg.server.gen.proto.Account.C_PLAYER_SEL other) {
+        if (other == rpg.server.gen.proto.Account.C_PLAYER_SEL.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rpg.server.gen.proto.Account.C_PLAYER_SEL parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rpg.server.gen.proto.Account.C_PLAYER_SEL) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.C_PLAYER_SEL)
+    }
+
+    static {
+      defaultInstance = new C_PLAYER_SEL(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.C_PLAYER_SEL)
+  }
+
+  public interface C_PLAYER_DELOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.C_PLAYER_DEL)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_DEL}
+   *
+   * <pre>
+   *删除角色
+   * </pre>
+   */
+  public static final class C_PLAYER_DEL extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rpg.server.gen.proto.C_PLAYER_DEL)
+      C_PLAYER_DELOrBuilder {
+    // Use C_PLAYER_DEL.newBuilder() to construct.
+    private C_PLAYER_DEL(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private C_PLAYER_DEL(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final C_PLAYER_DEL defaultInstance;
+    public static C_PLAYER_DEL getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public C_PLAYER_DEL getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private C_PLAYER_DEL(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_DEL_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_DEL_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rpg.server.gen.proto.Account.C_PLAYER_DEL.class, rpg.server.gen.proto.Account.C_PLAYER_DEL.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<C_PLAYER_DEL> PARSER =
+        new com.google.protobuf.AbstractParser<C_PLAYER_DEL>() {
+      public C_PLAYER_DEL parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new C_PLAYER_DEL(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<C_PLAYER_DEL> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_DEL parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rpg.server.gen.proto.Account.C_PLAYER_DEL prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_DEL}
+     *
+     * <pre>
+     *删除角色
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rpg.server.gen.proto.C_PLAYER_DEL)
+        rpg.server.gen.proto.Account.C_PLAYER_DELOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_DEL_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_DEL_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rpg.server.gen.proto.Account.C_PLAYER_DEL.class, rpg.server.gen.proto.Account.C_PLAYER_DEL.Builder.class);
+      }
+
+      // Construct using rpg.server.gen.proto.Account.C_PLAYER_DEL.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_DEL_descriptor;
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_DEL getDefaultInstanceForType() {
+        return rpg.server.gen.proto.Account.C_PLAYER_DEL.getDefaultInstance();
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_DEL build() {
+        rpg.server.gen.proto.Account.C_PLAYER_DEL result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_DEL buildPartial() {
+        rpg.server.gen.proto.Account.C_PLAYER_DEL result = new rpg.server.gen.proto.Account.C_PLAYER_DEL(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rpg.server.gen.proto.Account.C_PLAYER_DEL) {
+          return mergeFrom((rpg.server.gen.proto.Account.C_PLAYER_DEL)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rpg.server.gen.proto.Account.C_PLAYER_DEL other) {
+        if (other == rpg.server.gen.proto.Account.C_PLAYER_DEL.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rpg.server.gen.proto.Account.C_PLAYER_DEL parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rpg.server.gen.proto.Account.C_PLAYER_DEL) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.C_PLAYER_DEL)
+    }
+
+    static {
+      defaultInstance = new C_PLAYER_DEL(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.C_PLAYER_DEL)
+  }
+
+  public interface C_PLAYER_CREATEOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.C_PLAYER_CREATE)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_CREATE}
+   *
+   * <pre>
+   *创建角色
+   * </pre>
+   */
+  public static final class C_PLAYER_CREATE extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rpg.server.gen.proto.C_PLAYER_CREATE)
+      C_PLAYER_CREATEOrBuilder {
+    // Use C_PLAYER_CREATE.newBuilder() to construct.
+    private C_PLAYER_CREATE(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private C_PLAYER_CREATE(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final C_PLAYER_CREATE defaultInstance;
+    public static C_PLAYER_CREATE getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public C_PLAYER_CREATE getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private C_PLAYER_CREATE(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rpg.server.gen.proto.Account.C_PLAYER_CREATE.class, rpg.server.gen.proto.Account.C_PLAYER_CREATE.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<C_PLAYER_CREATE> PARSER =
+        new com.google.protobuf.AbstractParser<C_PLAYER_CREATE>() {
+      public C_PLAYER_CREATE parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new C_PLAYER_CREATE(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<C_PLAYER_CREATE> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.C_PLAYER_CREATE parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rpg.server.gen.proto.Account.C_PLAYER_CREATE prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_CREATE}
+     *
+     * <pre>
+     *创建角色
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rpg.server.gen.proto.C_PLAYER_CREATE)
+        rpg.server.gen.proto.Account.C_PLAYER_CREATEOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rpg.server.gen.proto.Account.C_PLAYER_CREATE.class, rpg.server.gen.proto.Account.C_PLAYER_CREATE.Builder.class);
+      }
+
+      // Construct using rpg.server.gen.proto.Account.C_PLAYER_CREATE.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_descriptor;
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_CREATE getDefaultInstanceForType() {
+        return rpg.server.gen.proto.Account.C_PLAYER_CREATE.getDefaultInstance();
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_CREATE build() {
+        rpg.server.gen.proto.Account.C_PLAYER_CREATE result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rpg.server.gen.proto.Account.C_PLAYER_CREATE buildPartial() {
+        rpg.server.gen.proto.Account.C_PLAYER_CREATE result = new rpg.server.gen.proto.Account.C_PLAYER_CREATE(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rpg.server.gen.proto.Account.C_PLAYER_CREATE) {
+          return mergeFrom((rpg.server.gen.proto.Account.C_PLAYER_CREATE)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rpg.server.gen.proto.Account.C_PLAYER_CREATE other) {
+        if (other == rpg.server.gen.proto.Account.C_PLAYER_CREATE.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rpg.server.gen.proto.Account.C_PLAYER_CREATE parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rpg.server.gen.proto.Account.C_PLAYER_CREATE) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.C_PLAYER_CREATE)
+    }
+
+    static {
+      defaultInstance = new C_PLAYER_CREATE(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.C_PLAYER_CREATE)
+  }
+
+  public interface S_LOGINOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.S_LOGIN)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    java.util.List<rpg.server.gen.proto.Common.D_PLAYER> 
+        getPlayerListList();
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    rpg.server.gen.proto.Common.D_PLAYER getPlayerList(int index);
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    int getPlayerListCount();
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    java.util.List<? extends rpg.server.gen.proto.Common.D_PLAYEROrBuilder> 
+        getPlayerListOrBuilderList();
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    rpg.server.gen.proto.Common.D_PLAYEROrBuilder getPlayerListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code rpg.server.gen.proto.S_LOGIN}
+   */
+  public static final class S_LOGIN extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rpg.server.gen.proto.S_LOGIN)
+      S_LOGINOrBuilder {
+    // Use S_LOGIN.newBuilder() to construct.
+    private S_LOGIN(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private S_LOGIN(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final S_LOGIN defaultInstance;
+    public static S_LOGIN getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public S_LOGIN getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private S_LOGIN(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                playerList_ = new java.util.ArrayList<rpg.server.gen.proto.Common.D_PLAYER>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              playerList_.add(input.readMessage(rpg.server.gen.proto.Common.D_PLAYER.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          playerList_ = java.util.Collections.unmodifiableList(playerList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_LOGIN_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_LOGIN_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rpg.server.gen.proto.Account.S_LOGIN.class, rpg.server.gen.proto.Account.S_LOGIN.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<S_LOGIN> PARSER =
+        new com.google.protobuf.AbstractParser<S_LOGIN>() {
+      public S_LOGIN parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new S_LOGIN(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<S_LOGIN> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int PLAYERLIST_FIELD_NUMBER = 1;
+    private java.util.List<rpg.server.gen.proto.Common.D_PLAYER> playerList_;
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    public java.util.List<rpg.server.gen.proto.Common.D_PLAYER> getPlayerListList() {
+      return playerList_;
+    }
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    public java.util.List<? extends rpg.server.gen.proto.Common.D_PLAYEROrBuilder> 
+        getPlayerListOrBuilderList() {
+      return playerList_;
+    }
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    public int getPlayerListCount() {
+      return playerList_.size();
+    }
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    public rpg.server.gen.proto.Common.D_PLAYER getPlayerList(int index) {
+      return playerList_.get(index);
+    }
+    /**
+     * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+     *
+     * <pre>
+     *角色列表
+     * </pre>
+     */
+    public rpg.server.gen.proto.Common.D_PLAYEROrBuilder getPlayerListOrBuilder(
+        int index) {
+      return playerList_.get(index);
+    }
+
+    private void initFields() {
+      playerList_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getPlayerListCount(); i++) {
+        if (!getPlayerList(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < playerList_.size(); i++) {
+        output.writeMessage(1, playerList_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < playerList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, playerList_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rpg.server.gen.proto.Account.S_LOGIN parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.S_LOGIN parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rpg.server.gen.proto.Account.S_LOGIN prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rpg.server.gen.proto.S_LOGIN}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rpg.server.gen.proto.S_LOGIN)
+        rpg.server.gen.proto.Account.S_LOGINOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_LOGIN_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_LOGIN_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rpg.server.gen.proto.Account.S_LOGIN.class, rpg.server.gen.proto.Account.S_LOGIN.Builder.class);
+      }
+
+      // Construct using rpg.server.gen.proto.Account.S_LOGIN.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getPlayerListFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (playerListBuilder_ == null) {
+          playerList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          playerListBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_LOGIN_descriptor;
+      }
+
+      public rpg.server.gen.proto.Account.S_LOGIN getDefaultInstanceForType() {
+        return rpg.server.gen.proto.Account.S_LOGIN.getDefaultInstance();
+      }
+
+      public rpg.server.gen.proto.Account.S_LOGIN build() {
+        rpg.server.gen.proto.Account.S_LOGIN result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rpg.server.gen.proto.Account.S_LOGIN buildPartial() {
+        rpg.server.gen.proto.Account.S_LOGIN result = new rpg.server.gen.proto.Account.S_LOGIN(this);
+        int from_bitField0_ = bitField0_;
+        if (playerListBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            playerList_ = java.util.Collections.unmodifiableList(playerList_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.playerList_ = playerList_;
+        } else {
+          result.playerList_ = playerListBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rpg.server.gen.proto.Account.S_LOGIN) {
+          return mergeFrom((rpg.server.gen.proto.Account.S_LOGIN)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rpg.server.gen.proto.Account.S_LOGIN other) {
+        if (other == rpg.server.gen.proto.Account.S_LOGIN.getDefaultInstance()) return this;
+        if (playerListBuilder_ == null) {
+          if (!other.playerList_.isEmpty()) {
+            if (playerList_.isEmpty()) {
+              playerList_ = other.playerList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensurePlayerListIsMutable();
+              playerList_.addAll(other.playerList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.playerList_.isEmpty()) {
+            if (playerListBuilder_.isEmpty()) {
+              playerListBuilder_.dispose();
+              playerListBuilder_ = null;
+              playerList_ = other.playerList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              playerListBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getPlayerListFieldBuilder() : null;
+            } else {
+              playerListBuilder_.addAllMessages(other.playerList_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getPlayerListCount(); i++) {
+          if (!getPlayerList(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rpg.server.gen.proto.Account.S_LOGIN parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rpg.server.gen.proto.Account.S_LOGIN) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<rpg.server.gen.proto.Common.D_PLAYER> playerList_ =
+        java.util.Collections.emptyList();
+      private void ensurePlayerListIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          playerList_ = new java.util.ArrayList<rpg.server.gen.proto.Common.D_PLAYER>(playerList_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          rpg.server.gen.proto.Common.D_PLAYER, rpg.server.gen.proto.Common.D_PLAYER.Builder, rpg.server.gen.proto.Common.D_PLAYEROrBuilder> playerListBuilder_;
+
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public java.util.List<rpg.server.gen.proto.Common.D_PLAYER> getPlayerListList() {
+        if (playerListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(playerList_);
+        } else {
+          return playerListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public int getPlayerListCount() {
+        if (playerListBuilder_ == null) {
+          return playerList_.size();
+        } else {
+          return playerListBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public rpg.server.gen.proto.Common.D_PLAYER getPlayerList(int index) {
+        if (playerListBuilder_ == null) {
+          return playerList_.get(index);
+        } else {
+          return playerListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder setPlayerList(
+          int index, rpg.server.gen.proto.Common.D_PLAYER value) {
+        if (playerListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePlayerListIsMutable();
+          playerList_.set(index, value);
+          onChanged();
+        } else {
+          playerListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder setPlayerList(
+          int index, rpg.server.gen.proto.Common.D_PLAYER.Builder builderForValue) {
+        if (playerListBuilder_ == null) {
+          ensurePlayerListIsMutable();
+          playerList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          playerListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder addPlayerList(rpg.server.gen.proto.Common.D_PLAYER value) {
+        if (playerListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePlayerListIsMutable();
+          playerList_.add(value);
+          onChanged();
+        } else {
+          playerListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder addPlayerList(
+          int index, rpg.server.gen.proto.Common.D_PLAYER value) {
+        if (playerListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePlayerListIsMutable();
+          playerList_.add(index, value);
+          onChanged();
+        } else {
+          playerListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder addPlayerList(
+          rpg.server.gen.proto.Common.D_PLAYER.Builder builderForValue) {
+        if (playerListBuilder_ == null) {
+          ensurePlayerListIsMutable();
+          playerList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          playerListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder addPlayerList(
+          int index, rpg.server.gen.proto.Common.D_PLAYER.Builder builderForValue) {
+        if (playerListBuilder_ == null) {
+          ensurePlayerListIsMutable();
+          playerList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          playerListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder addAllPlayerList(
+          java.lang.Iterable<? extends rpg.server.gen.proto.Common.D_PLAYER> values) {
+        if (playerListBuilder_ == null) {
+          ensurePlayerListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, playerList_);
+          onChanged();
+        } else {
+          playerListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder clearPlayerList() {
+        if (playerListBuilder_ == null) {
+          playerList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          playerListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public Builder removePlayerList(int index) {
+        if (playerListBuilder_ == null) {
+          ensurePlayerListIsMutable();
+          playerList_.remove(index);
+          onChanged();
+        } else {
+          playerListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public rpg.server.gen.proto.Common.D_PLAYER.Builder getPlayerListBuilder(
+          int index) {
+        return getPlayerListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public rpg.server.gen.proto.Common.D_PLAYEROrBuilder getPlayerListOrBuilder(
+          int index) {
+        if (playerListBuilder_ == null) {
+          return playerList_.get(index);  } else {
+          return playerListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public java.util.List<? extends rpg.server.gen.proto.Common.D_PLAYEROrBuilder> 
+           getPlayerListOrBuilderList() {
+        if (playerListBuilder_ != null) {
+          return playerListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(playerList_);
+        }
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public rpg.server.gen.proto.Common.D_PLAYER.Builder addPlayerListBuilder() {
+        return getPlayerListFieldBuilder().addBuilder(
+            rpg.server.gen.proto.Common.D_PLAYER.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public rpg.server.gen.proto.Common.D_PLAYER.Builder addPlayerListBuilder(
+          int index) {
+        return getPlayerListFieldBuilder().addBuilder(
+            index, rpg.server.gen.proto.Common.D_PLAYER.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .rpg.server.gen.proto.D_PLAYER playerList = 1;</code>
+       *
+       * <pre>
+       *角色列表
+       * </pre>
+       */
+      public java.util.List<rpg.server.gen.proto.Common.D_PLAYER.Builder> 
+           getPlayerListBuilderList() {
+        return getPlayerListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          rpg.server.gen.proto.Common.D_PLAYER, rpg.server.gen.proto.Common.D_PLAYER.Builder, rpg.server.gen.proto.Common.D_PLAYEROrBuilder> 
+          getPlayerListFieldBuilder() {
+        if (playerListBuilder_ == null) {
+          playerListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              rpg.server.gen.proto.Common.D_PLAYER, rpg.server.gen.proto.Common.D_PLAYER.Builder, rpg.server.gen.proto.Common.D_PLAYEROrBuilder>(
+                  playerList_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          playerList_ = null;
+        }
+        return playerListBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.S_LOGIN)
+    }
+
+    static {
+      defaultInstance = new S_LOGIN(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.S_LOGIN)
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_rpg_server_gen_proto_C_LOGIN_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rpg_server_gen_proto_C_LOGIN_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rpg_server_gen_proto_C_PLAYER_SEL_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rpg_server_gen_proto_C_PLAYER_SEL_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rpg_server_gen_proto_C_PLAYER_DEL_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rpg_server_gen_proto_C_PLAYER_DEL_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rpg_server_gen_proto_S_LOGIN_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rpg_server_gen_proto_S_LOGIN_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2640,7 +4423,10 @@ public final class Account {
       "ersion\030\005 \001(\005\022\016\n\006device\030\006 \001(\t\022\n\n\002ua\030\007 \001(\t" +
       "\022\n\n\002os\030\010 \001(\t\022\r\n\005model\030\t \001(\t\022\016\n\006screen\030\n " +
       "\001(\t\022\023\n\013partitionId\030\013 \001(\005\022\022\n\ndeviceType\030\014" +
-      " \001(\t:\004\210\361\004\013"
+      " \001(\t:\004\210\361\004\013\"\024\n\014C_PLAYER_SEL:\004\210\361\004\014\"\024\n\014C_PL" +
+      "AYER_DEL:\004\210\361\004\r\"\027\n\017C_PLAYER_CREATE:\004\210\361\004\016\"" +
+      "C\n\007S_LOGIN\0222\n\nplayerList\030\001 \003(\0132\036.rpg.ser",
+      "ver.gen.proto.D_PLAYER:\004\210\361\004\017"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2662,8 +4448,36 @@ public final class Account {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rpg_server_gen_proto_C_LOGIN_descriptor,
         new java.lang.String[] { "Account", "Token", "Channel", "ClientVersion", "ResVersion", "Device", "Ua", "Os", "Model", "Screen", "PartitionId", "DeviceType", });
+    internal_static_rpg_server_gen_proto_C_PLAYER_SEL_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_rpg_server_gen_proto_C_PLAYER_SEL_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rpg_server_gen_proto_C_PLAYER_SEL_descriptor,
+        new java.lang.String[] { });
+    internal_static_rpg_server_gen_proto_C_PLAYER_DEL_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_rpg_server_gen_proto_C_PLAYER_DEL_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rpg_server_gen_proto_C_PLAYER_DEL_descriptor,
+        new java.lang.String[] { });
+    internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_descriptor,
+        new java.lang.String[] { });
+    internal_static_rpg_server_gen_proto_S_LOGIN_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_rpg_server_gen_proto_S_LOGIN_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rpg_server_gen_proto_S_LOGIN_descriptor,
+        new java.lang.String[] { "PlayerList", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(rpg.server.gen.proto.Options.msgid);
+    registry.add(rpg.server.gen.proto.Options.msgid);
+    registry.add(rpg.server.gen.proto.Options.msgid);
+    registry.add(rpg.server.gen.proto.Options.msgid);
     registry.add(rpg.server.gen.proto.Options.msgid);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);

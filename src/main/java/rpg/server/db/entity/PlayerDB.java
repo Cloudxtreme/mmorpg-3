@@ -1,6 +1,6 @@
 package rpg.server.db.entity;
 
-public class Player_DB {
+public class PlayerDB {
 	private long id;
 	private String name;
 	private int profession;
@@ -25,6 +25,26 @@ public class Player_DB {
 
 	public int getGender() {
 		return gender;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setProfession(int profession) {
+		this.profession = profession;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public void setGender(int gender) {
+		this.gender = gender;
 	}
 
 }

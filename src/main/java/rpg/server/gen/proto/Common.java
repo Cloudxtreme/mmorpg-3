@@ -1212,8 +1212,8 @@ public final class Common {
     // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.D_VECTOR_3)
   }
 
-  public interface D_HUMANOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.D_HUMAN)
+  public interface D_PLAYEROrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.D_PLAYER)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1294,46 +1294,46 @@ public final class Common {
     int getLevel();
 
     /**
-     * <code>optional int32 sex = 5;</code>
+     * <code>optional int32 gender = 5;</code>
      *
      * <pre>
      *性别
      * </pre>
      */
-    boolean hasSex();
+    boolean hasGender();
     /**
-     * <code>optional int32 sex = 5;</code>
+     * <code>optional int32 gender = 5;</code>
      *
      * <pre>
      *性别
      * </pre>
      */
-    int getSex();
+    int getGender();
   }
   /**
-   * Protobuf type {@code rpg.server.gen.proto.D_HUMAN}
+   * Protobuf type {@code rpg.server.gen.proto.D_PLAYER}
    *
    * <pre>
    *角色信息
    * </pre>
    */
-  public static final class D_HUMAN extends
+  public static final class D_PLAYER extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:rpg.server.gen.proto.D_HUMAN)
-      D_HUMANOrBuilder {
-    // Use D_HUMAN.newBuilder() to construct.
-    private D_HUMAN(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:rpg.server.gen.proto.D_PLAYER)
+      D_PLAYEROrBuilder {
+    // Use D_PLAYER.newBuilder() to construct.
+    private D_PLAYER(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private D_HUMAN(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private D_PLAYER(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final D_HUMAN defaultInstance;
-    public static D_HUMAN getDefaultInstance() {
+    private static final D_PLAYER defaultInstance;
+    public static D_PLAYER getDefaultInstance() {
       return defaultInstance;
     }
 
-    public D_HUMAN getDefaultInstanceForType() {
+    public D_PLAYER getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -1343,7 +1343,7 @@ public final class Common {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private D_HUMAN(
+    private D_PLAYER(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1389,7 +1389,7 @@ public final class Common {
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              sex_ = input.readInt32();
+              gender_ = input.readInt32();
               break;
             }
           }
@@ -1406,28 +1406,28 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_HUMAN_descriptor;
+      return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_PLAYER_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_HUMAN_fieldAccessorTable
+      return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_PLAYER_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              rpg.server.gen.proto.Common.D_HUMAN.class, rpg.server.gen.proto.Common.D_HUMAN.Builder.class);
+              rpg.server.gen.proto.Common.D_PLAYER.class, rpg.server.gen.proto.Common.D_PLAYER.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<D_HUMAN> PARSER =
-        new com.google.protobuf.AbstractParser<D_HUMAN>() {
-      public D_HUMAN parsePartialFrom(
+    public static com.google.protobuf.Parser<D_PLAYER> PARSER =
+        new com.google.protobuf.AbstractParser<D_PLAYER>() {
+      public D_PLAYER parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new D_HUMAN(input, extensionRegistry);
+        return new D_PLAYER(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<D_HUMAN> getParserForType() {
+    public com.google.protobuf.Parser<D_PLAYER> getParserForType() {
       return PARSER;
     }
 
@@ -1555,27 +1555,27 @@ public final class Common {
       return level_;
     }
 
-    public static final int SEX_FIELD_NUMBER = 5;
-    private int sex_;
+    public static final int GENDER_FIELD_NUMBER = 5;
+    private int gender_;
     /**
-     * <code>optional int32 sex = 5;</code>
+     * <code>optional int32 gender = 5;</code>
      *
      * <pre>
      *性别
      * </pre>
      */
-    public boolean hasSex() {
+    public boolean hasGender() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int32 sex = 5;</code>
+     * <code>optional int32 gender = 5;</code>
      *
      * <pre>
      *性别
      * </pre>
      */
-    public int getSex() {
-      return sex_;
+    public int getGender() {
+      return gender_;
     }
 
     private void initFields() {
@@ -1583,7 +1583,7 @@ public final class Common {
       name_ = "";
       profession_ = 0;
       level_ = 0;
-      sex_ = 0;
+      gender_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1615,7 +1615,7 @@ public final class Common {
         output.writeInt32(4, level_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, sex_);
+        output.writeInt32(5, gender_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1644,7 +1644,7 @@ public final class Common {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, sex_);
+          .computeInt32Size(5, gender_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1658,53 +1658,53 @@ public final class Common {
       return super.writeReplace();
     }
 
-    public static rpg.server.gen.proto.Common.D_HUMAN parseFrom(
+    public static rpg.server.gen.proto.Common.D_PLAYER parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseFrom(
+    public static rpg.server.gen.proto.Common.D_PLAYER parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseFrom(byte[] data)
+    public static rpg.server.gen.proto.Common.D_PLAYER parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseFrom(
+    public static rpg.server.gen.proto.Common.D_PLAYER parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseFrom(java.io.InputStream input)
+    public static rpg.server.gen.proto.Common.D_PLAYER parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseFrom(
+    public static rpg.server.gen.proto.Common.D_PLAYER parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseDelimitedFrom(java.io.InputStream input)
+    public static rpg.server.gen.proto.Common.D_PLAYER parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseDelimitedFrom(
+    public static rpg.server.gen.proto.Common.D_PLAYER parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseFrom(
+    public static rpg.server.gen.proto.Common.D_PLAYER parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static rpg.server.gen.proto.Common.D_HUMAN parseFrom(
+    public static rpg.server.gen.proto.Common.D_PLAYER parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1713,7 +1713,7 @@ public final class Common {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(rpg.server.gen.proto.Common.D_HUMAN prototype) {
+    public static Builder newBuilder(rpg.server.gen.proto.Common.D_PLAYER prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1725,7 +1725,7 @@ public final class Common {
       return builder;
     }
     /**
-     * Protobuf type {@code rpg.server.gen.proto.D_HUMAN}
+     * Protobuf type {@code rpg.server.gen.proto.D_PLAYER}
      *
      * <pre>
      *角色信息
@@ -1733,21 +1733,21 @@ public final class Common {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:rpg.server.gen.proto.D_HUMAN)
-        rpg.server.gen.proto.Common.D_HUMANOrBuilder {
+        // @@protoc_insertion_point(builder_implements:rpg.server.gen.proto.D_PLAYER)
+        rpg.server.gen.proto.Common.D_PLAYEROrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_HUMAN_descriptor;
+        return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_PLAYER_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_HUMAN_fieldAccessorTable
+        return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_PLAYER_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                rpg.server.gen.proto.Common.D_HUMAN.class, rpg.server.gen.proto.Common.D_HUMAN.Builder.class);
+                rpg.server.gen.proto.Common.D_PLAYER.class, rpg.server.gen.proto.Common.D_PLAYER.Builder.class);
       }
 
-      // Construct using rpg.server.gen.proto.Common.D_HUMAN.newBuilder()
+      // Construct using rpg.server.gen.proto.Common.D_PLAYER.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1775,7 +1775,7 @@ public final class Common {
         bitField0_ = (bitField0_ & ~0x00000004);
         level_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        sex_ = 0;
+        gender_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -1786,23 +1786,23 @@ public final class Common {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_HUMAN_descriptor;
+        return rpg.server.gen.proto.Common.internal_static_rpg_server_gen_proto_D_PLAYER_descriptor;
       }
 
-      public rpg.server.gen.proto.Common.D_HUMAN getDefaultInstanceForType() {
-        return rpg.server.gen.proto.Common.D_HUMAN.getDefaultInstance();
+      public rpg.server.gen.proto.Common.D_PLAYER getDefaultInstanceForType() {
+        return rpg.server.gen.proto.Common.D_PLAYER.getDefaultInstance();
       }
 
-      public rpg.server.gen.proto.Common.D_HUMAN build() {
-        rpg.server.gen.proto.Common.D_HUMAN result = buildPartial();
+      public rpg.server.gen.proto.Common.D_PLAYER build() {
+        rpg.server.gen.proto.Common.D_PLAYER result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public rpg.server.gen.proto.Common.D_HUMAN buildPartial() {
-        rpg.server.gen.proto.Common.D_HUMAN result = new rpg.server.gen.proto.Common.D_HUMAN(this);
+      public rpg.server.gen.proto.Common.D_PLAYER buildPartial() {
+        rpg.server.gen.proto.Common.D_PLAYER result = new rpg.server.gen.proto.Common.D_PLAYER(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1824,23 +1824,23 @@ public final class Common {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.sex_ = sex_;
+        result.gender_ = gender_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof rpg.server.gen.proto.Common.D_HUMAN) {
-          return mergeFrom((rpg.server.gen.proto.Common.D_HUMAN)other);
+        if (other instanceof rpg.server.gen.proto.Common.D_PLAYER) {
+          return mergeFrom((rpg.server.gen.proto.Common.D_PLAYER)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(rpg.server.gen.proto.Common.D_HUMAN other) {
-        if (other == rpg.server.gen.proto.Common.D_HUMAN.getDefaultInstance()) return this;
+      public Builder mergeFrom(rpg.server.gen.proto.Common.D_PLAYER other) {
+        if (other == rpg.server.gen.proto.Common.D_PLAYER.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
@@ -1855,8 +1855,8 @@ public final class Common {
         if (other.hasLevel()) {
           setLevel(other.getLevel());
         }
-        if (other.hasSex()) {
-          setSex(other.getSex());
+        if (other.hasGender()) {
+          setGender(other.getGender());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1874,11 +1874,11 @@ public final class Common {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        rpg.server.gen.proto.Common.D_HUMAN parsedMessage = null;
+        rpg.server.gen.proto.Common.D_PLAYER parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (rpg.server.gen.proto.Common.D_HUMAN) e.getUnfinishedMessage();
+          parsedMessage = (rpg.server.gen.proto.Common.D_PLAYER) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2133,63 +2133,63 @@ public final class Common {
         return this;
       }
 
-      private int sex_ ;
+      private int gender_ ;
       /**
-       * <code>optional int32 sex = 5;</code>
+       * <code>optional int32 gender = 5;</code>
        *
        * <pre>
        *性别
        * </pre>
        */
-      public boolean hasSex() {
+      public boolean hasGender() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional int32 sex = 5;</code>
+       * <code>optional int32 gender = 5;</code>
        *
        * <pre>
        *性别
        * </pre>
        */
-      public int getSex() {
-        return sex_;
+      public int getGender() {
+        return gender_;
       }
       /**
-       * <code>optional int32 sex = 5;</code>
+       * <code>optional int32 gender = 5;</code>
        *
        * <pre>
        *性别
        * </pre>
        */
-      public Builder setSex(int value) {
+      public Builder setGender(int value) {
         bitField0_ |= 0x00000010;
-        sex_ = value;
+        gender_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 sex = 5;</code>
+       * <code>optional int32 gender = 5;</code>
        *
        * <pre>
        *性别
        * </pre>
        */
-      public Builder clearSex() {
+      public Builder clearGender() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        sex_ = 0;
+        gender_ = 0;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.D_HUMAN)
+      // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.D_PLAYER)
     }
 
     static {
-      defaultInstance = new D_HUMAN(true);
+      defaultInstance = new D_PLAYER(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.D_HUMAN)
+    // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.D_PLAYER)
   }
 
   public interface D_STAGEOrBuilder extends
@@ -2845,10 +2845,10 @@ public final class Common {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rpg_server_gen_proto_D_VECTOR_3_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_rpg_server_gen_proto_D_HUMAN_descriptor;
+    internal_static_rpg_server_gen_proto_D_PLAYER_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_rpg_server_gen_proto_D_HUMAN_fieldAccessorTable;
+      internal_static_rpg_server_gen_proto_D_PLAYER_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_rpg_server_gen_proto_D_STAGE_descriptor;
   private static
@@ -2866,10 +2866,10 @@ public final class Common {
       "\n\014Common.proto\022\024rpg.server.gen.proto\032\rop" +
       "tions.proto\"\"\n\nD_VECTOR_2\022\t\n\001x\030\001 \001(\002\022\t\n\001" +
       "y\030\002 \001(\002\"-\n\nD_VECTOR_3\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 " +
-      "\001(\002\022\t\n\001z\030\003 \001(\002\"S\n\007D_HUMAN\022\n\n\002id\030\001 \002(\003\022\014\n" +
-      "\004name\030\002 \001(\t\022\022\n\nprofession\030\003 \001(\005\022\r\n\005level" +
-      "\030\004 \001(\005\022\013\n\003sex\030\005 \001(\005\"#\n\007D_STAGE\022\n\n\002id\030\002 \001" +
-      "(\003\022\014\n\004name\030\004 \001(\t"
+      "\001(\002\022\t\n\001z\030\003 \001(\002\"W\n\010D_PLAYER\022\n\n\002id\030\001 \002(\003\022\014" +
+      "\n\004name\030\002 \001(\t\022\022\n\nprofession\030\003 \001(\005\022\r\n\005leve" +
+      "l\030\004 \001(\005\022\016\n\006gender\030\005 \001(\005\"#\n\007D_STAGE\022\n\n\002id" +
+      "\030\002 \001(\003\022\014\n\004name\030\004 \001(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2896,12 +2896,12 @@ public final class Common {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rpg_server_gen_proto_D_VECTOR_3_descriptor,
         new java.lang.String[] { "X", "Y", "Z", });
-    internal_static_rpg_server_gen_proto_D_HUMAN_descriptor =
+    internal_static_rpg_server_gen_proto_D_PLAYER_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_rpg_server_gen_proto_D_HUMAN_fieldAccessorTable = new
+    internal_static_rpg_server_gen_proto_D_PLAYER_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_rpg_server_gen_proto_D_HUMAN_descriptor,
-        new java.lang.String[] { "Id", "Name", "Profession", "Level", "Sex", });
+        internal_static_rpg_server_gen_proto_D_PLAYER_descriptor,
+        new java.lang.String[] { "Id", "Name", "Profession", "Level", "Gender", });
     internal_static_rpg_server_gen_proto_D_STAGE_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_rpg_server_gen_proto_D_STAGE_fieldAccessorTable = new

@@ -1,5 +1,5 @@
 
-¢
+¬
 Account.protorpg.server.gen.protooptions.protoCommon.proto"Ý
 C_LOGIN
 account (	
@@ -17,4 +17,10 @@
  (	
 partitionId (
 
-deviceType (	:ˆñ
+deviceType (	:ˆñ"
+C_PLAYER_SEL:ˆñ"
+C_PLAYER_DEL:ˆñ"
+C_PLAYER_CREATE:ˆñ"C
+S_LOGIN2
+
+playerList (2.rpg.server.gen.proto.D_PLAYER:ˆñ

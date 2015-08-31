@@ -18,7 +18,7 @@ message D_VECTOR_3 {
 }
 
 //角色信息
-message D_HUMAN {
+message D_PLAYER {
 	required int64 id = 1;				//角色ID
 	optional string name = 2;			//昵称
 	optional int32 profession = 3;		//职业

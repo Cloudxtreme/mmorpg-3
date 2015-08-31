@@ -10,6 +10,10 @@ import com.google.protobuf.Message;
 
 public class MsgUtil {
 	public static final int C_LOGIN = 11;
+	public static final int C_PLAYER_SEL = 12;
+	public static final int C_PLAYER_DEL = 13;
+	public static final int C_PLAYER_CREATE = 14;
+	public static final int S_LOGIN = 15;
 	public static final int C_STAGE_ENTER = 101;
 	public static final int S_STAGE_ENTER_RESULT = 102;
 	public static final int C_MOVE = 103;
@@ -60,6 +64,10 @@ public class MsgUtil {
 	 */
 	private static void initClassToId() {
 		classToId.put(Account.C_LOGIN.class, C_LOGIN);
+		classToId.put(Account.C_PLAYER_SEL.class, C_PLAYER_SEL);
+		classToId.put(Account.C_PLAYER_DEL.class, C_PLAYER_DEL);
+		classToId.put(Account.C_PLAYER_CREATE.class, C_PLAYER_CREATE);
+		classToId.put(Account.S_LOGIN.class, S_LOGIN);
 		classToId.put(Stage.C_STAGE_ENTER.class, C_STAGE_ENTER);
 		classToId.put(Stage.S_STAGE_ENTER_RESULT.class, S_STAGE_ENTER_RESULT);
 		classToId.put(Stage.C_MOVE.class, C_MOVE);
@@ -71,6 +79,10 @@ public class MsgUtil {
 	 */
 	private static void initIdToClass() {
 		idToClass.put(C_LOGIN,Account.C_LOGIN.class);
+		idToClass.put(C_PLAYER_SEL,Account.C_PLAYER_SEL.class);
+		idToClass.put(C_PLAYER_DEL,Account.C_PLAYER_DEL.class);
+		idToClass.put(C_PLAYER_CREATE,Account.C_PLAYER_CREATE.class);
+		idToClass.put(S_LOGIN,Account.S_LOGIN.class);
 		idToClass.put(C_STAGE_ENTER,Stage.C_STAGE_ENTER.class);
 		idToClass.put(S_STAGE_ENTER_RESULT,Stage.S_STAGE_ENTER_RESULT.class);
 		idToClass.put(C_MOVE,Stage.C_MOVE.class);
@@ -79,10 +91,18 @@ public class MsgUtil {
 	/**
 	 * 根据消息id解析消息
 	 */
-	public static GeneratedMessage parseFrom(int type, CodedInputStream s) throws IOException{
-		switch(type){
+	public static GeneratedMessage parseFrom(int msgId, CodedInputStream s) throws IOException{
+		switch(msgId){
 			case C_LOGIN:
 				return Account.C_LOGIN.parseFrom(s);
+			case C_PLAYER_SEL:
+				return Account.C_PLAYER_SEL.parseFrom(s);
+			case C_PLAYER_DEL:
+				return Account.C_PLAYER_DEL.parseFrom(s);
+			case C_PLAYER_CREATE:
+				return Account.C_PLAYER_CREATE.parseFrom(s);
+			case S_LOGIN:
+				return Account.S_LOGIN.parseFrom(s);
 			case C_STAGE_ENTER:
 				return Stage.C_STAGE_ENTER.parseFrom(s);
 			case S_STAGE_ENTER_RESULT:

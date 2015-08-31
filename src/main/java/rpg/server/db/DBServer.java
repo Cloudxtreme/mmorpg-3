@@ -1,6 +1,5 @@
 package rpg.server.db;
 
-
 public class DBServer {
 	private static DBServer instance = new DBServer();
 
@@ -15,5 +14,10 @@ public class DBServer {
 	}
 
 	public void shutdown() {
+	}
+
+	public void findById(String tableName, long id,
+			DBCallbackHandler callBackHandler) {
+
 	}
 }

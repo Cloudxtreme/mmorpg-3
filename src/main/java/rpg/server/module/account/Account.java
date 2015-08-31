@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import rpg.server.core.MsgHandler;
-import rpg.server.db.entity.Player_DB;
+import rpg.server.db.entity.PlayerDB;
 import rpg.server.gen.proto.Account.C_LOGIN;
+import rpg.server.gen.proto.Common;
+import rpg.server.gen.proto.Common.D_PLAYER;
 import rpg.server.gen.proto.MsgUtil;
 import rpg.server.net.ConnectionStatus;
 import rpg.server.net.NetHandler;
@@ -21,7 +23,7 @@ public class Account {
 	private NetHandler net;
 
 	/** 角色列表 */
-	private Map<Long, Player_DB> playerMap = new HashMap<Long, Player_DB>();
+	private Map<Long, PlayerDB> playerMap = new HashMap<Long, PlayerDB>();
 
 	/**
 	 * 构造方法,应只在AccountManager中调用<br>
@@ -57,7 +59,15 @@ public class Account {
 
 	@MsgHandler(C_LOGIN.class)
 	public void accountLogin(C_LOGIN msg) {
-
+		PlayerDB pdb = new PlayerDB();
+		pdb.setId(10086);
+		pdb.setGender(1);
+		pdb.setLevel(1);
+		pdb.setName("test");
+		pdb.setProfession(1);
+		this.playerMap.put(pdb.getId(), pdb);
+		D_PLAYER dpmsg = this.playerDBToMsg(pdb);
+		net.sendMsg(MsgUtil.getIdByClass(dpmsg.getClass()), dpmsg.toByteArray());
 	}
 
 	private void delPlayer(long PlayerId) {
@@ -70,5 +80,15 @@ public class Account {
 
 	private void login(long PlayerId) {
 
+	}
+
+	private D_PLAYER playerDBToMsg(PlayerDB pdb) {
+		Common.D_PLAYER.Builder pb = Common.D_PLAYER.newBuilder();
+		pb.setId(pdb.getId());
+		pb.setName(pdb.getName());
+		pb.setLevel(pdb.getLevel());
+		pb.setGender(pdb.getGender());
+		pb.setProfession(pdb.getGender());
+		return pb.build();
 	}
 }

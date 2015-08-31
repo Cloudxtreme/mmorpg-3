@@ -1,5 +1,5 @@
 
-€
+„
 Common.protorpg.server.gen.protooptions.proto""
 
 D_VECTOR_2	
@@ -9,15 +9,15 @@ D_VECTOR_2
 D_VECTOR_3	
 x (	
 y (	
-z ("S
-D_HUMAN
+z ("W
+D_PLAYER
 
 id (
 name (	
 
 profession (
-level (
-sex ("#
+level (
+gender ("#
 D_STAGE
 
 id (
