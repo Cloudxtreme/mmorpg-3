@@ -1,4 +1,4 @@
-package rpg.server.util.gen;
+package rpg.server.util.gen.proto;
 
 public class Main {
 	public static void main(String[] args) throws Exception {

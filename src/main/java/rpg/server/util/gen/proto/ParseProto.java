@@ -1,4 +1,4 @@
-package rpg.server.util.gen;
+package rpg.server.util.gen.proto;
 
 import java.io.BufferedReader;
 import java.io.File;
