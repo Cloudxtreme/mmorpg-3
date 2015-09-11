@@ -5,27 +5,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import rpg.server.core.action.ActionProcessor;
-import rpg.server.core.action.ActionType;
-import rpg.server.core.condition.ConditionChecker;
-import rpg.server.core.condition.ConditionType;
+import rpg.server.core.action.SimpleGameAction;
 import rpg.server.core.event.EventHandler;
 import rpg.server.core.event.GameEventChannel;
 import rpg.server.core.event.GameEventType;
 import rpg.server.core.module.IAgent;
+import rpg.server.gen.agent.AgentActionDispatcher;
 
 public abstract class GameObjectAdapter implements GameObject {
-	/**
-	 * 条件处理<br>
-	 * key:条件类型,value:处理器
-	 */
-	private Map<ConditionType, ConditionChecker> conMap = new HashMap<ConditionType, ConditionChecker>();
 
-	/**
-	 * 动作处理<br>
-	 * key:动作类型,value:处理器
-	 */
-	private Map<ActionType, ActionProcessor> actMap = new HashMap<ActionType, ActionProcessor>();
+	private long id;
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	@Override
+	public long getId() {
+		return id;
+	}
 
 	/**
 	 * 自身事件关注列表<br>
@@ -43,7 +41,7 @@ public abstract class GameObjectAdapter implements GameObject {
 	 * key:代理类标识,value:代理
 	 */
 	@SuppressWarnings("rawtypes")
-	private Map<Class, IAgent> agentMap = new HashMap<Class, IAgent>();
+	protected Map<Class, IAgent> agentMap = new HashMap<Class, IAgent>();
 
 	/**
 	 * 获取代理对象<br>
@@ -69,6 +67,25 @@ public abstract class GameObjectAdapter implements GameObject {
 		this.agentMap.put(ia.getClass(), ia);
 	}
 
+	// *******************************************
+	// *************action相关
+	// *******************************************
+	/**
+	 * 执行简单行为
+	 * 
+	 * @param action
+	 * @param vars
+	 * @return
+	 */
+	@Override
+	public boolean doSimpleAction(SimpleGameAction action,
+			Map<String, Object> vars) {
+		return AgentActionDispatcher.dispatch(this, action, vars);
+	}
+
+	// *******************************************
+	// *************游戏事件相关
+	// *******************************************
 	@Override
 	public void registerEventHandler(GameEventChannel source,
 			EventHandler handler, GameEventType... types) {
@@ -128,4 +145,7 @@ public abstract class GameObjectAdapter implements GameObject {
 			hlist.remove(handler);
 		}
 	}
+	// *******************************************
+	// *************抽象方法
+	// *******************************************
 }

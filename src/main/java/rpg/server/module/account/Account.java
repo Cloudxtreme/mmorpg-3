@@ -5,15 +5,17 @@ import java.util.List;
 import java.util.Map;
 
 import rpg.server.core.MsgHandler;
+import rpg.server.core.obj.GameObjectManager;
 import rpg.server.gen.db.model.DemoHuman;
 import rpg.server.gen.db.model.DemoHumanExample;
 import rpg.server.gen.db.service.DemoHumanService;
 import rpg.server.gen.proto.Account.C_LOGIN;
+import rpg.server.gen.proto.Account.C_PLAYER_SEL;
 import rpg.server.gen.proto.Account.S_LOGIN;
 import rpg.server.gen.proto.Common;
 import rpg.server.gen.proto.Common.D_PLAYER;
 import rpg.server.gen.proto.MsgUtil;
-import rpg.server.net.ConnectionStatus;
+import rpg.server.module.player.LoginStatus;
 import rpg.server.net.NetHandler;
 import rpg.server.util.log.Log;
 
@@ -47,7 +49,7 @@ public class Account {
 	 */
 	public boolean tick() {
 		// 网络状态不对
-		if (net == null || ConnectionStatus.LOGIN != net.getState()) {
+		if (net == null) {
 			return true;
 		}
 		GeneratedMessage msg = net.getMsg();
@@ -58,7 +60,8 @@ public class Account {
 				this.accountLogin((C_LOGIN) msg);
 				break;
 			case MsgUtil.C_PLAYER_SEL:// 选择角色
-				break;
+				long playerId = ((C_PLAYER_SEL) msg).getId();
+				return this.login(playerId);
 			}
 			// TODO 处理协议
 		}
@@ -92,7 +95,12 @@ public class Account {
 
 	}
 
-	private boolean login(long PlayerId) {
+	private boolean login(long playerId) {
+		DemoHuman dh = this.playerMap.get(playerId);
+		if (dh != null) {
+			GameObjectManager.getInstance().playerLogin(playerId, net);
+			return true;
+		}
 		return false;
 	}
 

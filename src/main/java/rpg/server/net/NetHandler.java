@@ -24,8 +24,6 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 	public static final ConcurrentLinkedQueue<NetHandler> handlers = new ConcurrentLinkedQueue<>();
 	/** 接收到的消息队列 */
 	private Queue<GeneratedMessage> datas = new ConcurrentLinkedQueue<GeneratedMessage>();
-	/** 连接状态 */
-	private ConnectionStatus connStatus = ConnectionStatus.LOGIN;
 	/** 连接渠道 */
 	private Channel channel;
 
@@ -113,21 +111,12 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 	 * @see CloseRaeson
 	 */
 	public void close(CloseRaeson reason) {
-		// 设置连接状态
-		connStatus = ConnectionStatus.CLOSED;
 		// 断开连接
 		this.channel.close();
 		// 移除
 		handlers.remove(this);
 		allChannels.remove(this.channel);
 		Log.net.info("close net handler.reason:{}" + reason.toString());
-	}
-
-	/**
-	 * 获得连接状态
-	 */
-	public ConnectionStatus getState() {
-		return connStatus;
 	}
 
 	public GeneratedMessage getMsg() {

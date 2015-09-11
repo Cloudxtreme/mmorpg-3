@@ -8,6 +8,121 @@ public final class Account {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  /**
+   * Protobuf enum {@code rpg.server.gen.proto.E_PROMPT_TYPE}
+   */
+  public enum E_PROMPT_TYPE
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>NORMAL = 0;</code>
+     *
+     * <pre>
+     *普通
+     * </pre>
+     */
+    NORMAL(0, 0),
+    /**
+     * <code>ERROR = 1;</code>
+     *
+     * <pre>
+     *错误
+     * </pre>
+     */
+    ERROR(1, 1),
+    /**
+     * <code>WARNING = 2;</code>
+     *
+     * <pre>
+     *警告
+     * </pre>
+     */
+    WARNING(2, 2),
+    ;
+
+    /**
+     * <code>NORMAL = 0;</code>
+     *
+     * <pre>
+     *普通
+     * </pre>
+     */
+    public static final int NORMAL_VALUE = 0;
+    /**
+     * <code>ERROR = 1;</code>
+     *
+     * <pre>
+     *错误
+     * </pre>
+     */
+    public static final int ERROR_VALUE = 1;
+    /**
+     * <code>WARNING = 2;</code>
+     *
+     * <pre>
+     *警告
+     * </pre>
+     */
+    public static final int WARNING_VALUE = 2;
+
+
+    public final int getNumber() { return value; }
+
+    public static E_PROMPT_TYPE valueOf(int value) {
+      switch (value) {
+        case 0: return NORMAL;
+        case 1: return ERROR;
+        case 2: return WARNING;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<E_PROMPT_TYPE>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<E_PROMPT_TYPE>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<E_PROMPT_TYPE>() {
+            public E_PROMPT_TYPE findValueByNumber(int number) {
+              return E_PROMPT_TYPE.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return rpg.server.gen.proto.Account.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final E_PROMPT_TYPE[] VALUES = values();
+
+    public static E_PROMPT_TYPE valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private E_PROMPT_TYPE(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:rpg.server.gen.proto.E_PROMPT_TYPE)
+  }
+
   public interface C_LOGINOrBuilder extends
       // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.C_LOGIN)
       com.google.protobuf.MessageOrBuilder {
@@ -2622,6 +2737,23 @@ public final class Account {
   public interface C_PLAYER_SELOrBuilder extends
       // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.C_PLAYER_SEL)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    boolean hasId();
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    long getId();
   }
   /**
    * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_SEL}
@@ -2661,6 +2793,7 @@ public final class Account {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2676,6 +2809,11 @@ public final class Account {
                                      extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt64();
               break;
             }
           }
@@ -2717,7 +2855,32 @@ public final class Account {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    public long getId() {
+      return id_;
+    }
+
     private void initFields() {
+      id_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2725,6 +2888,10 @@ public final class Account {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -2732,6 +2899,9 @@ public final class Account {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, id_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -2741,6 +2911,10 @@ public final class Account {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -2862,6 +3036,8 @@ public final class Account {
 
       public Builder clear() {
         super.clear();
+        id_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2888,6 +3064,13 @@ public final class Account {
 
       public rpg.server.gen.proto.Account.C_PLAYER_SEL buildPartial() {
         rpg.server.gen.proto.Account.C_PLAYER_SEL result = new rpg.server.gen.proto.Account.C_PLAYER_SEL(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2903,11 +3086,18 @@ public final class Account {
 
       public Builder mergeFrom(rpg.server.gen.proto.Account.C_PLAYER_SEL other) {
         if (other == rpg.server.gen.proto.Account.C_PLAYER_SEL.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
+        if (!hasId()) {
+          
+          return false;
+        }
         return true;
       }
 
@@ -2928,6 +3118,55 @@ public final class Account {
         }
         return this;
       }
+      private int bitField0_;
+
+      private long id_ ;
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public Builder setId(long value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
 
       // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.C_PLAYER_SEL)
     }
@@ -2943,6 +3182,23 @@ public final class Account {
   public interface C_PLAYER_DELOrBuilder extends
       // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.C_PLAYER_DEL)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    boolean hasId();
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    long getId();
   }
   /**
    * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_DEL}
@@ -2982,6 +3238,7 @@ public final class Account {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2997,6 +3254,11 @@ public final class Account {
                                      extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt64();
               break;
             }
           }
@@ -3038,7 +3300,32 @@ public final class Account {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 id = 1;</code>
+     *
+     * <pre>
+     *角色ID
+     * </pre>
+     */
+    public long getId() {
+      return id_;
+    }
+
     private void initFields() {
+      id_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3046,6 +3333,10 @@ public final class Account {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -3053,6 +3344,9 @@ public final class Account {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, id_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3062,6 +3356,10 @@ public final class Account {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -3183,6 +3481,8 @@ public final class Account {
 
       public Builder clear() {
         super.clear();
+        id_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3209,6 +3509,13 @@ public final class Account {
 
       public rpg.server.gen.proto.Account.C_PLAYER_DEL buildPartial() {
         rpg.server.gen.proto.Account.C_PLAYER_DEL result = new rpg.server.gen.proto.Account.C_PLAYER_DEL(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3224,11 +3531,18 @@ public final class Account {
 
       public Builder mergeFrom(rpg.server.gen.proto.Account.C_PLAYER_DEL other) {
         if (other == rpg.server.gen.proto.Account.C_PLAYER_DEL.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
+        if (!hasId()) {
+          
+          return false;
+        }
         return true;
       }
 
@@ -3249,6 +3563,55 @@ public final class Account {
         }
         return this;
       }
+      private int bitField0_;
+
+      private long id_ ;
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public Builder setId(long value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 id = 1;</code>
+       *
+       * <pre>
+       *角色ID
+       * </pre>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
 
       // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.C_PLAYER_DEL)
     }
@@ -3264,6 +3627,66 @@ public final class Account {
   public interface C_PLAYER_CREATEOrBuilder extends
       // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.C_PLAYER_CREATE)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required int32 profession = 3;</code>
+     *
+     * <pre>
+     *职业
+     * </pre>
+     */
+    boolean hasProfession();
+    /**
+     * <code>required int32 profession = 3;</code>
+     *
+     * <pre>
+     *职业
+     * </pre>
+     */
+    int getProfession();
+
+    /**
+     * <code>required int32 gender = 5;</code>
+     *
+     * <pre>
+     *性别
+     * </pre>
+     */
+    boolean hasGender();
+    /**
+     * <code>required int32 gender = 5;</code>
+     *
+     * <pre>
+     *性别
+     * </pre>
+     */
+    int getGender();
   }
   /**
    * Protobuf type {@code rpg.server.gen.proto.C_PLAYER_CREATE}
@@ -3303,6 +3726,7 @@ public final class Account {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3318,6 +3742,22 @@ public final class Account {
                                      extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000002;
+              profession_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000004;
+              gender_ = input.readInt32();
               break;
             }
           }
@@ -3359,7 +3799,111 @@ public final class Account {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 2;
+    private java.lang.Object name_;
+    /**
+     * <code>required string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 2;</code>
+     *
+     * <pre>
+     *昵称
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROFESSION_FIELD_NUMBER = 3;
+    private int profession_;
+    /**
+     * <code>required int32 profession = 3;</code>
+     *
+     * <pre>
+     *职业
+     * </pre>
+     */
+    public boolean hasProfession() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 profession = 3;</code>
+     *
+     * <pre>
+     *职业
+     * </pre>
+     */
+    public int getProfession() {
+      return profession_;
+    }
+
+    public static final int GENDER_FIELD_NUMBER = 5;
+    private int gender_;
+    /**
+     * <code>required int32 gender = 5;</code>
+     *
+     * <pre>
+     *性别
+     * </pre>
+     */
+    public boolean hasGender() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 gender = 5;</code>
+     *
+     * <pre>
+     *性别
+     * </pre>
+     */
+    public int getGender() {
+      return gender_;
+    }
+
     private void initFields() {
+      name_ = "";
+      profession_ = 0;
+      gender_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3367,6 +3911,18 @@ public final class Account {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasProfession()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGender()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -3374,6 +3930,15 @@ public final class Account {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(2, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(3, profession_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(5, gender_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3383,6 +3948,18 @@ public final class Account {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, profession_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, gender_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -3504,6 +4081,12 @@ public final class Account {
 
       public Builder clear() {
         super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        profession_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gender_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3530,6 +4113,21 @@ public final class Account {
 
       public rpg.server.gen.proto.Account.C_PLAYER_CREATE buildPartial() {
         rpg.server.gen.proto.Account.C_PLAYER_CREATE result = new rpg.server.gen.proto.Account.C_PLAYER_CREATE(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.profession_ = profession_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.gender_ = gender_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3545,11 +4143,34 @@ public final class Account {
 
       public Builder mergeFrom(rpg.server.gen.proto.Account.C_PLAYER_CREATE other) {
         if (other == rpg.server.gen.proto.Account.C_PLAYER_CREATE.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasProfession()) {
+          setProfession(other.getProfession());
+        }
+        if (other.hasGender()) {
+          setGender(other.getGender());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
+        if (!hasName()) {
+          
+          return false;
+        }
+        if (!hasProfession()) {
+          
+          return false;
+        }
+        if (!hasGender()) {
+          
+          return false;
+        }
         return true;
       }
 
@@ -3568,6 +4189,203 @@ public final class Account {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 2;</code>
+       *
+       * <pre>
+       *昵称
+       * </pre>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int profession_ ;
+      /**
+       * <code>required int32 profession = 3;</code>
+       *
+       * <pre>
+       *职业
+       * </pre>
+       */
+      public boolean hasProfession() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 profession = 3;</code>
+       *
+       * <pre>
+       *职业
+       * </pre>
+       */
+      public int getProfession() {
+        return profession_;
+      }
+      /**
+       * <code>required int32 profession = 3;</code>
+       *
+       * <pre>
+       *职业
+       * </pre>
+       */
+      public Builder setProfession(int value) {
+        bitField0_ |= 0x00000002;
+        profession_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 profession = 3;</code>
+       *
+       * <pre>
+       *职业
+       * </pre>
+       */
+      public Builder clearProfession() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        profession_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int gender_ ;
+      /**
+       * <code>required int32 gender = 5;</code>
+       *
+       * <pre>
+       *性别
+       * </pre>
+       */
+      public boolean hasGender() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 gender = 5;</code>
+       *
+       * <pre>
+       *性别
+       * </pre>
+       */
+      public int getGender() {
+        return gender_;
+      }
+      /**
+       * <code>required int32 gender = 5;</code>
+       *
+       * <pre>
+       *性别
+       * </pre>
+       */
+      public Builder setGender(int value) {
+        bitField0_ |= 0x00000004;
+        gender_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 gender = 5;</code>
+       *
+       * <pre>
+       *性别
+       * </pre>
+       */
+      public Builder clearGender() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        gender_ = 0;
+        onChanged();
         return this;
       }
 
@@ -4382,6 +5200,585 @@ public final class Account {
     // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.S_LOGIN)
   }
 
+  public interface S_PROMPTOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:rpg.server.gen.proto.S_PROMPT)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required .rpg.server.gen.proto.E_PROMPT_TYPE promptType = 1;</code>
+     */
+    boolean hasPromptType();
+    /**
+     * <code>required .rpg.server.gen.proto.E_PROMPT_TYPE promptType = 1;</code>
+     */
+    rpg.server.gen.proto.Account.E_PROMPT_TYPE getPromptType();
+
+    /**
+     * <code>required string msg = 2;</code>
+     */
+    boolean hasMsg();
+    /**
+     * <code>required string msg = 2;</code>
+     */
+    java.lang.String getMsg();
+    /**
+     * <code>required string msg = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getMsgBytes();
+  }
+  /**
+   * Protobuf type {@code rpg.server.gen.proto.S_PROMPT}
+   */
+  public static final class S_PROMPT extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:rpg.server.gen.proto.S_PROMPT)
+      S_PROMPTOrBuilder {
+    // Use S_PROMPT.newBuilder() to construct.
+    private S_PROMPT(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private S_PROMPT(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final S_PROMPT defaultInstance;
+    public static S_PROMPT getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public S_PROMPT getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private S_PROMPT(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+              rpg.server.gen.proto.Account.E_PROMPT_TYPE value = rpg.server.gen.proto.Account.E_PROMPT_TYPE.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                promptType_ = value;
+              }
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              msg_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_PROMPT_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_PROMPT_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              rpg.server.gen.proto.Account.S_PROMPT.class, rpg.server.gen.proto.Account.S_PROMPT.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<S_PROMPT> PARSER =
+        new com.google.protobuf.AbstractParser<S_PROMPT>() {
+      public S_PROMPT parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new S_PROMPT(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<S_PROMPT> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int PROMPTTYPE_FIELD_NUMBER = 1;
+    private rpg.server.gen.proto.Account.E_PROMPT_TYPE promptType_;
+    /**
+     * <code>required .rpg.server.gen.proto.E_PROMPT_TYPE promptType = 1;</code>
+     */
+    public boolean hasPromptType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required .rpg.server.gen.proto.E_PROMPT_TYPE promptType = 1;</code>
+     */
+    public rpg.server.gen.proto.Account.E_PROMPT_TYPE getPromptType() {
+      return promptType_;
+    }
+
+    public static final int MSG_FIELD_NUMBER = 2;
+    private java.lang.Object msg_;
+    /**
+     * <code>required string msg = 2;</code>
+     */
+    public boolean hasMsg() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string msg = 2;</code>
+     */
+    public java.lang.String getMsg() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          msg_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string msg = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMsgBytes() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        msg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      promptType_ = rpg.server.gen.proto.Account.E_PROMPT_TYPE.NORMAL;
+      msg_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasPromptType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMsg()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(1, promptType_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getMsgBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, promptType_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getMsgBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static rpg.server.gen.proto.Account.S_PROMPT parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static rpg.server.gen.proto.Account.S_PROMPT parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(rpg.server.gen.proto.Account.S_PROMPT prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code rpg.server.gen.proto.S_PROMPT}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:rpg.server.gen.proto.S_PROMPT)
+        rpg.server.gen.proto.Account.S_PROMPTOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_PROMPT_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_PROMPT_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                rpg.server.gen.proto.Account.S_PROMPT.class, rpg.server.gen.proto.Account.S_PROMPT.Builder.class);
+      }
+
+      // Construct using rpg.server.gen.proto.Account.S_PROMPT.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        promptType_ = rpg.server.gen.proto.Account.E_PROMPT_TYPE.NORMAL;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        msg_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return rpg.server.gen.proto.Account.internal_static_rpg_server_gen_proto_S_PROMPT_descriptor;
+      }
+
+      public rpg.server.gen.proto.Account.S_PROMPT getDefaultInstanceForType() {
+        return rpg.server.gen.proto.Account.S_PROMPT.getDefaultInstance();
+      }
+
+      public rpg.server.gen.proto.Account.S_PROMPT build() {
+        rpg.server.gen.proto.Account.S_PROMPT result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public rpg.server.gen.proto.Account.S_PROMPT buildPartial() {
+        rpg.server.gen.proto.Account.S_PROMPT result = new rpg.server.gen.proto.Account.S_PROMPT(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.promptType_ = promptType_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.msg_ = msg_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof rpg.server.gen.proto.Account.S_PROMPT) {
+          return mergeFrom((rpg.server.gen.proto.Account.S_PROMPT)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(rpg.server.gen.proto.Account.S_PROMPT other) {
+        if (other == rpg.server.gen.proto.Account.S_PROMPT.getDefaultInstance()) return this;
+        if (other.hasPromptType()) {
+          setPromptType(other.getPromptType());
+        }
+        if (other.hasMsg()) {
+          bitField0_ |= 0x00000002;
+          msg_ = other.msg_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasPromptType()) {
+          
+          return false;
+        }
+        if (!hasMsg()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        rpg.server.gen.proto.Account.S_PROMPT parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (rpg.server.gen.proto.Account.S_PROMPT) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private rpg.server.gen.proto.Account.E_PROMPT_TYPE promptType_ = rpg.server.gen.proto.Account.E_PROMPT_TYPE.NORMAL;
+      /**
+       * <code>required .rpg.server.gen.proto.E_PROMPT_TYPE promptType = 1;</code>
+       */
+      public boolean hasPromptType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .rpg.server.gen.proto.E_PROMPT_TYPE promptType = 1;</code>
+       */
+      public rpg.server.gen.proto.Account.E_PROMPT_TYPE getPromptType() {
+        return promptType_;
+      }
+      /**
+       * <code>required .rpg.server.gen.proto.E_PROMPT_TYPE promptType = 1;</code>
+       */
+      public Builder setPromptType(rpg.server.gen.proto.Account.E_PROMPT_TYPE value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        promptType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .rpg.server.gen.proto.E_PROMPT_TYPE promptType = 1;</code>
+       */
+      public Builder clearPromptType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        promptType_ = rpg.server.gen.proto.Account.E_PROMPT_TYPE.NORMAL;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object msg_ = "";
+      /**
+       * <code>required string msg = 2;</code>
+       */
+      public boolean hasMsg() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string msg = 2;</code>
+       */
+      public java.lang.String getMsg() {
+        java.lang.Object ref = msg_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            msg_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string msg = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMsgBytes() {
+        java.lang.Object ref = msg_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          msg_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string msg = 2;</code>
+       */
+      public Builder setMsg(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string msg = 2;</code>
+       */
+      public Builder clearMsg() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        msg_ = getDefaultInstance().getMsg();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string msg = 2;</code>
+       */
+      public Builder setMsgBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:rpg.server.gen.proto.S_PROMPT)
+    }
+
+    static {
+      defaultInstance = new S_PROMPT(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:rpg.server.gen.proto.S_PROMPT)
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_rpg_server_gen_proto_C_LOGIN_descriptor;
   private static
@@ -4407,6 +5804,11 @@ public final class Account {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_rpg_server_gen_proto_S_LOGIN_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_rpg_server_gen_proto_S_PROMPT_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_rpg_server_gen_proto_S_PROMPT_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4423,10 +5825,16 @@ public final class Account {
       "ersion\030\005 \001(\005\022\016\n\006device\030\006 \001(\t\022\n\n\002ua\030\007 \001(\t" +
       "\022\n\n\002os\030\010 \001(\t\022\r\n\005model\030\t \001(\t\022\016\n\006screen\030\n " +
       "\001(\t\022\023\n\013partitionId\030\013 \001(\005\022\022\n\ndeviceType\030\014" +
-      " \001(\t:\004\210\361\004\013\"\024\n\014C_PLAYER_SEL:\004\210\361\004\014\"\024\n\014C_PL" +
-      "AYER_DEL:\004\210\361\004\r\"\027\n\017C_PLAYER_CREATE:\004\210\361\004\016\"" +
-      "C\n\007S_LOGIN\0222\n\nplayerList\030\001 \003(\0132\036.rpg.ser",
-      "ver.gen.proto.D_PLAYER:\004\210\361\004\017"
+      " \001(\t:\004\210\361\004\013\" \n\014C_PLAYER_SEL\022\n\n\002id\030\001 \002(\003:\004" +
+      "\210\361\004\014\" \n\014C_PLAYER_DEL\022\n\n\002id\030\001 \002(\003:\004\210\361\004\r\"I" +
+      "\n\017C_PLAYER_CREATE\022\014\n\004name\030\002 \002(\t\022\022\n\nprofe",
+      "ssion\030\003 \002(\005\022\016\n\006gender\030\005 \002(\005:\004\210\361\004\016\"C\n\007S_L" +
+      "OGIN\0222\n\nplayerList\030\001 \003(\0132\036.rpg.server.ge" +
+      "n.proto.D_PLAYER:\004\210\361\004\017\"V\n\010S_PROMPT\0227\n\npr" +
+      "omptType\030\001 \002(\0162#.rpg.server.gen.proto.E_" +
+      "PROMPT_TYPE\022\013\n\003msg\030\002 \002(\t:\004\210\361\004\020*3\n\rE_PROM" +
+      "PT_TYPE\022\n\n\006NORMAL\020\000\022\t\n\005ERROR\020\001\022\013\n\007WARNIN" +
+      "G\020\002"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4453,27 +5861,34 @@ public final class Account {
     internal_static_rpg_server_gen_proto_C_PLAYER_SEL_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rpg_server_gen_proto_C_PLAYER_SEL_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Id", });
     internal_static_rpg_server_gen_proto_C_PLAYER_DEL_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_rpg_server_gen_proto_C_PLAYER_DEL_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rpg_server_gen_proto_C_PLAYER_DEL_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Id", });
     internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rpg_server_gen_proto_C_PLAYER_CREATE_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Name", "Profession", "Gender", });
     internal_static_rpg_server_gen_proto_S_LOGIN_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_rpg_server_gen_proto_S_LOGIN_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_rpg_server_gen_proto_S_LOGIN_descriptor,
         new java.lang.String[] { "PlayerList", });
+    internal_static_rpg_server_gen_proto_S_PROMPT_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_rpg_server_gen_proto_S_PROMPT_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_rpg_server_gen_proto_S_PROMPT_descriptor,
+        new java.lang.String[] { "PromptType", "Msg", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(rpg.server.gen.proto.Options.msgid);
     registry.add(rpg.server.gen.proto.Options.msgid);
     registry.add(rpg.server.gen.proto.Options.msgid);
     registry.add(rpg.server.gen.proto.Options.msgid);

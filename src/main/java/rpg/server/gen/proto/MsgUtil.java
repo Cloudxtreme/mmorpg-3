@@ -14,6 +14,7 @@ public class MsgUtil {
 	public static final int C_PLAYER_DEL = 13;
 	public static final int C_PLAYER_CREATE = 14;
 	public static final int S_LOGIN = 15;
+	public static final int S_PROMPT = 16;
 	public static final int C_STAGE_ENTER = 101;
 	public static final int S_STAGE_ENTER_RESULT = 102;
 	public static final int C_MOVE = 103;
@@ -68,6 +69,7 @@ public class MsgUtil {
 		classToId.put(Account.C_PLAYER_DEL.class, C_PLAYER_DEL);
 		classToId.put(Account.C_PLAYER_CREATE.class, C_PLAYER_CREATE);
 		classToId.put(Account.S_LOGIN.class, S_LOGIN);
+		classToId.put(Account.S_PROMPT.class, S_PROMPT);
 		classToId.put(Stage.C_STAGE_ENTER.class, C_STAGE_ENTER);
 		classToId.put(Stage.S_STAGE_ENTER_RESULT.class, S_STAGE_ENTER_RESULT);
 		classToId.put(Stage.C_MOVE.class, C_MOVE);
@@ -83,6 +85,7 @@ public class MsgUtil {
 		idToClass.put(C_PLAYER_DEL,Account.C_PLAYER_DEL.class);
 		idToClass.put(C_PLAYER_CREATE,Account.C_PLAYER_CREATE.class);
 		idToClass.put(S_LOGIN,Account.S_LOGIN.class);
+		idToClass.put(S_PROMPT,Account.S_PROMPT.class);
 		idToClass.put(C_STAGE_ENTER,Stage.C_STAGE_ENTER.class);
 		idToClass.put(S_STAGE_ENTER_RESULT,Stage.S_STAGE_ENTER_RESULT.class);
 		idToClass.put(C_MOVE,Stage.C_MOVE.class);
@@ -103,6 +106,8 @@ public class MsgUtil {
 				return Account.C_PLAYER_CREATE.parseFrom(s);
 			case S_LOGIN:
 				return Account.S_LOGIN.parseFrom(s);
+			case S_PROMPT:
+				return Account.S_PROMPT.parseFrom(s);
 			case C_STAGE_ENTER:
 				return Stage.C_STAGE_ENTER.parseFrom(s);
 			case S_STAGE_ENTER_RESULT:

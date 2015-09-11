@@ -22,5 +22,5 @@ import rpg.server.core.module.Agent;
 @Target(ElementType.METHOD)
 public @interface ActionHandler {
 	/** 事件类型 */
-	ActionType[] type();
+	ActionType value();
 }

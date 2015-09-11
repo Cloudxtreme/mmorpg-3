@@ -24,19 +24,36 @@ message C_LOGIN {
 //选择角色
 message C_PLAYER_SEL{
 	option (msgid) = 12;
+	required int64 id = 1;					//角色ID
 }
 
 //删除角色
 message C_PLAYER_DEL{
 	option (msgid) = 13;
+	required int64 id = 1;					//角色ID
 }
 
 //创建角色
 message C_PLAYER_CREATE{
 	option (msgid) = 14;
+	required string name = 2;			//昵称
+	required int32 profession = 3;		//职业
+	required int32 gender = 5;			//性别
 }
 
 message S_LOGIN{
 	option (msgid) = 15;
 	repeated D_PLAYER playerList = 1;	//角色列表
+}
+
+enum E_PROMPT_TYPE {
+	NORMAL = 0;							//普通
+	ERROR = 1;							//错误
+	WARNING = 2;						//警告
+}
+
+message S_PROMPT{
+	option (msgid) = 16;
+	required E_PROMPT_TYPE promptType = 1;
+	required string msg = 2;
 }

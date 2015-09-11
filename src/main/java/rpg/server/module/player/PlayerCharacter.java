@@ -13,17 +13,26 @@ import rpg.server.core.obj.GameObjectAdapter;
 import rpg.server.core.relation.AbstractRelation;
 import rpg.server.core.relation.SOBRelationTag;
 import rpg.server.core.script.GameScriptConfig;
+import rpg.server.gen.agent.AgentUtil;
+import rpg.server.gen.db.model.DemoHuman;
+import rpg.server.gen.db.service.DemoHumanService;
 import rpg.server.gen.proto.MsgUtil;
 import rpg.server.net.NetHandler;
+import rpg.server.util.log.Log;
 
+import com.google.protobuf.GeneratedMessage;
 import com.google.protobuf.Message;
 import com.google.protobuf.Message.Builder;
 
 public class PlayerCharacter extends GameObjectAdapter {
-	/**
-	 * 网络连接
-	 */
-	private NetHandler netHandler;
+	/** 网络连接 */
+	private NetHandler net;
+
+	/** 登录状态 */
+	private LoginStatus loginStatus = LoginStatus.PRE_LOGIN;
+
+	/** 角色基础数据 */
+	private DemoHuman playerData;
 
 	/**
 	 * 登录<br>
@@ -33,9 +42,70 @@ public class PlayerCharacter extends GameObjectAdapter {
 	 * @param netHandler
 	 *            网络连接
 	 */
-	public void login(long id, NetHandler netHandler) {
-		this.netHandler = netHandler;
-		// TODO 去数据库载入数据
+	public void login(long id, NetHandler net) {
+		setId(id);
+		this.net = net;
+		AgentUtil.init(this);
+		this.loadData();
+	}
+
+	private void loadData() {
+		DemoHumanService.selectByPrimaryKey(getId(), (boolean flag,
+				DemoHuman demoHuman, Exception e) -> {
+			if (flag) {
+				this.playerData = demoHuman;
+				// TODO agent load
+			} else {
+				Log.game.error("load player data error.id:" + this.getId(), e);
+			}
+		});
+	}
+
+	private boolean isLoadFinish() {
+		return false;
+	}
+
+	@Override
+	public void tick() {
+		switch (loginStatus) {
+		case PRE_LOGIN:
+			break;
+		case DB_SUCESS:
+			break;
+		case DB_FAILED:
+			break;
+		case LOGIN_SUCCESS:
+			this.loginSuccessTick();
+			break;
+		case PRE_LOGOUT:
+			break;
+		case LOGOUT:
+			break;
+		default:
+		}
+	}
+
+	/**
+	 * 登录成功后的tick
+	 * 
+	 */
+	private void loginSuccessTick() {
+		if (net != null) {
+			GeneratedMessage msg = null;
+			while ((msg = net.getMsg()) != null) {
+				// 处理协议
+			}
+		}
+	}
+
+	/**
+	 * 登出
+	 * 
+	 * @param immediate
+	 *            是否立即注销
+	 */
+	public void logout(boolean immediate) {
+
 	}
 
 	/**
@@ -46,8 +116,7 @@ public class PlayerCharacter extends GameObjectAdapter {
 	 * 
 	 */
 	public void sendMsg(Message msg) {
-		netHandler.sendMsg(MsgUtil.getIdByClass(msg.getClass()),
-				msg.toByteArray());
+		net.sendMsg(MsgUtil.getIdByClass(msg.getClass()), msg.toByteArray());
 	}
 
 	/**
@@ -59,12 +128,6 @@ public class PlayerCharacter extends GameObjectAdapter {
 	 */
 	public void sendMsg(Builder builder) {
 		this.sendMsg(builder.build());
-	}
-
-	/**
-	 * 处理客户端上行协议<br>
-	 */
-	private void handleMsg() {
 	}
 
 	@Override
@@ -107,12 +170,6 @@ public class PlayerCharacter extends GameObjectAdapter {
 	public boolean isFriend(GameObject obj) {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public void tick() {
-		// TODO 处理上行协议
-
 	}
 
 	@Override

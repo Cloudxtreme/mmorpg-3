@@ -20,5 +20,5 @@ import rpg.server.core.module.Agent;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface ConditionHandler {
-	ConditionType[] type();
+	ConditionType value();
 }
