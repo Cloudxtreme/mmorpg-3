@@ -100,6 +100,7 @@ public class World implements Runnable {
 		TaskManager.getInstance().init();
 		// 开启DB模块
 		DBServer.getInstance().startup();
+		new Thread(this).start();
 		// 开启网络模块
 		NetServer.getInstance().startup();
 		this.shutdown = false;
@@ -112,7 +113,7 @@ public class World implements Runnable {
 
 	@Override
 	public void run() {
-		if (!isShutdown()) {
+		while (!isShutdown()) {
 			long beginTime = System.currentTimeMillis();
 			// 场景单位tick
 			StageManager.getInstance().tick();
@@ -120,6 +121,8 @@ public class World implements Runnable {
 			AccountManager.getInstance().tick();
 			// 周期行任务
 			TaskManager.getInstance().tick();
+			// 数据库相关
+			DBServer.getInstance().tick();
 			long t = System.currentTimeMillis() - beginTime;
 			if (t > 500) {
 				Log.game.warn("tick:{}", t);

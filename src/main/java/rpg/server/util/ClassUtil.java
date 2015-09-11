@@ -17,7 +17,6 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 public class ClassUtil extends ClassUtils {
 
 	/*
-	 * 
 	 * 获取某类所在当前包下所有的类,不含迭代<br>
 	 */
 	public static String[] getPackageAllClassName(String classLocation,

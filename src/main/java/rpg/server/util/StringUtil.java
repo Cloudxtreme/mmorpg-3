@@ -15,6 +15,67 @@ import org.apache.commons.lang3.StringUtils;
  * 字符串工具
  */
 public class StringUtil extends StringUtils {
+	public static boolean isTrue(String s) {
+		return "true".equalsIgnoreCase(s);
+	}
+
+	public static boolean stringHasValue(String s) {
+		return !isEmpty(s);
+	}
+
+	public static boolean stringContainsSpace(String s) {
+		return s != null && s.indexOf(' ') != -1;
+	}
+
+	/**
+	 * Gets the camel case string.
+	 *
+	 * @param inputString
+	 *            the input string
+	 * @param firstCharacterUppercase
+	 *            the first character uppercase
+	 * @return the camel case string
+	 */
+	public static String getCamelCaseString(String inputString,
+			boolean firstCharacterUppercase) {
+		StringBuilder sb = new StringBuilder();
+
+		boolean nextUpperCase = false;
+		for (int i = 0; i < inputString.length(); i++) {
+			char c = inputString.charAt(i);
+
+			switch (c) {
+			case '_':
+			case '-':
+			case '@':
+			case '$':
+			case '#':
+			case ' ':
+			case '/':
+			case '&':
+				if (sb.length() > 0) {
+					nextUpperCase = true;
+				}
+				break;
+
+			default:
+				if (nextUpperCase) {
+					sb.append(Character.toUpperCase(c));
+					nextUpperCase = false;
+				} else {
+					sb.append(Character.toLowerCase(c));
+				}
+				break;
+			}
+		}
+
+		if (firstCharacterUppercase) {
+			sb.setCharAt(0, Character.toUpperCase(sb.charAt(0)));
+		}
+
+		return sb.toString();
+	}
+
 	/**
 	 * Converts a line of text into an array of lower case words. Words are
 	 * delimited by the following characters: , .\r\n:/\+

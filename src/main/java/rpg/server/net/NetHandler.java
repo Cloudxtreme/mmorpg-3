@@ -17,12 +17,13 @@ import rpg.server.util.log.Log;
 
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.GeneratedMessage;
+import com.google.protobuf.Message;
 
 public class NetHandler extends ChannelInboundHandlerAdapter {
 	// 当前的全部连接
 	public static final ConcurrentLinkedQueue<NetHandler> handlers = new ConcurrentLinkedQueue<>();
 	/** 接收到的消息队列 */
-	private Queue<byte[]> datas = new ConcurrentLinkedQueue<byte[]>();
+	private Queue<GeneratedMessage> datas = new ConcurrentLinkedQueue<GeneratedMessage>();
 	/** 连接状态 */
 	private ConnectionStatus connStatus = ConnectionStatus.LOGIN;
 	/** 连接渠道 */
@@ -47,6 +48,7 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 			CodedInputStream in = CodedInputStream.newInstance(buffer, 8,
 					buffer.length - 8);
 			GeneratedMessage m = MsgUtil.parseFrom(msgId, in);
+			this.datas.add(m);
 			Log.net.info("rec msg.{}", m.toString());
 		} catch (Exception e) {
 			Log.net.error(e.getMessage());
@@ -72,6 +74,10 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 	public void channelInactive(ChannelHandlerContext ctx) {
 		// 关闭玩家连接,客户端断开
 		this.close(CloseRaeson.CLIENT_CLOSED);
+	}
+
+	public void sendMsg(Message msg) {
+		this.sendMsg(MsgUtil.getIdByClass(msg.getClass()), msg.toByteArray());
 	}
 
 	public void sendMsg(int msgId, byte[] msg) {
@@ -124,11 +130,7 @@ public class NetHandler extends ChannelInboundHandlerAdapter {
 		return connStatus;
 	}
 
-	public byte[] receive() {
-		return datas.poll();
-	}
-
 	public GeneratedMessage getMsg() {
-		return null;
+		return datas.poll();
 	}
 }

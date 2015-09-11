@@ -1,16 +1,21 @@
 package rpg.server.module.account;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import rpg.server.core.MsgHandler;
-import rpg.server.db.entity.PlayerDB;
+import rpg.server.gen.db.model.DemoHuman;
+import rpg.server.gen.db.model.DemoHumanExample;
+import rpg.server.gen.db.service.DemoHumanService;
 import rpg.server.gen.proto.Account.C_LOGIN;
+import rpg.server.gen.proto.Account.S_LOGIN;
 import rpg.server.gen.proto.Common;
 import rpg.server.gen.proto.Common.D_PLAYER;
 import rpg.server.gen.proto.MsgUtil;
 import rpg.server.net.ConnectionStatus;
 import rpg.server.net.NetHandler;
+import rpg.server.util.log.Log;
 
 import com.google.protobuf.GeneratedMessage;
 
@@ -23,7 +28,7 @@ public class Account {
 	private NetHandler net;
 
 	/** 角色列表 */
-	private Map<Long, PlayerDB> playerMap = new HashMap<Long, PlayerDB>();
+	private Map<Long, DemoHuman> playerMap = new HashMap<Long, DemoHuman>();
 
 	/**
 	 * 构造方法,应只在AccountManager中调用<br>
@@ -49,7 +54,10 @@ public class Account {
 		if (msg != null) {
 			int msgId = MsgUtil.getIdByClass(msg.getClass());
 			switch (msgId) {
-			case MsgUtil.C_LOGIN:
+			case MsgUtil.C_LOGIN:// 客户端登录
+				this.accountLogin((C_LOGIN) msg);
+				break;
+			case MsgUtil.C_PLAYER_SEL:// 选择角色
 				break;
 			}
 			// TODO 处理协议
@@ -59,15 +67,21 @@ public class Account {
 
 	@MsgHandler(C_LOGIN.class)
 	public void accountLogin(C_LOGIN msg) {
-		PlayerDB pdb = new PlayerDB();
-		pdb.setId(10086);
-		pdb.setGender(1);
-		pdb.setLevel(1);
-		pdb.setName("test");
-		pdb.setProfession(1);
-		this.playerMap.put(pdb.getId(), pdb);
-		D_PLAYER dpmsg = this.playerDBToMsg(pdb);
-		net.sendMsg(MsgUtil.getIdByClass(dpmsg.getClass()), dpmsg.toByteArray());
+		DemoHumanExample example = new DemoHumanExample();
+		example.createCriteria().andAccountEqualTo(msg.getAccount());
+		DemoHumanService.selectByExample(example, (boolean flag,
+				List<DemoHuman> humanList, Exception e) -> {
+			if (flag) {
+				S_LOGIN.Builder sLogin = S_LOGIN.newBuilder();
+				for (DemoHuman human : humanList) {
+					sLogin.addPlayerList(this.playerDBToMsg(human));
+					this.playerMap.put(human.getId(), human);
+				}
+				net.sendMsg(sLogin.build());
+			} else {
+				Log.game.error("login error.", e);
+			}
+		});
 	}
 
 	private void delPlayer(long PlayerId) {
@@ -78,17 +92,18 @@ public class Account {
 
 	}
 
-	private void login(long PlayerId) {
-
+	private boolean login(long PlayerId) {
+		return false;
 	}
 
-	private D_PLAYER playerDBToMsg(PlayerDB pdb) {
+	private D_PLAYER playerDBToMsg(DemoHuman human) {
 		Common.D_PLAYER.Builder pb = Common.D_PLAYER.newBuilder();
-		pb.setId(pdb.getId());
-		pb.setName(pdb.getName());
-		pb.setLevel(pdb.getLevel());
-		pb.setGender(pdb.getGender());
-		pb.setProfession(pdb.getGender());
+		pb.setId(human.getId());
+		pb.setName(human.getName());
+		pb.setLevel(human.getLevel());
+		pb.setGender(human.getSex());
+		pb.setProfession(human.getProfession());
 		return pb.build();
 	}
+
 }

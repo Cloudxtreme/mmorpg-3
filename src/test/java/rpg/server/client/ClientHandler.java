@@ -43,7 +43,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 
 	private void sendLoginMsg() {
 		Account.C_LOGIN.Builder builder = Account.C_LOGIN.newBuilder();
-		builder.setAccount("test");
+		builder.setAccount("xxoo@ourpalm.com");
 		builder.setToken("abcdefg");
 		builder.setChannel("test@test.com");
 		builder.setClientVersion("1.0");

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rpg.server.gen.db.dao.DemoHumanMapper">
+	<resultMap id="BaseResultMap" type="rpg.server.gen.db.model.DemoHuman">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="serverId" jdbcType="INTEGER" property="serverId" />
+		<result column="account" jdbcType="VARCHAR" property="account" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="profession" jdbcType="INTEGER" property="profession" />
+		<result column="sex" jdbcType="INTEGER" property="sex" />
+		<result column="timeSecOnline" jdbcType="INTEGER" property="timeSecOnline" />
+		<result column="timeLogin" jdbcType="BIGINT" property="timeLogin" />
+		<result column="timeLogout" jdbcType="BIGINT" property="timeLogout" />
+		<result column="timeCreate" jdbcType="BIGINT" property="timeCreate" />
+		<result column="expCur" jdbcType="BIGINT" property="expCur" />
+		<result column="level" jdbcType="INTEGER" property="level" />
+		<result column="hpCur" jdbcType="INTEGER" property="hpCur" />
+		<result column="mpCur" jdbcType="INTEGER" property="mpCur" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	
+	<sql id="Base_Column_List">
+		id,serverId,account,name,profession,sex,timeSecOnline,timeLogin,timeLogout,timeCreate,expCur,level,hpCur,mpCur
+	</sql>
+	
+    <select id="selectByExample" parameterType="rpg.server.gen.db.model.DemoHumanExample" resultMap="BaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+			from demo_human
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from demo_human
+		where
+		id = #{id,jdbcType=BIGINT}
+	</select>
+   
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from demo_human
+		where
+		id = #{id,jdbcType=BIGINT}
+	</delete>
+	
+	<delete id="deleteByExample" parameterType="rpg.server.gen.db.model.DemoHumanExample">
+		delete from demo_human
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	
+	<insert id="insert" parameterType="rpg.server.gen.db.model.DemoHuman">
+		insert into demo_human (id,serverId,account,name,profession,sex,timeSecOnline,timeLogin,timeLogout,timeCreate,expCur,level,hpCur,mpCur)
+		values (
+		#{id,jdbcType=BIGINT},#{serverId,jdbcType=INTEGER},#{account,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{profession,jdbcType=INTEGER},#{sex,jdbcType=INTEGER},#{timeSecOnline,jdbcType=INTEGER},#{timeLogin,jdbcType=BIGINT},#{timeLogout,jdbcType=BIGINT},#{timeCreate,jdbcType=BIGINT},#{expCur,jdbcType=BIGINT},#{level,jdbcType=INTEGER},#{hpCur,jdbcType=INTEGER},#{mpCur,jdbcType=INTEGER}
+		)
+	</insert>
+	
+	<insert id="insertSelective" parameterType="rpg.server.gen.db.model.DemoHuman">
+		insert into demo_human
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="serverId != null">
+				serverId,
+			</if>
+			<if test="account != null">
+				account,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="profession != null">
+				profession,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="timeSecOnline != null">
+				timeSecOnline,
+			</if>
+			<if test="timeLogin != null">
+				timeLogin,
+			</if>
+			<if test="timeLogout != null">
+				timeLogout,
+			</if>
+			<if test="timeCreate != null">
+				timeCreate,
+			</if>
+			<if test="expCur != null">
+				expCur,
+			</if>
+			<if test="level != null">
+				level,
+			</if>
+			<if test="hpCur != null">
+				hpCur,
+			</if>
+			<if test="mpCur != null">
+				mpCur,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="serverId != null">
+				#{serverId,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="profession != null">
+				#{profession,jdbcType=INTEGER},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=INTEGER},
+			</if>
+			<if test="timeSecOnline != null">
+				#{timeSecOnline,jdbcType=INTEGER},
+			</if>
+			<if test="timeLogin != null">
+				#{timeLogin,jdbcType=BIGINT},
+			</if>
+			<if test="timeLogout != null">
+				#{timeLogout,jdbcType=BIGINT},
+			</if>
+			<if test="timeCreate != null">
+				#{timeCreate,jdbcType=BIGINT},
+			</if>
+			<if test="expCur != null">
+				#{expCur,jdbcType=BIGINT},
+			</if>
+			<if test="level != null">
+				#{level,jdbcType=INTEGER},
+			</if>
+			<if test="hpCur != null">
+				#{hpCur,jdbcType=INTEGER},
+			</if>
+			<if test="mpCur != null">
+				#{mpCur,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+   
+	<select id="countByExample" parameterType="rpg.server.gen.db.model.DemoHumanExample" resultType="java.lang.Integer">
+		select count(*) from demo_human
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	
+	<update id="updateByExampleSelective" parameterType="map">
+		update demo_human
+		<set>
+			<if test="record.id != null">
+				id = #{record.id,jdbcType=BIGINT},
+			</if>
+			<if test="record.serverId != null">
+				serverId = #{record.serverId,jdbcType=INTEGER},
+			</if>
+			<if test="record.account != null">
+				account = #{record.account,jdbcType=VARCHAR},
+			</if>
+			<if test="record.name != null">
+				name = #{record.name,jdbcType=VARCHAR},
+			</if>
+			<if test="record.profession != null">
+				profession = #{record.profession,jdbcType=INTEGER},
+			</if>
+			<if test="record.sex != null">
+				sex = #{record.sex,jdbcType=INTEGER},
+			</if>
+			<if test="record.timeSecOnline != null">
+				timeSecOnline = #{record.timeSecOnline,jdbcType=INTEGER},
+			</if>
+			<if test="record.timeLogin != null">
+				timeLogin = #{record.timeLogin,jdbcType=BIGINT},
+			</if>
+			<if test="record.timeLogout != null">
+				timeLogout = #{record.timeLogout,jdbcType=BIGINT},
+			</if>
+			<if test="record.timeCreate != null">
+				timeCreate = #{record.timeCreate,jdbcType=BIGINT},
+			</if>
+			<if test="record.expCur != null">
+				expCur = #{record.expCur,jdbcType=BIGINT},
+			</if>
+			<if test="record.level != null">
+				level = #{record.level,jdbcType=INTEGER},
+			</if>
+			<if test="record.hpCur != null">
+				hpCur = #{record.hpCur,jdbcType=INTEGER},
+			</if>
+			<if test="record.mpCur != null">
+				mpCur = #{record.mpCur,jdbcType=INTEGER}
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	
+	<update id="updateByExample" parameterType="map">
+		update demo_human set
+			id = #{record.id,jdbcType=BIGINT},
+			serverId = #{record.serverId,jdbcType=INTEGER},
+			account = #{record.account,jdbcType=VARCHAR},
+			name = #{record.name,jdbcType=VARCHAR},
+			profession = #{record.profession,jdbcType=INTEGER},
+			sex = #{record.sex,jdbcType=INTEGER},
+			timeSecOnline = #{record.timeSecOnline,jdbcType=INTEGER},
+			timeLogin = #{record.timeLogin,jdbcType=BIGINT},
+			timeLogout = #{record.timeLogout,jdbcType=BIGINT},
+			timeCreate = #{record.timeCreate,jdbcType=BIGINT},
+			expCur = #{record.expCur,jdbcType=BIGINT},
+			level = #{record.level,jdbcType=INTEGER},
+			hpCur = #{record.hpCur,jdbcType=INTEGER},
+			mpCur = #{record.mpCur,jdbcType=INTEGER}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	
+	<update id="updateByPrimaryKeySelective" parameterType="rpg.server.gen.db.model.DemoHuman">
+		update demo_human
+		<set>
+			<if test="serverId != null">
+				serverId = #{serverId,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				account = #{account,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="profession != null">
+				profession = #{profession,jdbcType=INTEGER},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=INTEGER},
+			</if>
+			<if test="timeSecOnline != null">
+				timeSecOnline = #{timeSecOnline,jdbcType=INTEGER},
+			</if>
+			<if test="timeLogin != null">
+				timeLogin = #{timeLogin,jdbcType=BIGINT},
+			</if>
+			<if test="timeLogout != null">
+				timeLogout = #{timeLogout,jdbcType=BIGINT},
+			</if>
+			<if test="timeCreate != null">
+				timeCreate = #{timeCreate,jdbcType=BIGINT},
+			</if>
+			<if test="expCur != null">
+				expCur = #{expCur,jdbcType=BIGINT},
+			</if>
+			<if test="level != null">
+				level = #{level,jdbcType=INTEGER},
+			</if>
+			<if test="hpCur != null">
+				hpCur = #{hpCur,jdbcType=INTEGER},
+			</if>
+			<if test="mpCur != null">
+				mpCur = #{mpCur,jdbcType=INTEGER},
+			</if>
+		</set>
+		where
+		id = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="rpg.server.gen.db.model.DemoHuman">
+		update demo_human set
+			serverId = #{serverId,jdbcType=INTEGER},
+			account = #{account,jdbcType=VARCHAR},
+			name = #{name,jdbcType=VARCHAR},
+			profession = #{profession,jdbcType=INTEGER},
+			sex = #{sex,jdbcType=INTEGER},
+			timeSecOnline = #{timeSecOnline,jdbcType=INTEGER},
+			timeLogin = #{timeLogin,jdbcType=BIGINT},
+			timeLogout = #{timeLogout,jdbcType=BIGINT},
+			timeCreate = #{timeCreate,jdbcType=BIGINT},
+			expCur = #{expCur,jdbcType=BIGINT},
+			level = #{level,jdbcType=INTEGER},
+			hpCur = #{hpCur,jdbcType=INTEGER},
+			mpCur = #{mpCur,jdbcType=INTEGER}
+		where
+		id = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>

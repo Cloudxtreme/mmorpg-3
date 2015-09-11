@@ -1,0 +1,14 @@
+is null
+not null
+=
+<>
+>
+>=
+<
+<=
+like			字符串
+not like		字符串
+in
+not in
+between
+not between
