@@ -10,7 +10,7 @@ public class ActualTableName {
 		this.catalog = catalog;
 		this.schema = schema;
 		this.tableName = tableName;
-		fullName = DBGenConfiguration.composeFullyQualifiedTableName(catalog,
+		fullName = DBGenConfig.composeFullyQualifiedTableName(catalog,
 				schema, tableName, '.');
 	}
 

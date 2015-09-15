@@ -70,8 +70,7 @@ public class TableConfiguration  {
 	private TableConfiguration() {
 	}
 
-	public static TableConfiguration parseTableConfiguration(Element ele,
-			DBGenConfiguration config) {
+	public static TableConfiguration parseTableConfiguration(Element ele) {
 		TableConfiguration tc = new TableConfiguration();
 		tc.catalog = XmlUtils.getAttribute(ele, "catalog"); //$NON-NLS-1$
 		tc.schema = XmlUtils.getAttribute(ele, "schema"); //$NON-NLS-1$
@@ -255,7 +254,7 @@ public class TableConfiguration  {
 
 	@Override
 	public String toString() {
-		return DBGenConfiguration.composeFullyQualifiedTableName("", "",
+		return DBGenConfig.composeFullyQualifiedTableName("", "",
 				tableName, '.');
 	}
 

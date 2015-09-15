@@ -1,4 +1,4 @@
-package rpg.server.gen.agent;
+package rpg.server.gen.proto;
 
 import rpg.server.core.obj.GameObjectAdapter;
 import rpg.server.module.family.FamilyAgent;

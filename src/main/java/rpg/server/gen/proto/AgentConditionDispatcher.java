@@ -1,4 +1,4 @@
-package rpg.server.gen.agent;
+package rpg.server.gen.proto;
 
 import java.util.Map;
 

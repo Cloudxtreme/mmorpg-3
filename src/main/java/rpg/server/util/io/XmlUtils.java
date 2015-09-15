@@ -25,16 +25,7 @@ import org.xml.sax.InputSource;
 import rpg.server.util.StringUtil;
 
 /**
- * <p>
- * Title: XmlUtils
- * </p>
- * <p>
- * Description: XML
- * </p>
- * <p>
- * Copyright: Copyright (c) 2008
- * </p>
- * 
+ * XML操作工具类
  */
 public class XmlUtils {
 
@@ -89,19 +80,10 @@ public class XmlUtils {
 		}
 	}
 
-	public static boolean isDat(String file) {
-		if (file.toLowerCase().endsWith("dat")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	/**
 	 * load a String without the title tag of xml into a Document
 	 * 
 	 * @param domContent
-	 *            String 濞岋繝锟斤拷銈嗭拷head锟斤拷锟斤拷锟組L锟斤拷锟斤拷鐑斤拷锟姐倖锟?
 	 * @return Document
 	 * @throws Exception
 	 */
@@ -166,14 +148,16 @@ public class XmlUtils {
 	}
 
 	/**
-	 * @param parent
-	 *            Element
-	 * @param name
-	 *            String
-	 * @return String
+	 * 获取子节点的内容
+	 * 
+	 * @param parentElement
+	 *            父节点
+	 * @param childName
+	 *            子节点名称
+	 * @return 子节点内容,如果未找到则返回空字符串,非NULL
 	 */
-	public static String getChildText(Element parent, String name) {
-		Element e = getChildByName(parent, name);
+	public static String getChildText(Element parentElement, String childName) {
+		Element e = getChildByName(parentElement, childName);
 		if (e == null) {
 			return "";
 		}
@@ -181,19 +165,23 @@ public class XmlUtils {
 	}
 
 	/**
+	 * 获取所有子节点的内容
 	 * 
-	 * @param e
-	 * @param name
-	 * @return
+	 * @param parentElement
+	 *            父节点
+	 * @param childrenName
+	 *            子节点名称
+	 * @return 所有子节点的名称集合,如果没有子节点则返回长度为0的数组
 	 */
-	public static String[] getChildrenText(Element e, String name) {
-		NodeList nl = e.getChildNodes();
+	public static String[] getChildrenText(Element parentElement,
+			String childrenName) {
+		NodeList nl = parentElement.getChildNodes();
 		int max = nl.getLength();
 		LinkedList<String> list = new LinkedList<String>();
 		for (int i = 0; i < max; i++) {
 			Node n = nl.item(i);
 			if (n.getNodeType() == Node.ELEMENT_NODE
-					&& n.getNodeName().equals(name)) {
+					&& n.getNodeName().equals(childrenName)) {
 				list.add(getText((Element) n));
 			}
 		}
@@ -201,19 +189,23 @@ public class XmlUtils {
 	}
 
 	/**
+	 * 获取所有子节点
 	 * 
-	 * @param e
-	 * @param name
-	 * @return
+	 * @param parentElement
+	 *            父节点
+	 * @param childrenName
+	 *            子节点
+	 * @return 返回父节点下所有子节点,如果未找到则返回长度为0的数组
 	 */
-	public static Element[] getChildrenByName(Element e, String name) {
-		NodeList nl = e.getChildNodes();
+	public static Element[] getChildrenByName(Element parentElement,
+			String childrenName) {
+		NodeList nl = parentElement.getChildNodes();
 		int max = nl.getLength();
 		LinkedList<Node> list = new LinkedList<Node>();
 		for (int i = 0; i < max; i++) {
 			Node n = nl.item(i);
 			if (n.getNodeType() == Node.ELEMENT_NODE
-					&& n.getNodeName().equals(name)) {
+					&& n.getNodeName().equals(childrenName)) {
 				list.add(n);
 			}
 		}
@@ -221,20 +213,24 @@ public class XmlUtils {
 	}
 
 	/**
+	 * 获取子节点<br>
+	 * 如果有多个子节点应使用getChildrenByName方法
 	 * 
-	 * @param e
-	 * @param name
-	 * @return
+	 * @param parentElement
+	 *            父节点
+	 * @param childName
+	 *            子节点名称
+	 * @return 如果未找到子节点则返回NULL,如果有多个子节点则返回第一个子节点
 	 */
-	public static Element getChildByName(Element e, String name) {
-		Element[] list = getChildrenByName(e, name);
+	public static Element getChildByName(Element parentElement, String childName) {
+		Element[] list = getChildrenByName(parentElement, childName);
 		if (list.length == 0) {
 			return null;
 		}
-		if (list.length > 1) {
-			throw new IllegalStateException("Too many (" + list.length + ") '"
-					+ name + "' elements found!");
-		}
+		// if (list.length > 1) {
+		// throw new IllegalStateException("Too many (" + list.length + ") '"
+		// + childName + "' elements found!");
+		// }
 		return list[0];
 	}
 

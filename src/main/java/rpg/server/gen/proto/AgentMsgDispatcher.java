@@ -1,4 +1,4 @@
-package rpg.server.gen.agent;
+package rpg.server.gen.proto;
 
 import rpg.server.gen.proto.MsgUtil;
 import rpg.server.gen.proto.Stage.C_MOVE;

@@ -27,7 +27,7 @@ public class DatabaseIntrospector {
 	 * @param warnings
 	 *            the warnings
 	 */
-	public DatabaseIntrospector(DBGenConfiguration configuration,
+	public DatabaseIntrospector(DBGenConfig configuration,
 			DatabaseMetaData databaseMetaData) {
 		this.databaseMetaData = databaseMetaData;
 	}

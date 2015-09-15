@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!--输出目录,可以不配置,默认为user.dir\src\main\java-->
+	<outputPath>E:\rpg\server\src\main\java</outputPath>
+	<!--协议代码生成-->
+	<protoGen gen="true">
+		<!--protoc.exe所在的路径-->
+		<protocPath>E:\rpg\server\resource\protocol\protoc\protoc.exe</protocPath>
+		<!--协议文件所在路径-->
+		<protoFilePath>E:\rpg\server\resource\protocol\protofile\</protoFilePath>
+		<!--生成的文件包名称-->
+		<outputPackage>rpg.server.gen.proto</outputPackage>
+	</protoGen>
+	<!--DB代码生成配置-->
+	<dbgen gen="true">
+		<!--数据库链接URL，用户名、密码 -->
+		<jdbcConnection>
+			<driverClass>com.mysql.jdbc.Driver</driverClass>
+			<url>jdbc:mysql://localhost/test</url>
+			<user>root</user>
+			<password>123456</password>
+		</jdbcConnection>
+		<modelPackage>rpg.server.gen.db.model</modelPackage>
+		<mappingPackage>rpg.server.gen.db.mapping</mappingPackage>
+		<daoPackage>rpg.server.gen.db.dao</daoPackage>
+		<servicePackage>rpg.server.gen.db.service</servicePackage>
+		<table tableName="%"/>
+	</dbgen>
+	<!--角色代理工具类生成-->
+	<agentGen gen="true">
+		<!--生成的文件所在包-->
+		<outputPackage>rpg.server.gen.proto</outputPackage>
+	</agentGen>
+</config>

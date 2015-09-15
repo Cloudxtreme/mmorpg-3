@@ -1,28 +1,30 @@
-package rpg.server.gen.agent;
+package ${agentpackage};
 
 import java.util.Map;
 
 import rpg.server.core.condition.SimpleGameCondition;
 import rpg.server.core.obj.GameObjectAdapter;
-import rpg.server.module.family.FamilyAgent;
-import rpg.server.module.quest.QuestAgent;
-import rpg.server.module.stage.StageAgent;
+<#list agentList as agent>
+import ${agent.packageName}.${agent.name};
+</#list>
 import rpg.server.util.log.Log;
 
 public class AgentConditionDispatcher {
 	public static boolean dispatch(GameObjectAdapter obj,
 			SimpleGameCondition condition, Map<String, Object> vars) {
 		switch (condition.getType()) {
-		case FAMILY_HAS: {
-			FamilyAgent agent = obj.getAgent(FamilyAgent.class);
+		<#list conditionHandlerList as ch>
+		case ${ch.name}: {
+			${ch.agentName} agent = obj.getAgent(${ch.agentName}.class);
 			if (agent != null) {
-				return agent.familyHas(condition, vars);
+				return agent.${ch.methodName}(condition, vars);
 			} else {
 				// TODO throw exception
-				Log.game.error("FamilyAgent is null.id:{}", obj.getId());
+				Log.game.error("${ch.agentName} is null.id:{}", obj.getId());
 				return false;
 			}
 		}
+		</#list>
 		default: {
 			// TODO throw exception
 			Log.game.error("not found condition handler.id:{}.action:{}",

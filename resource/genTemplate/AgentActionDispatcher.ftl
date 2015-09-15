@@ -1,27 +1,29 @@
-package rpg.server.gen.agent;
+package ${agentpackage};
 
 import java.util.Map;
 
 import rpg.server.core.action.SimpleGameAction;
 import rpg.server.core.obj.GameObjectAdapter;
-import rpg.server.module.family.FamilyAgent;
-import rpg.server.module.quest.QuestAgent;
-import rpg.server.module.stage.StageAgent;
+<#list agentList as agent>
+import ${agent.packageName}.${agent.name};
+</#list>
 import rpg.server.util.log.Log;
 
 public class AgentActionDispatcher {
 	public static boolean dispatch(GameObjectAdapter obj,
 			SimpleGameAction action, Map<String, Object> vars) {
 		switch (action.getType()) {
-		case QUEST_GIVE: {
-			QuestAgent agent = obj.getAgent(QuestAgent.class);
+		<#list actionHandlerList as ah>
+		case ${ah.name}: {
+			${ah.agentName} agent = obj.getAgent(${ah.agentName}.class);
 			if (agent != null) {
-				return agent.questGive(action, vars);
+				return agent.${ah.methodName}(action, vars);
 			} else {
-				Log.game.error("QuestAgent is null.id:{}", obj.getId());
+				Log.game.error("${ah.agentName} is null.id:{}", obj.getId());
 				return false;
 			}
 		}
+		</#list>
 		default: {
 			Log.game.error("not found action handler.id:{}.action:{}",
 					obj.getId(), action.getType());

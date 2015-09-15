@@ -21,26 +21,25 @@ import freemarker.cache.TemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
-public class DBGenConfiguration {
+public class DBGenConfig {
 
-	private static final String floder = "genTemplate";
+	private static final String FLODER = "genTemplate";
 	// model
-	private static final String modelFtl = "DBModel.ftl";
-	private static final String exampleModel = "DBExample.ftl";
+	private static final String MODEL_FTL = "DBModel.ftl";
+	private static final String EXAMPLE_MODEL_FTL = "DBExample.ftl";
 	// DAO
-	private static final String daoFtl = "DBDAO.ftl";
+	private static final String DAO_FTL = "DBDAO.ftl";
 	// XML
-	private static final String mapperXmlFtl = "DBMapperXML.ftl";
+	private static final String MAPPER_XML_FTL = "DBMapperXML.ftl";
 
-	private static final String serviceFtl = "DBServic.ftl";
+	private static final String SERVICE_FTL = "DBServic.ftl";
 
-	private static final String xmlConfig = "dbgen.xml";
-
+	private boolean gen = false;
 	/** 输出位置 */
 	private String outputPath;
 
 	/** 资源路径 */
-	private String resoucePath;
+	private String resourcePath;
 	/** JDBC 配置信息 */
 	private JDBCConnectionConfiguration jdbcConfig;
 	/** model生成位置 */
@@ -54,35 +53,59 @@ public class DBGenConfiguration {
 	/** 需要生成的表配置 */
 	private List<TableConfiguration> tableConfigurations = new ArrayList<TableConfiguration>();
 
-	private DBGenConfiguration() {
+	private DBGenConfig() {
 	}
 
 	// *******************************************
 	// *************parse config
 	// *******************************************
-	/**
-	 * 配置文件解析
-	 * 
-	 * @param inputFile
-	 *            配置文件
-	 * @throws Exception
-	 *             解析异常
-	 * 
-	 */
-	public static DBGenConfiguration parseConfiguration(String resoucePath,
-			String outputPath) throws Exception {
-		DBGenConfiguration config = new DBGenConfiguration();
-		config.resoucePath = resoucePath;
-		config.outputPath = outputPath;
-		File f = new File(resoucePath, xmlConfig);
-		Document doc = XmlUtils.load(f);
-		Element rootNode = doc.getDocumentElement();
-		config.parseJdbcConnection(
-				XmlUtils.getChildByName(rootNode, "jdbcConnection"), config);
-		config.parsePackage(rootNode, config);
-		config.parseTable(rootNode, config);
-		return config;
+
+	public static DBGenConfig parseConfiguration(File configFile,
+			String resourcePath, String outputPath) throws Exception {
+		Document doc = XmlUtils.load(configFile);
+		return parseConfiguration(doc.getDocumentElement(), resourcePath,
+				outputPath);
 	}
+
+	public static DBGenConfig parseConfiguration(Element ele,
+			String resourcePath, String outputPath) throws Exception {
+		DBGenConfig dbgc = new DBGenConfig();
+		if (StringUtil.isTrue(XmlUtils.getAttribute(ele, "gen"))) {
+			dbgc.gen = true;
+			dbgc.resourcePath = resourcePath;
+			dbgc.outputPath = outputPath;
+			dbgc.parseJdbcConnection(XmlUtils.getChildByName(ele,
+					"jdbcConnection"));
+			dbgc.parsePackage(ele);
+			dbgc.parseTable(ele, dbgc);
+			dbgc.introspect();
+		}
+		return dbgc;
+	}
+
+	// /**
+	// * 配置文件解析
+	// *
+	// * @param inputFile
+	// * 配置文件
+	// * @throws Exception
+	// * 解析异常
+	// *
+	// */
+	// public static DBGenConfig parseConfiguration(String resourcePath,
+	// String outputPath) throws Exception {
+	// DBGenConfig config = new DBGenConfig();
+	// config.resourcePath = resourcePath;
+	// config.outputPath = outputPath;
+	// File f = new File(resourcePath, GEN_CONFIG);
+	// Document doc = XmlUtils.load(f);
+	// Element rootNode = doc.getDocumentElement();
+	// config.parseJdbcConnection(
+	// XmlUtils.getChildByName(rootNode, "jdbcConnection"), config);
+	// config.parsePackage(rootNode, config);
+	// config.parseTable(rootNode, config);
+	// return config;
+	// }
 
 	/**
 	 * 解析JDBC连接节点<br>
@@ -92,13 +115,13 @@ public class DBGenConfiguration {
 	 * @param config
 	 *            配置
 	 */
-	private void parseJdbcConnection(Element ele, DBGenConfiguration config) {
+	private void parseJdbcConnection(Element ele) {
 		JDBCConnectionConfiguration jdbcConfig = new JDBCConnectionConfiguration();
 		jdbcConfig.setConnectionURL(XmlUtils.getChildText(ele, "url"));
 		jdbcConfig.setUser(XmlUtils.getChildText(ele, "user"));
 		jdbcConfig.setDriverClass(XmlUtils.getChildText(ele, "driverClass"));
 		jdbcConfig.setPassword(XmlUtils.getChildText(ele, "password"));
-		config.jdbcConfig = jdbcConfig;
+		this.jdbcConfig = jdbcConfig;
 	}
 
 	/**
@@ -109,18 +132,18 @@ public class DBGenConfiguration {
 	 * @param config
 	 *            配置文件
 	 */
-	private void parsePackage(Element root, DBGenConfiguration config) {
-		config.modelPackage = XmlUtils.getChildText(root, "modelPackage");
-		config.mappingPackage = XmlUtils.getChildText(root, "mappingPackage");
-		config.daoPackage = XmlUtils.getChildText(root, "daoPackage");
-		config.servicePackage = XmlUtils.getChildText(root, "servicePackage");
+	private void parsePackage(Element root) {
+		this.modelPackage = XmlUtils.getChildText(root, "modelPackage");
+		this.mappingPackage = XmlUtils.getChildText(root, "mappingPackage");
+		this.daoPackage = XmlUtils.getChildText(root, "daoPackage");
+		this.servicePackage = XmlUtils.getChildText(root, "servicePackage");
 	}
 
-	private void parseTable(Element root, DBGenConfiguration config) {
+	private void parseTable(Element root, DBGenConfig config) {
 		Element[] eles = XmlUtils.getChildrenByName(root, "table");
 		for (int i = 0; i < eles.length; i++) {
 			config.tableConfigurations.add(TableConfiguration
-					.parseTableConfiguration(eles[i], config));
+					.parseTableConfiguration(eles[i]));
 		}
 	}
 
@@ -128,7 +151,7 @@ public class DBGenConfiguration {
 	// *************introspect
 	// *******************************************
 
-	public void introspect() throws SQLException {
+	private void introspect() throws SQLException {
 		Connection conn = ConnectionFactory.getInstance().getConnection(
 				this.jdbcConfig);
 		DatabaseIntrospector databaseIntrospector = new DatabaseIntrospector(
@@ -149,6 +172,9 @@ public class DBGenConfiguration {
 	// *******************************************
 
 	public void gen() throws Exception {
+		if (!gen) {
+			return;
+		}
 		this.genModel();
 		this.genDAO();
 		this.genMapping();
@@ -159,7 +185,7 @@ public class DBGenConfiguration {
 		// table循环
 		Configuration cfg = new Configuration();
 		TemplateLoader loader = new FileTemplateLoader(new File(
-				this.resoucePath, floder));
+				this.resourcePath, FLODER));
 		cfg.setTemplateLoader(loader);
 		cfg.setEncoding(Locale.getDefault(), "UTF-8");
 		for (TableBean tb : this.tbList) {
@@ -170,7 +196,7 @@ public class DBGenConfiguration {
 			valueMap.put("servicePackage", servicePackage);
 			tb.setPropertyByGenModel(valueMap);
 			// model
-			Template template = cfg.getTemplate(modelFtl);
+			Template template = cfg.getTemplate(MODEL_FTL);
 			File filePath = new File(this.outputPath,
 					this.modelPackage.replace(".", File.separator));
 			if (!filePath.exists()) {
@@ -184,7 +210,7 @@ public class DBGenConfiguration {
 			template.process(valueMap, new OutputStreamWriter(
 					new FileOutputStream(targetFile, false)));
 			// example
-			template = cfg.getTemplate(exampleModel);
+			template = cfg.getTemplate(EXAMPLE_MODEL_FTL);
 			targetFile = new File(filePath, tb.getObjName() + "Example.java");
 			if (targetFile.exists()) {
 				targetFile.delete();
@@ -199,7 +225,7 @@ public class DBGenConfiguration {
 		// table循环
 		Configuration cfg = new Configuration();
 		TemplateLoader loader = new FileTemplateLoader(new File(
-				this.resoucePath, floder));
+				this.resourcePath, FLODER));
 		cfg.setTemplateLoader(loader);
 		cfg.setEncoding(Locale.getDefault(), "UTF-8");
 		for (TableBean tb : this.tbList) {
@@ -210,7 +236,7 @@ public class DBGenConfiguration {
 			valueMap.put("servicePackage", servicePackage);
 			tb.setPropertyByGenDAO(valueMap);
 			// dao
-			Template template = cfg.getTemplate(daoFtl);
+			Template template = cfg.getTemplate(DAO_FTL);
 			File filePath = new File(this.outputPath, this.daoPackage.replace(
 					".", File.separator));
 			if (!filePath.exists()) {
@@ -231,7 +257,7 @@ public class DBGenConfiguration {
 		// table循环
 		Configuration cfg = new Configuration();
 		TemplateLoader loader = new FileTemplateLoader(new File(
-				this.resoucePath, floder));
+				this.resourcePath, FLODER));
 		cfg.setTemplateLoader(loader);
 		cfg.setEncoding(Locale.getDefault(), "UTF-8");
 		for (TableBean tb : this.tbList) {
@@ -242,7 +268,7 @@ public class DBGenConfiguration {
 			valueMap.put("servicePackage", servicePackage);
 			tb.setPropertyByGenXML(valueMap);
 			// dao
-			Template template = cfg.getTemplate(mapperXmlFtl);
+			Template template = cfg.getTemplate(MAPPER_XML_FTL);
 			File filePath = new File(this.outputPath,
 					this.mappingPackage.replace(".", File.separator));
 			if (!filePath.exists()) {
@@ -262,7 +288,7 @@ public class DBGenConfiguration {
 		// table循环
 		Configuration cfg = new Configuration();
 		TemplateLoader loader = new FileTemplateLoader(new File(
-				this.resoucePath, floder));
+				this.resourcePath, FLODER));
 		cfg.setTemplateLoader(loader);
 		cfg.setEncoding(Locale.getDefault(), "UTF-8");
 		for (TableBean tb : this.tbList) {
@@ -273,7 +299,7 @@ public class DBGenConfiguration {
 			valueMap.put("servicePackage", servicePackage);
 			tb.setPropertyByGenService(valueMap);
 			// dao
-			Template template = cfg.getTemplate(serviceFtl);
+			Template template = cfg.getTemplate(SERVICE_FTL);
 			File filePath = new File(this.outputPath,
 					this.servicePackage.replace(".", File.separator));
 			if (!filePath.exists()) {

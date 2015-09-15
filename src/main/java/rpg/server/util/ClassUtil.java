@@ -34,11 +34,11 @@ public class ClassUtil extends ClassUtils {
 			String[] allClassName = packeageDir.list();
 			return allClassName;
 		}
-		return null;
+		return new String[0];
 	}
 
 	/**
-	 * 获取此包下的所有类
+	 * 获取此包下的所有类<br>
 	 * 
 	 * @param packageName
 	 *            包名称
@@ -122,12 +122,33 @@ public class ClassUtil extends ClassUtils {
 	 * 以文件的形式来获取包下的所有Class
 	 * 
 	 * @param packageName
+	 *            包名
+	 * @param packagePath
+	 *            对应的绝对路径
+	 * @param recursive
+	 *            是否递归查找
+	 * @return 查找结果,class集合
+	 * @throws Exception
+	 */
+	public static List<Class<?>> findAndAddClassesInPackageByFile(
+			String packageName, String packagePath, final boolean recursive)
+			throws Exception {
+		List<Class<?>> classes = new ArrayList<Class<?>>();
+		findAndAddClassesInPackageByFile(packageName, packagePath, recursive,
+				classes);
+		return classes;
+	}
+
+	/**
+	 * 以文件的形式来获取包下的所有Class
+	 * 
+	 * @param packageName
 	 * @param packagePath
 	 * @param recursive
 	 * @param classes
 	 * @throws Exception
 	 */
-	public static void findAndAddClassesInPackageByFile(String packageName,
+	private static void findAndAddClassesInPackageByFile(String packageName,
 			String packagePath, final boolean recursive, List<Class<?>> classes)
 			throws Exception {
 		// 获取此包的目录 建立一个File
@@ -156,7 +177,9 @@ public class ClassUtil extends ClassUtils {
 				String className = file.getName().substring(0,
 						file.getName().length() - 6);
 				// 添加到集合中去
-				classes.add(Class.forName(packageName + '.' + className));
+				classes.add(Thread.currentThread().getContextClassLoader()
+						.loadClass(packageName + '.' + className));
+				// classes.add(Class.forName(packageName + '.' + className));
 			}
 		}
 	}
@@ -185,4 +208,5 @@ public class ClassUtil extends ClassUtils {
 	public static String getClassPath() {
 		return Class.class.getResource("/").getPath();
 	}
+
 }
